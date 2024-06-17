@@ -14,6 +14,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('url');
+            $table->string('description');
+            $table->string('image');
             $table->text('public_source')->nullable();
             $table->text('private_source')->nullable();
             $table->foreignId('submitter_id')->constrained('users');
