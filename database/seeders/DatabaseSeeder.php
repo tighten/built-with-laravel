@@ -21,27 +21,35 @@ class DatabaseSeeder extends Seeder
 
         $otherUser = User::factory()->create();
 
-        Technology::factory()->count(5)->create();
+        Technology::factory()->count(2)->create();
 
-        $orgs = Organization::factory()->count(2)->create([
-            'submitter_id' => $user->id,
-        ]);
+        $orgs = Organization::factory()
+            ->hasTechnologies(2)
+            ->count(2)
+            ->create([
+                'submitter_id' => $user->id,
+            ]);
 
-        Organization::factory()->create([
-            'submitter_id' => $otherUser->id,
-        ]);
+        Organization::factory()
+            ->hasTechnologies(1)
+            ->create([
+                'submitter_id' => $otherUser->id,
+            ]);
 
-        Site::factory()->create([
-            'submitter_id' => $user->id,
-        ]);
+        Site::factory()
+            ->create([
+                'submitter_id' => $user->id,
+            ]);
 
-        Site::factory()->create([
-            'organization_id' => $orgs[0]->id,
-            'submitter_id' => $user->id,
-        ]);
+        Site::factory()
+            ->create([
+                'organization_id' => $orgs[0]->id,
+                'submitter_id' => $user->id,
+            ]);
 
-        Site::factory()->create([
-            'submitter_id' => $otherUser->id,
-        ]);
+        Site::factory()
+            ->create([
+                'submitter_id' => $otherUser->id,
+            ]);
     }
 }

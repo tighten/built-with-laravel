@@ -11,9 +11,11 @@ class TechnologyFactory extends Factory
 
     public function definition(): array
     {
+        $slug = $this->faker->word();
+
         return [
-            'name' => $this->faker->name(),
-            'slug' => $this->faker->slug(),
+            'name' => ucwords($slug),
+            'slug' => $slug,
         ];
     }
 }

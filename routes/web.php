@@ -3,13 +3,7 @@
 use App\Models\Organization;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    $orgs = Organization::query()->get();
-
-    return view('welcome', [
-        'orgs' => $orgs,
-    ]);
-});
+Route::view('/', 'welcome');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

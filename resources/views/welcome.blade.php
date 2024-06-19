@@ -27,17 +27,7 @@
                     </header>
 
                     <main class="mt-6">
-                        <div class="grid gap-6 lg:grid-cols-3 lg:gap-8">
-                            @foreach ($orgs as $org)
-                            <div class="bg-gray-100 hover:bg-gray-200 rounded-lg p-4 group">
-                                [img]
-                                <h2 class="font-bold">
-                                    <a href="{{ $org->url }}">{{ $org->name }}</a>
-                                </h2>
-                                <p>{{ $org->description }}</p>
-                            </div>
-                            @endforeach
-                        </div>
+                        <livewire:orgs-list />
                     </main>
 
                     <footer class="py-16 text-center text-sm text-black dark:text-white/70">
