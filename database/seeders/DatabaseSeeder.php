@@ -13,11 +13,28 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        // Real data
+
         $user = User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Matt Stauffer',
+            'email' => 'matt@tighten.co',
             'password' => bcrypt('password')
         ]);
+
+        $tighten = Organization::create([
+            'name' => 'Tighten',
+            'url' => 'https://tighten.com/',
+            'image' => 'image.com',
+            'description' => 'A group of delightful programmers.',
+            'submitter_id' => $user->id,
+        ]);
+
+        $tighten->sites()->create([
+            'name' => 'Tighten.com',
+            'url' => 'https://tighten.com/',
+        ]);
+
+        // Fake data
 
         $otherUser = User::factory()->create();
 
@@ -33,23 +50,19 @@ class DatabaseSeeder extends Seeder
         Organization::factory()
             ->hasTechnologies(1)
             ->create([
-                'submitter_id' => $otherUser->id,
             ]);
 
         Site::factory()
             ->create([
-                'submitter_id' => $user->id,
             ]);
 
         Site::factory()
             ->create([
                 'organization_id' => $orgs[0]->id,
-                'submitter_id' => $user->id,
             ]);
 
         Site::factory()
             ->create([
-                'submitter_id' => $otherUser->id,
             ]);
     }
 }

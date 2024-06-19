@@ -15,11 +15,11 @@ class OrgsList extends Component
     #[Computed]
     public function technologies()
     {
-        return Technology::all(); // @todo probably limit to just technologies with orgs
+        return Technology::whereHas('organizations')->get();
     }
 
     #[Computed]
-    public function orgs()
+    public function organizations()
     {
         return Organization::when(! empty($this->filterTechnologies), function (Builder $query) {
             $query->whereHas('technologies', function (Builder $query) {
