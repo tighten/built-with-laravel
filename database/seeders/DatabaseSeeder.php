@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         $user = User::factory()->create([
             'name' => 'Matt Stauffer',
             'email' => 'matt@tighten.co',
-            'password' => bcrypt('password')
+            'password' => bcrypt('password'),
         ]);
 
         $tighten = Organization::create([

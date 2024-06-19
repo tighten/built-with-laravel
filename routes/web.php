@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Organization;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
