@@ -5,14 +5,11 @@
         @foreach ($this->technologies as $tech)
             <label><input type="checkbox" value="{{ $tech->slug }}" wire:model.live="filterTechnologies"> {{ $tech->name }}</label>
         @endforeach
-
-        <br>Technologies filtered:
-        {{ var_dump($filterTechnologies) }}
     </div>
 
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
         @foreach ($this->organizations as $org)
-        <div class="bg-gray-100 dark:bg-gray-900 rounded-lg p-4">
+        <div wire:key="org-{{ $org->id }}" class="bg-gray-100 dark:bg-gray-900 rounded-lg p-4">
             <div class="mb-2 aspect-[600/444] bg-black/25 rounded-md">
                 <img alt="" width="540" height="400" class="aspect-[600/444] max-w-full" src="/images/sample.png" /*src="{{ $org->image }}"*/>
             </div>
