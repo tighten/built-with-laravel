@@ -22,7 +22,7 @@
                             Built with Laravel
                         </div>
                         @if (Route::has('login'))
-                            <livewire:welcome.navigation />
+                            {{--<livewire:welcome.navigation />--}}
                         @endif
                     </header>
 
@@ -31,7 +31,7 @@
                     </main>
 
                     <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-                        Footer here
+                        WIP made by <a href="https://tighten.com/" class="hover:underline">Tighten</a>
                     </footer>
                 </div>
             </div>

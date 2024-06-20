@@ -1,5 +1,5 @@
 <div>
-    <div class="mb-4">
+    <div class="mb-8">
         Technologies:<br>
 
         @foreach ($this->technologies as $tech)
@@ -10,7 +10,7 @@
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
         @foreach ($this->organizations as $org)
         <div wire:key="org-{{ $org->id }}" class="bg-gray-100 dark:bg-gray-900 rounded-lg p-4">
-            <div class="mb-2 aspect-[600/444] bg-black/25 rounded-md">
+            <div class="mb-4 aspect-[600/444] bg-black/25 rounded-md">
                 <img alt="" width="540" height="400" class="aspect-[600/444] max-w-full" src="/images/sample.png" /*src="{{ $org->image }}"*/>
             </div>
             <h2 class="font-bold text-lg">
@@ -19,7 +19,7 @@
             <p class="opacity-70">{{ $org->description }}</p>
 
             @if ($org->sites->count() > 0)
-                <div class="my-4">
+                <div class="my-4 text-gray-300">
                     <span class="text-sm font-bold uppercase">Sites using Laravel</span>
                     <ul class="list-disc pl-4">
                         @foreach ($org->sites as $site)

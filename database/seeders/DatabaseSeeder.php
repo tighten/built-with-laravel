@@ -6,6 +6,7 @@ use App\Models\Organization;
 use App\Models\Site;
 use App\Models\Technology;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -57,35 +58,41 @@ class DatabaseSeeder extends Seeder
             'submitter_id' => $user->id,
         ]);
 
+        $aic = Organization::create([
+            'name' => 'Art Institute of Chicago',
+            'url' => 'https://artic.edu/',
+            'image' => 'image.com',
+            'description' => 'An art institute.',
+            'submitter_id' => $user->id,
+        ]);
+
+        $aic->sites()->create([
+            'name' => 'Artic.edu',
+            'url' => 'https://artic.edu/',
+        ]);
+
+        $aic->technologies()->attach(Technology::create(['name' => 'Twill', 'slug' => 'twill']));
+
         // Fake data
 
         $otherUser = User::factory()->create();
 
-        Technology::factory()->count(2)->create();
+        Technology::factory()->count(5)->create();
 
         $orgs = Organization::factory()
-            ->hasTechnologies(2)
-            ->count(2)
+            ->count(10)
             ->create([
                 'submitter_id' => $user->id,
-            ]);
+            ])
+            ->each(function ($org) {
+                $org->technologies()->attach(Technology::all()->random());
+                $org->technologies()->attach(Technology::all()->random());
+            });
 
-        Organization::factory()
-            ->hasTechnologies(1)
-            ->create([
-            ]);
-
-        Site::factory()
-            ->create([
-            ]);
 
         Site::factory()
             ->create([
                 'organization_id' => $orgs[0]->id,
-            ]);
-
-        Site::factory()
-            ->create([
             ]);
     }
 }
