@@ -29,9 +29,32 @@ class DatabaseSeeder extends Seeder
             'submitter_id' => $user->id,
         ]);
 
+        $tighten->technologies()->create([
+            'name' => 'Jigsaw',
+            'slug' => 'jigsaw',
+        ]);
+
+        $tighten->technologies()->create([
+            'name' => 'Livewire',
+            'slug' => 'livewire',
+        ]);
+
         $tighten->sites()->create([
             'name' => 'Tighten.com',
             'url' => 'https://tighten.com/',
+        ]);
+
+        $tighten->sites()->create([
+            'name' => 'FieldGoal',
+            'url' => 'https://fieldgoal.io/',
+        ]);
+
+        Organization::create([
+            'name' => 'Apple',
+            'url' => 'https://apple.com/',
+            'image' => 'image.com',
+            'description' => 'A technology company.',
+            'submitter_id' => $user->id,
         ]);
 
         // Fake data

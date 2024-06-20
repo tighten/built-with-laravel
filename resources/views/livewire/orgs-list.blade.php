@@ -1,9 +1,9 @@
 <div>
     <div class="mb-4">
-        Technologies:
+        Technologies:<br>
 
         @foreach ($this->technologies as $tech)
-            <label><input type="checkbox" value="{{ $tech->slug }}" wire:model.live="filterTechnologies"> {{ $tech->name }}</label>
+            <label class="mr-2"><input type="checkbox" value="{{ $tech->slug }}" wire:model.live="filterTechnologies"> {{ $tech->name }}</label>
         @endforeach
     </div>
 
@@ -17,7 +17,17 @@
                 <a href="{{ $org->url }}">{{ $org->name }}</a>
             </h2>
             <p class="opacity-70">{{ $org->description }}</p>
-            <p>todo show sites</p>
+
+            @if ($org->sites->count() > 0)
+                <div class="my-4">
+                    <span class="text-sm font-bold uppercase">Sites using Laravel</span>
+                    <ul class="list-disc pl-4">
+                        @foreach ($org->sites as $site)
+                        <li><a href="{{ $site->url }}" class="hover:underline">{{ $site->name }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
             <div class="mt-2">
             @foreach ($org->technologies as $tech)

@@ -21,11 +21,12 @@ class OrgsList extends Component
     #[Computed]
     public function organizations()
     {
+        // @todo: Can we add technologies to sites instead of orgs and still get this filter?
         return Organization::when(! empty($this->filterTechnologies), function (Builder $query) {
             $query->whereHas('technologies', function (Builder $query) {
                 $query->whereIn('slug', $this->filterTechnologies);
             });
-        })->get();
+        })->with('sites')->get();
     }
 
     public function render()
