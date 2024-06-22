@@ -39,8 +39,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $tighten->sites()->create([
-            'name' => 'Tighten.com',
-            'url' => 'https://tighten.com/',
+            'name' => 'Thermostat',
+            'url' => 'https://thermsotat.io/',
         ]);
 
         $tighten->sites()->create([
@@ -54,6 +54,7 @@ class DatabaseSeeder extends Seeder
             'image' => 'image.com',
             'description' => 'A technology company.',
             'submitter_id' => $user->id,
+            'public_source' => "They've posted jobs for Laravel.",
         ]);
 
         Organization::create([
@@ -62,6 +63,7 @@ class DatabaseSeeder extends Seeder
             'image' => 'image.com',
             'description' => 'A technology company.',
             'submitter_id' => $user->id,
+            'public_source' => "Taylor named them as using Laravel on Twitter.",
         ]);
 
         $zillow = Organization::create([
@@ -70,6 +72,7 @@ class DatabaseSeeder extends Seeder
             'image' => 'image.com',
             'description' => 'A technology company.',
             'submitter_id' => $user->id,
+            'public_source' => "They acquired Aryeo, which uses Laravel.",
         ]);
 
         $zillow->sites()->create([
@@ -83,6 +86,7 @@ class DatabaseSeeder extends Seeder
             'image' => 'image.com',
             'description' => 'A drug company.',
             'submitter_id' => $user->id,
+            'public_source' => "Thye've long employed dozens of Laravel developers, including through several Laravel-based staff augmentation firms.",
         ]);
 
         Organization::create([
@@ -91,6 +95,7 @@ class DatabaseSeeder extends Seeder
             'image' => 'image.com',
             'description' => 'A research company.',
             'submitter_id' => $user->id,
+            'public_source' => "Tighten built their site(s).",
         ]);
 
         $aic = Organization::create([
@@ -99,6 +104,7 @@ class DatabaseSeeder extends Seeder
             'image' => 'image.com',
             'description' => 'An art institute.',
             'submitter_id' => $user->id,
+            'public_source' => "Tighten has contracted with them.",
         ]);
 
         $aic->sites()->create([
@@ -107,6 +113,34 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $aic->technologies()->attach(Technology::create(['name' => 'Twill', 'slug' => 'twill']));
+
+        Organization::create([
+            'name' => 'Fathom Analytics',
+            'url' => 'https://usefathom.com/',
+            'image' => 'image.com',
+            'description' => 'A privacy-focused analytics app.',
+            'submitter_id' => $user->id,
+            'public_source' => "Co-founder talks about using Laravel in Fathom.",
+        ]);
+
+        $spatie = Organization::create([
+            'name' => 'Spatie',
+            'url' => 'https://spatie.be/',
+            'image' => 'image.com',
+            'description' => 'A Laravel consultancy.',
+            'submitter_id' => $user->id,
+            'public_source' => "Founders & employees talk about using Laravel in their apps.",
+        ]);
+
+        $spatie->sites()->create([
+            'name' => 'Mailcoach',
+            'url' => 'https://mailcoach.app/',
+        ]);
+
+        // Does Flare fit? It's targeting Laravel devs so it's not exactly what we're looking for...
+
+
+        // Do laracasts and codecourse fit in?
 
         // Fake data
 
