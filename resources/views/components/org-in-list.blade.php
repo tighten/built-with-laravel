@@ -2,7 +2,7 @@
     <div class="mb-4 aspect-[600/444] bg-black/25 rounded-sm">
         <img alt="" width="540" height="400" class="rounded-sm aspect-[600/444] max-w-full" src="/images/sample.png" /*src="{{ $org->image }}"*/>
     </div>
-    <h2 class="font-bold text-lg">
+    <h2 class="font-bold text-xl">
         <a href="{{ $org->url }}">{{ $org->name }}</a>
     </h2>
     <p class="opacity-70">{{ $org->description }}</p>

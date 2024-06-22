@@ -26,7 +26,7 @@ class OrgsList extends Component
             $query->whereHas('technologies', function (Builder $query) {
                 $query->whereIn('slug', $this->filterTechnologies);
             });
-        })->with('sites')->get();
+        })->with('sites')->orderBy('created_at', 'desc')->get();
     }
 
     public function render()

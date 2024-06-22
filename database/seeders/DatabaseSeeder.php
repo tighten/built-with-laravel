@@ -70,7 +70,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Zillow',
             'url' => 'https://zillow.com/',
             'image' => 'image.com',
-            'description' => 'A technology company.',
+            'description' => 'An online real-estate marketplace.',
             'submitter_id' => $user->id,
             'public_source' => "They acquired Aryeo, which uses Laravel.",
         ]);
@@ -79,6 +79,9 @@ class DatabaseSeeder extends Seeder
             'name' => 'Aryeo',
             'url' => 'https://www.aryeo.com/',
         ]);
+
+        $zillow->technologies()->attach(Technology::create(['name' => 'Inertia', 'slug' => 'inertia']));
+        $zillow->technologies()->attach(Technology::create(['name' => 'Vue.js', 'slug' => 'vue-js']));
 
         Organization::create([
             'name' => 'Pfizer',
@@ -139,14 +142,13 @@ class DatabaseSeeder extends Seeder
 
         // Does Flare fit? It's targeting Laravel devs so it's not exactly what we're looking for...
 
-
         // Do laracasts and codecourse fit in?
 
         // Fake data
 
-        if (app()->environment() === 'production') {
+        // if (app()->environment() === 'production') {
             return;
-        }
+        // }
 
         $otherUser = User::factory()->create();
 
