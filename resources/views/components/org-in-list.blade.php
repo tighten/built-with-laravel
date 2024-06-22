@@ -1,6 +1,6 @@
 <div wire:key="org-{{ $org->id }}" class="relative bg-gray-100 dark:bg-gray-900 rounded-lg p-4">
-    <div class="mb-4 aspect-[600/444] bg-black/25 rounded-md">
-        <img alt="" width="540" height="400" class="aspect-[600/444] max-w-full" src="/images/sample.png" /*src="{{ $org->image }}"*/>
+    <div class="mb-4 aspect-[600/444] bg-black/25 rounded-sm">
+        <img alt="" width="540" height="400" class="rounded-sm aspect-[600/444] max-w-full" src="/images/sample.png" /*src="{{ $org->image }}"*/>
     </div>
     <h2 class="font-bold text-lg">
         <a href="{{ $org->url }}">{{ $org->name }}</a>
@@ -8,7 +8,7 @@
     <p class="opacity-70">{{ $org->description }}</p>
 
     @if ($org->sites->count() > 0)
-        <div class="my-4 text-gray-300">
+        <div class="my-4 text-gray-700 dark:text-gray-300">
             <span class="text-sm font-bold uppercase">Sites using Laravel</span>
             <ul class="list-disc pl-4">
                 @foreach ($org->sites as $site)
