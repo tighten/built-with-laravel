@@ -6,8 +6,6 @@ use App\Models\Organization;
 use App\Models\Site;
 use App\Models\Technology;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Factories\Sequence;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,7 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         // Real data
 
-        $user = User::factory()->create([
+        $user = User::create([
             'name' => 'Matt Stauffer',
             'email' => 'matt@tighten.co',
             'password' => bcrypt('password'),
