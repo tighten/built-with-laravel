@@ -1,4 +1,4 @@
-<div wire:key="org-{{ $org->id }}" class="relative bg-gray-100 dark:bg-gray-900 rounded-lg p-4">
+<div wire:key="org-{{ $org->id }}" class="relative bg-gray-100 dark:bg-gray-900 border rounded-lg p-4">
     <div class="mb-4 aspect-[600/444] bg-black/25 rounded-sm">
         <img alt="" width="540" height="400" class="rounded-sm aspect-[600/444] max-w-full" src="/images/sample.png" /*src="{{ $org->image }}"*/>
     </div>
@@ -20,12 +20,14 @@
 
     <div class="mt-2">
     @foreach ($org->technologies as $tech)
-        <span class="inline-flex items-center px-2 py-1 rounded bg-white/10 text-sm">{{ $tech->name }}</span>
+        <span class="inline-flex items-center px-2 py-1 rounded bg-black/10 dark:bg-white/10 text-sm">{{ $tech->name }}</span>
     @endforeach
     </div>
 
     {{--Todo: use x-anchor probably? to get a popover with the explanation of why it's included. --}}
+    {{--
     <div x-data="{ expanded: false }">
         <a href="#" x-on:click.prevent="expanded = true" class="bottom-4 right-4 absolute rounded-full bg-white/10 hover:bg-white/30 px-2">?</a>
     </div>
+    --}}
 </div>

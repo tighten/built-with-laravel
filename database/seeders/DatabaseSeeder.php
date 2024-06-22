@@ -58,6 +58,43 @@ class DatabaseSeeder extends Seeder
             'submitter_id' => $user->id,
         ]);
 
+        Organization::create([
+            'name' => 'Square',
+            'url' => 'https://square.com/',
+            'image' => 'image.com',
+            'description' => 'A technology company.',
+            'submitter_id' => $user->id,
+        ]);
+
+        $zillow = Organization::create([
+            'name' => 'Zillow',
+            'url' => 'https://zillow.com/',
+            'image' => 'image.com',
+            'description' => 'A technology company.',
+            'submitter_id' => $user->id,
+        ]);
+
+        $zillow->sites()->create([
+            'name' => 'Aryeo',
+            'url' => 'https://www.aryeo.com/',
+        ]);
+
+        Organization::create([
+            'name' => 'Pfizer',
+            'url' => 'https://pfizer.com/',
+            'image' => 'image.com',
+            'description' => 'A drug company.',
+            'submitter_id' => $user->id,
+        ]);
+
+        Organization::create([
+            'name' => 'Genentech',
+            'url' => 'https://gene.com/',
+            'image' => 'image.com',
+            'description' => 'A research company.',
+            'submitter_id' => $user->id,
+        ]);
+
         $aic = Organization::create([
             'name' => 'Art Institute of Chicago',
             'url' => 'https://artic.edu/',
@@ -74,6 +111,10 @@ class DatabaseSeeder extends Seeder
         $aic->technologies()->attach(Technology::create(['name' => 'Twill', 'slug' => 'twill']));
 
         // Fake data
+
+        if (app()->environment() === 'production') {
+            return;
+        }
 
         $otherUser = User::factory()->create();
 

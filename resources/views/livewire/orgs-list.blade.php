@@ -1,6 +1,6 @@
 <div>
     <div class="mb-8">
-        Technologies:<br>
+        <div class="font-bold">Technologies:</div>
 
         @foreach ($this->technologies as $tech)
             <label class="mr-2"><input type="checkbox" value="{{ $tech->slug }}" wire:model.live="filterTechnologies"> {{ $tech->name }}</label>

@@ -25,8 +25,11 @@
                             {{--<livewire:welcome.navigation />--}}
                         @endif
                     </header>
+                    <p>This site is under active development as of June 2024. What you're seeing right now is not the real site, it's just a staging version of what's to come.</p>
+
 
                     <main class="mt-6">
+
                         <livewire:orgs-list />
                     </main>
 
