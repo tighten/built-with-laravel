@@ -3,9 +3,9 @@
         <div class="font-bold">Technologies:</div>
 
         <div class="flex">
-            <a href="/" class="px-2 py-1 border mr-2 rounded {{ $filterTechnology == null ? 'font-bold border-gray-500 ' : '' }}">All</a>
+            <a href="/" class="hover:bg-gray-100 hover:border-gray-300 px-3 py-1 border mr-2 rounded {{ $filterTechnology == null ? 'font-bold border-gray-500 hover:border-gray-700 ' : '' }}">All</a>
         @foreach ($this->technologies as $tech)
-            <a href="{{ route('technologies.show', $tech->slug) }}" class="px-2 py-1 border mr-2 rounded {{ $filterTechnology == $tech->slug ? 'font-bold border-gray-500 ' : '' }}">{{ $tech->name }}</a>
+            <a href="{{ route('technologies.show', $tech->slug) }}" class="hover:bg-gray-100 hover:border-gray-300 px-3 py-1 border mr-2 rounded {{ $filterTechnology == $tech->slug ? 'font-bold border-gray-500 hover:border-gray-700 ' : '' }}">{{ $tech->name }}</a>
         @endforeach
         </div>
     </div>
