@@ -10,7 +10,10 @@ use Livewire\Component;
 
 class OrgsList extends Component
 {
-    public $filterTechnologies = [];
+    public function __construct(public $filterTechnology = null)
+    {
+        // @todo: Change navigation to filter/not filter technology to be on the same livewire page, even with URL changing
+    }
 
     #[Computed]
     public function technologies()
@@ -22,11 +25,15 @@ class OrgsList extends Component
     public function organizations()
     {
         // @todo: Can we add technologies to sites instead of orgs and still get this filter?
-        return Organization::when(! empty($this->filterTechnologies), function (Builder $query) {
-            $query->whereHas('technologies', function (Builder $query) {
-                $query->whereIn('slug', $this->filterTechnologies);
-            });
-        })->with('sites')->orderBy('created_at', 'desc')->get();
+        return Organization::when(! is_null($this->filterTechnology), function (Builder $query) {
+                $query->whereHas('technologies', function (Builder $query) {
+                    $query->where('slug', $this->filterTechnology);
+                });
+            })->with('sites')
+            ->with('technologies')
+            ->orderBy('featured_at', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->get();
     }
 
     public function render()

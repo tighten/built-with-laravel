@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Tighten',
             'url' => 'https://tighten.com/',
             'image' => 'image.com',
-            'description' => 'A group of delightful programmers.',
+            'description' => 'A Laravel consultancy.',
             'submitter_id' => $user->id,
         ]);
 
@@ -55,6 +55,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'A technology company.',
             'submitter_id' => $user->id,
             'public_source' => "They've posted jobs for Laravel.",
+            'featured_at' => now(),
         ]);
 
         Organization::create([
