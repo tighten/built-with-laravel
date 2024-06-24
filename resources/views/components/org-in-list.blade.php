@@ -2,7 +2,7 @@
     x-data="{ link: '{{ route('organizations.show', ['organization' => $org->slug]) }}' }"
     x-on:click="window.location = link"
     onClick="window.location = this.getAttribute('link')"
-    wire:key="org-{{ $org->id }}" class="relative bg-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 border rounded-lg p-4 hover:shadow cursor-pointer border-gray-300 dark:border-gray-700">
+    wire:key="org-{{ $org->id }}" class="relative bg-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 border rounded-lg p-4 hover:shadow cursor-pointer border-gray-300 dark:border-gray-700 {{ is_null($org->featured_at) ? '' : 'border-t-4 border-t-teal-500' }}">
     <div class="mb-4 aspect-[600/444] bg-black/25 rounded-sm">
         <img alt="" width="540" height="400" class="rounded-sm aspect-[600/444] max-w-full" src="{{ $org->image }}">
     </div>
