@@ -1,4 +1,7 @@
-<div wire:key="org-{{ $org->id }}" class="relative bg-gray-100 dark:bg-gray-900 border rounded-lg p-4">
+<div
+    link="{{ route('organizations.show', ['organization' => $org->slug]) }}"
+    onClick="window.location = this.getAttribute('link')"
+    wire:key="org-{{ $org->id }}" class="relative bg-gray-100 dark:bg-gray-900 border rounded-lg p-4 hover:bg-gray-200 cursor-pointer">
     <div class="mb-4 aspect-[600/444] bg-black/25 rounded-sm">
         <img alt="" width="540" height="400" class="rounded-sm aspect-[600/444] max-w-full" src="/images/sample.png" /*src="{{ $org->image }}"*/>
     </div>
@@ -21,7 +24,7 @@
     @if ($org->technologies->count() > 0)
     <div class="mt-2">
     @foreach ($org->technologies as $tech)
-        <a href="{{ route('technologies.show', $tech->slug )}}" class="inline-flex items-center px-2 py-1 rounded bg-black/10 dark:bg-white/10 text-sm border hover:border-gray-400">{{ $tech->name }}</a>
+        <a href="{{ route('technologies.show', $tech )}}" class="inline-flex items-center px-2 py-1 rounded bg-black/10 dark:bg-white/10 text-sm border hover:border-gray-400">{{ $tech->name }}</a>
     @endforeach
     </div>
     @endif

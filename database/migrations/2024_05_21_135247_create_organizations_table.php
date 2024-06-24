@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('organizations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug');
             $table->string('url');
             $table->string('description');
             $table->string('image');

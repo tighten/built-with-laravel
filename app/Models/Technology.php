@@ -2,17 +2,17 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Technology extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
 
-    protected $fillable = [
-        'name',
-        'slug',
+    protected $guarded = [
+        'id',
     ];
 
     protected $casts = [
@@ -22,5 +22,19 @@ class Technology extends Model
     public function organizations(): BelongsToMany
     {
         return $this->belongsToMany(Organization::class);
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
     }
 }

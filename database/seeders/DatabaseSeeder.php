@@ -30,17 +30,15 @@ class DatabaseSeeder extends Seeder
 
         $tighten->technologies()->create([
             'name' => 'Jigsaw',
-            'slug' => 'jigsaw',
         ]);
 
         $tighten->technologies()->create([
             'name' => 'Livewire',
-            'slug' => 'livewire',
         ]);
 
         $tighten->sites()->create([
             'name' => 'Thermostat',
-            'url' => 'https://thermsotat.io/',
+            'url' => 'https://thermostat.io/',
         ]);
 
         $tighten->sites()->create([
@@ -52,7 +50,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Apple',
             'url' => 'https://apple.com/',
             'image' => 'image.com',
-            'description' => 'A technology company.',
+            'description' => 'A personal electronics technology company.',
             'submitter_id' => $user->id,
             'public_source' => "They've posted jobs for Laravel.",
             'featured_at' => now(),
@@ -62,7 +60,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Square',
             'url' => 'https://square.com/',
             'image' => 'image.com',
-            'description' => 'A technology company.',
+            'description' => 'A payments technology company.',
             'submitter_id' => $user->id,
             'public_source' => "Taylor named them as using Laravel on Twitter.",
         ]);
@@ -81,8 +79,8 @@ class DatabaseSeeder extends Seeder
             'url' => 'https://www.aryeo.com/',
         ]);
 
-        $zillow->technologies()->attach(Technology::create(['name' => 'Inertia', 'slug' => 'inertia']));
-        $zillow->technologies()->attach(Technology::create(['name' => 'Vue.js', 'slug' => 'vue-js']));
+        $zillow->technologies()->attach(Technology::create(['name' => 'Inertia']));
+        $zillow->technologies()->attach(Technology::create(['name' => 'Vue.js']));
 
         Organization::create([
             'name' => 'Pfizer',
@@ -116,7 +114,7 @@ class DatabaseSeeder extends Seeder
             'url' => 'https://artic.edu/',
         ]);
 
-        $aic->technologies()->attach(Technology::create(['name' => 'Twill', 'slug' => 'twill']));
+        $aic->technologies()->attach(Technology::create(['name' => 'Twill']));
 
         Organization::create([
             'name' => 'Fathom Analytics',
