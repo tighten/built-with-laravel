@@ -7,7 +7,7 @@
         <img alt="" width="540" height="400" class="rounded-sm aspect-[600/444] max-w-full" src="{{ $org->image }}">
     </div>
     <h2 class="font-bold text-xl">
-        <a href="{{ $org->url }}">{{ $org->name }}</a>
+        {{ $org->name }} <a href="{{ $org->url }}">@include('icons.link')</a>
     </h2>
     <p class="opacity-70">{{ $org->description }}</p>
 
