@@ -1,7 +1,8 @@
 <div
-    link="{{ route('organizations.show', ['organization' => $org->slug]) }}"
+    x-data="{ link: '{{ route('organizations.show', ['organization' => $org->slug]) }}' }"
+    x-on:click="window.location = link"
     onClick="window.location = this.getAttribute('link')"
-    wire:key="org-{{ $org->id }}" class="relative bg-gray-100 dark:bg-gray-900 border rounded-lg p-4 hover:shadow cursor-pointer">
+    wire:key="org-{{ $org->id }}" class="relative bg-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 border rounded-lg p-4 hover:shadow cursor-pointer border-gray-300 dark:border-gray-700">
     <div class="mb-4 aspect-[600/444] bg-black/25 rounded-sm">
         <img alt="" width="540" height="400" class="rounded-sm aspect-[600/444] max-w-full" src="{{ $org->image }}">
     </div>
@@ -29,10 +30,8 @@
     </div>
     @endif
 
-    {{--Todo: use x-anchor probably? to get a popover with the explanation of why it's included. --}}
-    {{--
     <div x-data="{ expanded: false }">
-        <a href="#" x-on:click.prevent="expanded = true" class="bottom-4 right-4 absolute rounded-full bg-white/10 hover:bg-white/30 px-2">?</a>
+        <a href="#" x-ref="question" x-on:click.stop.prevent="expanded = true" class="bottom-4 right-4 absolute rounded-full dark:hover:text-gray-400 bg-gray-200 hover:bg-white/10 dark:bg-gray-800 hover:dark:bg-white/30 border dark:border-gray-700 hover:border-gray-400 px-2 text-gray-500">?</a>
+        <div x-show="expanded" @click.stop="expanded = false" @click.outside="expanded = false" x-anchor.top.offset.10="$refs.question" x-cloak class="bg-white dark:bg-black w-40 p-3 text-sm border border-gray-300 dark:border-gray-700 shadow rounded z-50"><div class="font-bold">How do we know?</div> {{ $org->public_source }}</div>
     </div>
-    --}}
 </div>

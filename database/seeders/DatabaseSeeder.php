@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             'url' => 'https://tighten.com/',
             'image' => '/images/sample.png',
             'description' => 'A Laravel consultancy.',
+            'public_source' => 'Let us count the ways.',
             'submitter_id' => $user->id,
         ]);
 

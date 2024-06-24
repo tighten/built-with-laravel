@@ -19,7 +19,7 @@
             <div class="relative min-h-screen flex flex-col items-center">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                     <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
-                        <a href="/" class="flex lg:justify-center lg:col-start-2 text-5xl font-bold">
+                        <a href="/" class="flex lg:justify-center lg:col-start-2 text-5xl font-bold hover:text-black/70 dark:hover:text-white/80">
                             Built with Laravel
                         </a>
                         <livewire:public.navigation />
@@ -30,8 +30,8 @@
                     {{ $slot }}
                 </main>
 
-                <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-                    A work-in-progress site made by the fine folks at <a href="https://tighten.com/" class="font-bold hover:underline">Tighten</a>
+                <footer class="py-16 text-center text-sm text-black dark:text-white/70 border-t mt-24">
+                    This is a work-in-progress site made by the fine folks at <a href="https://tighten.com/" class="font-bold hover:underline">Tighten</a>
                 </footer>
             </div>
         </div>
