@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         $tighten = Organization::create([
             'name' => 'Tighten',
             'url' => 'https://tighten.com/',
-            'image' => 'image.com',
+            'image' => '/images/sample.png',
             'description' => 'A Laravel consultancy.',
             'submitter_id' => $user->id,
         ]);
@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
         Organization::create([
             'name' => 'Apple',
             'url' => 'https://apple.com/',
-            'image' => 'image.com',
+            'image' => '/images/sample.png',
             'description' => 'A personal electronics technology company.',
             'submitter_id' => $user->id,
             'public_source' => "They've posted jobs for Laravel.",
@@ -59,7 +59,7 @@ class DatabaseSeeder extends Seeder
         Organization::create([
             'name' => 'Square',
             'url' => 'https://square.com/',
-            'image' => 'image.com',
+            'image' => '/images/sample.png',
             'description' => 'A payments technology company.',
             'submitter_id' => $user->id,
             'public_source' => "Taylor named them as using Laravel on Twitter.",
@@ -68,7 +68,7 @@ class DatabaseSeeder extends Seeder
         $zillow = Organization::create([
             'name' => 'Zillow',
             'url' => 'https://zillow.com/',
-            'image' => 'image.com',
+            'image' => '/images/sample.png',
             'description' => 'An online real-estate marketplace.',
             'submitter_id' => $user->id,
             'public_source' => "They acquired Aryeo, which uses Laravel.",
@@ -85,7 +85,7 @@ class DatabaseSeeder extends Seeder
         Organization::create([
             'name' => 'Pfizer',
             'url' => 'https://pfizer.com/',
-            'image' => 'image.com',
+            'image' => '/images/sample.png',
             'description' => 'A drug company.',
             'submitter_id' => $user->id,
             'public_source' => "Thye've long employed dozens of Laravel developers, including through several Laravel-based staff augmentation firms.",
@@ -94,7 +94,7 @@ class DatabaseSeeder extends Seeder
         Organization::create([
             'name' => 'Genentech',
             'url' => 'https://gene.com/',
-            'image' => 'image.com',
+            'image' => '/images/sample.png',
             'description' => 'A research company.',
             'submitter_id' => $user->id,
             'public_source' => "Tighten built their site(s).",
@@ -103,7 +103,7 @@ class DatabaseSeeder extends Seeder
         $aic = Organization::create([
             'name' => 'Art Institute of Chicago',
             'url' => 'https://artic.edu/',
-            'image' => 'image.com',
+            'image' => '/images/sample.png',
             'description' => 'An art institute.',
             'submitter_id' => $user->id,
             'public_source' => "Tighten has contracted with them.",
@@ -119,7 +119,7 @@ class DatabaseSeeder extends Seeder
         Organization::create([
             'name' => 'Fathom Analytics',
             'url' => 'https://usefathom.com/',
-            'image' => 'image.com',
+            'image' => '/images/sample.png',
             'description' => 'A privacy-focused analytics app.',
             'submitter_id' => $user->id,
             'public_source' => "Co-founder talks about using Laravel in Fathom.",
@@ -128,7 +128,7 @@ class DatabaseSeeder extends Seeder
         $spatie = Organization::create([
             'name' => 'Spatie',
             'url' => 'https://spatie.be/',
-            'image' => 'image.com',
+            'image' => '/images/sample.png',
             'description' => 'A Laravel consultancy.',
             'submitter_id' => $user->id,
             'public_source' => "Founders & employees talk about using Laravel in their apps.",

@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -23,7 +20,7 @@
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                     <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
                         <a href="/" class="flex lg:justify-center lg:col-start-2 text-5xl font-bold">
-                            Built with Laravel (WIP)
+                            Built with Laravel
                         </a>
                         <livewire:public.navigation />
                     </header>
@@ -34,7 +31,7 @@
                 </main>
 
                 <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-                    WIP made by the fine folks at <a href="https://tighten.com/" class="font-bold hover:underline">Tighten</a>
+                    A work-in-progress site made by the fine folks at <a href="https://tighten.com/" class="font-bold hover:underline">Tighten</a>
                 </footer>
             </div>
         </div>
