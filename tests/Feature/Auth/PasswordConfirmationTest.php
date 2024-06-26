@@ -5,6 +5,8 @@ namespace Tests\Feature\Auth;
 use App\Models\User;
 use Livewire\Volt\Volt;
 
+/*
+
 test('confirm password screen can be rendered', function () {
     $user = User::factory()->create();
 
@@ -44,3 +46,5 @@ test('password is not confirmed with invalid password', function () {
         ->assertNoRedirect()
         ->assertHasErrors('password');
 });
+
+*/

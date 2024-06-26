@@ -24,7 +24,6 @@ class OrgsList extends Component
     #[Computed]
     public function organizations()
     {
-        // @todo: Can we add technologies to sites instead of orgs and still get this filter?
         return Organization::when(! is_null($this->filterTechnology), function (Builder $query) {
                 $query->whereHas('technologies', function (Builder $query) {
                     $query->where('slug', $this->filterTechnology);

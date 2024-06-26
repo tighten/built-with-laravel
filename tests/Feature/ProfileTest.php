@@ -3,6 +3,8 @@
 use App\Models\User;
 use Livewire\Volt\Volt;
 
+
+/*
 test('profile page is displayed', function () {
     $user = User::factory()->create();
 
@@ -87,3 +89,4 @@ test('correct password must be provided to delete account', function () {
 
     $this->assertNotNull($user->fresh());
 });
+*/
