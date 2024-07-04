@@ -14,15 +14,18 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="antialiased font-sans bg-gray-50 text-black dark:bg-black dark:text-white">
+    <body class="antialiased font-sans text-black dark:bg-black dark:text-white bg-contain bg-no-repeat bg-fixed" style="background-image: url('/images/temp-blueprint-bg.jpg');">
         <div class="relative min-h-screen flex flex-col items-center">
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
-                    <a href="/" class="flex lg:justify-center lg:col-start-2 text-5xl font-bold hover:text-black/70 dark:hover:text-white/80">
-                        Built with Laravel
+                <header class="py-10">
+                    <a href="/" class="flex lg:justify-center lg:col-start-2 text-5xl font-bold hover:text-black/70 dark:hover:text-white/80 mb-4">
+                        <h1>Built with Laravel</h1>
                     </a>
+                    <h2 class="text-center text-3xl text-gray-500">A curated catalog of organizations using Laravel.</h2>
+
                     <livewire:public.navigation />
                 </header>
+
 
             <!-- Page Content -->
             <main class="mt-6">
