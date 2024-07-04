@@ -18,8 +18,8 @@
         <div class="relative min-h-screen flex flex-col items-center">
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                 <header class="py-10">
-                    <div class="flex flex-1 justify-end">Curated by <a href="https://tighten.com/" class="font-bold hover:underline">Tighten</a></div>
-                    <a href="/" class="flex lg:justify-center lg:col-start-2 text-5xl font-bold hover:text-black/70 dark:hover:text-white/80 mb-4">
+                    <div class="mb-8 flex flex-1 justify-center md:justify-end uppercase text-gray-400">Curated by&nbsp;&nbsp; <a href="https://tighten.com/" class="transition hover:scale-110"><img src="/images/tighten-logo.svg" alt="Tighten" width="100" height="22"></a></div>
+                    <a href="/" class="flex justify-center lg:col-start-2 text-5xl font-bold hover:text-black/70 dark:hover:text-white/80 mb-4 clear-both">
                         <h1>Built with Laravel</h1>
                     </a>
                     <h2 class="text-center text-3xl text-gray-500">A curated catalog of organizations using Laravel.</h2>

@@ -1,7 +1,7 @@
 <x-public-layout>
     <div class="grid grid-cols-3 gap-2">
         <div>
-            <h2 class="text-4xl font-bold">{{ $organization->name }}</h2>
+            <h2 class="text-4xl font-bold">{{ $organization->name }} <a href="{{ $organization->url }}">@include('icons.link')</a></h2>
             <p class="text-lg mb-10 mt-2">{{ $organization->description }}</p>
 
             @if ($organization->sites->count() > 0)
@@ -21,7 +21,7 @@
             @if ($organization->technologies->count() > 0)
             <div class="mt-6">
             @foreach ($organization->technologies as $tech)
-                <a href="{{ route('technologies.show', $tech )}}" class="inline-flex items-center px-2 py-1 rounded bg-black/10 dark:bg-gray-900 dark:hover:bg-gray-800 text-sm border dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600">{{ $tech->name }}</a>
+                <a href="{{ route('technologies.show', $tech )}}" class="inline-flex items-center px-2 py-1 rounded bg-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 text-sm border dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600">{{ $tech->name }}</a>
             @endforeach
             </div>
             @endif
