@@ -18,6 +18,7 @@
         <div class="relative min-h-screen flex flex-col items-center">
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                 <header class="py-10">
+                    <div class="flex flex-1 justify-end">Curated by <a href="https://tighten.com/" class="font-bold hover:underline">Tighten</a></div>
                     <a href="/" class="flex lg:justify-center lg:col-start-2 text-5xl font-bold hover:text-black/70 dark:hover:text-white/80 mb-4">
                         <h1>Built with Laravel</h1>
                     </a>
