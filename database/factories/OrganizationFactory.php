@@ -16,6 +16,7 @@ class OrganizationFactory extends Factory
             'name' => $this->faker->name(),
             'url' => $this->faker->url(),
             'image' => $this->faker->url(),
+            'favicon' => $this->faker->url(),
             'description' => $this->faker->sentence(),
             'submitter_id' => User::factory(),
         ];

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('url');
             $table->string('description');
             $table->string('image');
+            $table->string('favicon');
             $table->text('public_source')->nullable();
             $table->text('private_source')->nullable();
             $table->datetime('featured_at')->nullable();
