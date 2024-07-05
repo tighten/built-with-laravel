@@ -17,6 +17,10 @@ export default {
             boxShadow: {
                 'card': '0 0 40px -15px rgba(0, 0, 0, 0.2)',
                 'card-blurred': '0 0 60px -15px rgba(0, 0, 0, 0.15)',
+            },
+            backgroundImage: {
+                'site-light': "url('./images/temp-blueprint-bg.jpg)",
+                'site-dark': "url('./images/temp-blueprint-bg--dark.jpg)",
             }
         },
     },

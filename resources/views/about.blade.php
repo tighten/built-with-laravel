@@ -14,6 +14,6 @@
             <li>Agencies are only allowed if they also have products, and are here to show their products</li>
             <li>Marketing sites for individual developers or agencies aren't allowed as sites examples</li>
         </ul>
-        <p class="dark:text-gray-300 text-gray-600">This site is under active development as of June 2024. What you're seeing right now is not the real site, it's just a staging version of what's to come as we figure out the architecture and scope.</p>
+        <p class="text-gray-600">This site is under active development as of June 2024. What you're seeing right now is not the real site, it's just a staging version of what's to come as we figure out the architecture and scope.</p>
     </div>
 </x-public-layout>
