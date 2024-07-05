@@ -1,9 +1,9 @@
 <div>
     <div class="mb-10">
-        <div class="flex justify-center flex-wrap gap-2 max-w-full">
-            <a href="/" class="bg-white hover:bg-gray-100 hover:border-gray-300 px-3 py-1 border rounded {{ $filterTechnology == null ? 'font-bold border-gray-500 hover:border-gray-700 ' : '' }}">All Technologies</a>
+        <div class="flex justify-center flex-wrap max-w-full uppercase font-bold">
+            <a href="/" class="px-3 py-1 border-b {{ $filterTechnology == null ? 'border-purple-500 hover:border-purple-700 text-black' : 'text-gray-400 hover:text-gray-600 hover:border-gray-400 ' }}">All Technologies</a>
         @foreach ($this->technologies as $tech)
-            <a href="{{ route('technologies.show', $tech->slug) }}" class="bg-white hover:bg-gray-100 hover:border-gray-300 px-3 py-1 border rounded {{ $filterTechnology == $tech->slug ? 'font-bold border-gray-500 hover:border-gray-700 ' : '' }}">{{ $tech->name }}</a>
+            <a href="{{ route('technologies.show', $tech->slug) }}" class="px-3 py-1 border-b {{ $filterTechnology == $tech->slug ? 'border-purple-500 hover:border-purple-700 text-black ' : 'text-gray-400 hover:text-gray-600 hover:border-gray-400 ' }}">{{ $tech->name }}</a>
         @endforeach
         </div>
     </div>
