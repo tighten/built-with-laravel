@@ -14,6 +14,11 @@ class DatabaseSeeder extends Seeder
     {
         // Real data
 
+        Technology::create(['name' => 'React']);
+        Technology::create(['name' => 'Angular']);
+        Technology::create(['name' => 'Alpine.js']);
+        Technology::create(['name' => 'Statamic']);
+
         $user = User::create([
             'name' => 'Matt Stauffer',
             'email' => 'matt@tighten.co',
@@ -33,10 +38,6 @@ class DatabaseSeeder extends Seeder
         $tighten->technologies()->createMany([
             ['name' => 'Jigsaw'],
             ['name' => 'Livewire'],
-            ['name' => 'Statamic'],
-            ['name' => 'React'],
-            ['name' => 'Angular'],
-            ['name' => 'Alpine.js'],
         ]);
 
         $tighten->sites()->create([

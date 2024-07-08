@@ -6,7 +6,7 @@
     @endif
 
     <div class="max-w-5xl text-lg">
-        <div class="bg-white border p-8 rounded">
+        <div class="bg-white/20 backdrop-blur border p-4 md:p-8 rounded">
             <form method="post" action="{{ route('suggestions.store') }}">
                 @csrf
                 <div class="mb-8">
