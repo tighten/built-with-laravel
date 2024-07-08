@@ -3,7 +3,7 @@
     x-on:click="window.location = link"
     onClick="window.location = this.getAttribute('link')"
     wire:key="org-{{ $org->id }}"
-    class="relative group bg-black/4 backdrop-blur-sm rounded-lg p-6 pt-5 cursor-pointer hover:bg-black/13 transition duration-300">
+    class="relative group bg-black/4 backdrop-blur-sm rounded-lg p-4 md:p-6 md:pt-5 cursor-pointer hover:bg-black/13 transition duration-300">
     <h2 class="font-bold text-xl mb-5">
         <img src="{{ $org->favicon }}" alt="{{ $org->name }}" class="rounded-lg w-9 inline-block mr-2">
         {{ $org->name }} <a href="{{ $org->url }}">@include('icons.link')</a>
