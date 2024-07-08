@@ -8,7 +8,8 @@
         <img src="{{ $org->favicon }}" alt="{{ $org->name }}" class="rounded-lg w-8 inline-block mr-2">
         {{ $org->name }} <a href="{{ $org->url }}">@include('icons.link')</a>
     </h2>
-    <div class="mb-4 aspect-[600/444] rounded overflow-hidden shadow-inner">
-        <img alt="" width="540" height="400" class="rounded-sm aspect-[600/444] max-w-full group-hover:scale-125 transition" src="{{ $org->image }}">
+    <div class="mb-4 aspect-[600/444] rounded overflow-hidden relative border border-black/4">
+        <div class="w-full h-full absolute z-50 bottom-0"></div>
+        <img alt="" width="540" height="400" class="rounded-sm aspect-[600/444] max-w-full group-hover:scale-125 transition drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]" src="{{ $org->image }}">
     </div>
 </div>

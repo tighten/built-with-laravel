@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         $tighten = Organization::create([
             'name' => 'Tighten',
             'url' => 'https://tighten.com/',
-            'image' => '/images/sample.png',
+            'image' => '/images/temp/screenshots/tighten.png',
             'favicon' => '/images/temp/favicons/tighten.png',
             'description' => 'A Laravel consultancy.',
             'public_source' => 'Let us count the ways.',
@@ -51,7 +51,7 @@ class DatabaseSeeder extends Seeder
         Organization::create([
             'name' => 'Apple',
             'url' => 'https://apple.com/',
-            'image' => '/images/sample.png',
+            'image' => '/images/temp/screenshots/apple.png',
             'favicon' => '/images/temp/favicons/apple.png',
             'description' => 'A personal electronics technology company.',
             'submitter_id' => $user->id,
@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
         Organization::create([
             'name' => 'Square',
             'url' => 'https://square.com/',
-            'image' => '/images/sample.png',
+            'image' => '/images/temp/screenshots/square.png',
             'favicon' => '/images/temp/favicons/square.png',
             'description' => 'A payments technology company.',
             'submitter_id' => $user->id,
@@ -72,7 +72,7 @@ class DatabaseSeeder extends Seeder
         $zillow = Organization::create([
             'name' => 'Zillow',
             'url' => 'https://zillow.com/',
-            'image' => '/images/sample.png',
+            'image' => '/images/temp/screenshots/zillow.png',
             'favicon' => '/images/temp/favicons/zillow.png',
             'description' => 'An online real-estate marketplace.',
             'submitter_id' => $user->id,
@@ -90,7 +90,7 @@ class DatabaseSeeder extends Seeder
         Organization::create([
             'name' => 'Pfizer',
             'url' => 'https://pfizer.com/',
-            'image' => '/images/sample.png',
+            'image' => '/images/temp/screenshots/pfizer.jpg',
             'favicon' => '/images/temp/favicons/pfizer.png',
             'description' => 'A drug company.',
             'submitter_id' => $user->id,
@@ -100,7 +100,7 @@ class DatabaseSeeder extends Seeder
         Organization::create([
             'name' => 'Genentech',
             'url' => 'https://gene.com/',
-            'image' => '/images/sample.png',
+            'image' => '/images/temp/screenshots/genentech.jpg',
             'favicon' => '/images/temp/favicons/genentech.png',
             'description' => 'A research company.',
             'submitter_id' => $user->id,
@@ -110,7 +110,7 @@ class DatabaseSeeder extends Seeder
         $aic = Organization::create([
             'name' => 'Art Institute of Chicago',
             'url' => 'https://artic.edu/',
-            'image' => '/images/sample.png',
+            'image' => '/images/temp/screenshots/aic.jpg',
             'favicon' => '/images/temp/favicons/aic.png',
             'description' => 'An art institute.',
             'submitter_id' => $user->id,
@@ -127,7 +127,7 @@ class DatabaseSeeder extends Seeder
         Organization::create([
             'name' => 'Fathom Analytics',
             'url' => 'https://usefathom.com/',
-            'image' => '/images/sample.png',
+            'image' => '/images/temp/screenshots/fathom.png',
             'favicon' => '/images/temp/favicons/fathom.png',
             'description' => 'A privacy-focused analytics app.',
             'submitter_id' => $user->id,
@@ -137,7 +137,7 @@ class DatabaseSeeder extends Seeder
         $spatie = Organization::create([
             'name' => 'Spatie',
             'url' => 'https://spatie.be/',
-            'image' => '/images/sample.png',
+            'image' => '/images/temp/screenshots/spatie.jpg',
             'favicon' => '/images/temp/favicons/spatie.png',
             'description' => 'A Laravel consultancy.',
             'submitter_id' => $user->id,
