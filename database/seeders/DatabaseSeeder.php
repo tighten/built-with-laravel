@@ -30,12 +30,13 @@ class DatabaseSeeder extends Seeder
             'submitter_id' => $user->id,
         ]);
 
-        $tighten->technologies()->create([
-            'name' => 'Jigsaw',
-        ]);
-
-        $tighten->technologies()->create([
-            'name' => 'Livewire',
+        $tighten->technologies()->createMany([
+            ['name' => 'Jigsaw'],
+            ['name' => 'Livewire'],
+            ['name' => 'Statamic'],
+            ['name' => 'React'],
+            ['name' => 'Angular'],
+            ['name' => 'Alpine.js'],
         ]);
 
         $tighten->sites()->create([
