@@ -49,7 +49,7 @@
 
                 <div class="mb-8">
                     <label class="block">Your name</label>
-                    <input type="text" class="w-96 max-w-full border-gray-300" name="suggester_name" placeholder="You Lastname" value="{{ old('suggester_name') }}">
+                    <input type="text" class="w-96 max-w-full border-gray-300" name="suggester_name" placeholder="Firstname Lastname" value="{{ old('suggester_name') }}">
                     <x-input-error :messages="$errors->get('suggester_name')" class="mt-2" />
                 </div>
 

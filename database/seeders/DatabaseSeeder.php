@@ -15,9 +15,9 @@ class DatabaseSeeder extends Seeder
         // Real data
 
         Technology::create(['name' => 'React']);
-        Technology::create(['name' => 'Angular']);
         Technology::create(['name' => 'Alpine.js']);
         Technology::create(['name' => 'Statamic']);
+        Technology::create(['name' => 'Filament']);
 
         $user = User::create([
             'name' => 'Matt Stauffer',
