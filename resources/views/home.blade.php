@@ -1,8 +1,8 @@
 <x-public-layout>
     <livewire:orgs-list />
 
-    <div class="text-center mt-36 text-2xl text-bgrey-500" id="about">
-        <h2 class="text-5xl text-black mb-10">About</h2>
+    <div class="text-center mt-36 md:text-2xl text-bgrey-500" id="about">
+        <h2 class="text-3xl md:text-5xl text-black mb-10">About</h2>
 
         <div class="max-w-4xl mx-auto mb-6">
             <p>This is a manually curated list of companies and organizations using Laravel, with an emphasis on showing <em>real-life</em> projects (not just a bunch of Laravel-focused developer tools). Our goal isn't to get as many sites in here as possible; it's to show people who are unsure about Laravel what it can be used for.</p>

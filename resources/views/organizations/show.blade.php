@@ -1,8 +1,8 @@
 <x-public-layout>
-    <div class="grid grid-cols-3 gap-2">
+    <div class="md:grid grid-cols-3 gap-2">
         <div>
-            <h2 class="text-4xl font-bold">{{ $organization->name }} <a href="{{ $organization->url }}">@include('icons.link')</a></h2>
-            <p class="text-lg mb-10 mt-2">{{ $organization->description }}</p>
+            <h2 class="text-3xl md:text-4xl font-bold">{{ $organization->name }} <a href="{{ $organization->url }}">@include('icons.link')</a></h2>
+            <p class="md:text-lg mb-10 mt-2">{{ $organization->description }}</p>
 
             @if ($organization->sites->count() > 0)
             <div class="my-4">
@@ -26,7 +26,7 @@
             </div>
             @endif
         </div>
-        <div class="col-span-2">
+        <div class="col-span-2 mt-8 md:mt-0">
             <img src="{{ $organization->image }}" class="rounded-md border border-4 border-gray-200 dark:border-gray-800">
         </div>
     </div>

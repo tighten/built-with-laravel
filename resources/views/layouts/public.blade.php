@@ -22,7 +22,7 @@
                     <a href="/" class="flex justify-center lg:col-start-2 text-5xl font-bold hover:text-black/70 mb-5">
                         <h1><img src="/images/bwl-logo.svg" alt="Built With Laravel" class="w-144"></h1>
                     </a>
-                    <h2 class="text-center text-3xl text-bgrey-50">A curated catalog of organizations using Laravel.</h2>
+                    <h2 class="text-center text-xl md:text-3xl text-bgrey-50">A curated catalog of organizations using Laravel.</h2>
 
                     <livewire:public.navigation />
                 </header>
