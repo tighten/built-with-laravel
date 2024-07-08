@@ -18,7 +18,7 @@
         <div class="relative min-h-screen flex flex-col items-center">
             <div class="relative w-full max-w-2xl px-6 lg:max-w-8xl">
                 <header class="py-10">
-                    <a href="https://tighten.com/" class="group mb-8 font-bold flex flex-1 justify-center md:justify-end uppercase text-bgrey-400">Curated by&nbsp;&nbsp; <img src="/images/tighten-logo.svg" alt="Tighten" width="100" height="22" class="transition group-hover:scale-110"></div>
+                    <a href="https://tighten.com/" class="group mb-8 font-bold flex flex-1 justify-center md:justify-end uppercase tracking-wide text-bgrey-400">Curated by&nbsp;&nbsp; <img src="/images/tighten-logo.svg" alt="Tighten" width="100" height="22" class="transition group-hover:scale-110"></a>
                     <a href="/" class="flex justify-center lg:col-start-2 text-5xl font-bold hover:text-black/70 mb-5">
                         <h1><img src="/images/bwl-logo.svg" alt="Built With Laravel" class="w-144"></h1>
                     </a>
