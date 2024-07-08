@@ -1,20 +1,17 @@
 <?php
 
 use App\Models\Organization;
-use App\Models\Technology;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'orgs-list')->name('home');
-Route::view('about', 'about')->name('about');
+Route::view('/', 'home')->name('home');
 Route::get('orgs/{organization}', function (Organization $organization) {
     return view('organizations.show', ['organization' => $organization]);
 })->name('organizations.show');
+Route::view('suggest', 'suggestions.create')->name('suggestions.create');
 
 require __DIR__ . '/auth.php';
 
-Route::get('{technology}', function (Technology $technology) {
-    return view('orgs-list', ['filterTechnology' => $technology->slug]);
-})->name('technologies.show');
+Route::view('{technology}', 'technologies.show')->name('technologies.show');
 
 /*
 

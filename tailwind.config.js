@@ -11,16 +11,29 @@ export default {
 
     theme: {
         extend: {
+            colors: {
+                bgrey: {
+                    '040': '#f5f5f5',
+                    400: '#999999',
+                    500: '#808080',
+                    800: '#313131',
+                },
+                tighten: {
+                    'yellow': '#ffbc00'
+                }
+            },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
-            boxShadow: {
-                'card': '0 0 20px -15px rgba(0, 0, 0, 0.2)',
-                'card-blurred': '0 0 15px -10px rgba(0, 0, 0, 0.35)',
+            maxWidth: {
+                '8xl': '88rem',
             },
-            backgroundImage: {
-                'site-light': "url('./images/temp-blueprint-bg.jpg)",
-                'site-dark': "url('./images/temp-blueprint-bg--dark.jpg)",
+            opacity: {
+                4: '.04',
+                13: '.13',
+            },
+            scale: {
+                '115': '1.15',
             }
         },
     },

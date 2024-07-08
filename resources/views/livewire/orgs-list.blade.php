@@ -1,10 +1,10 @@
 <div>
     <div class="mb-10">
-        <div class="flex justify-center flex-wrap max-w-full uppercase font-bold">
-            <a href="/" class="px-3 py-1 border-b active:text-purple-700 active:border-purple-700 {{ $filterTechnology == null ? 'border-purple-500 hover:border-purple-700 text-black' : 'text-gray-400 hover:text-gray-600 hover:border-gray-400 ' }}">All Technologies</a>
-        @foreach ($this->technologies as $tech)
-            <a href="{{ route('technologies.show', $tech->slug) }}" class="px-3 py-1 border-b active:text-purple-700 active:border-purple-700 {{ $filterTechnology == $tech->slug ? 'border-purple-500 hover:border-purple-700 text-black ' : 'text-gray-400 hover:text-gray-600 hover:border-gray-400 ' }}">{{ $tech->name }}</a>
-        @endforeach
+        <div class="flex justify-center flex-wrap uppercase font-bold">
+            <a href="/" class="px-3 py-1 border-b-2 active:text-tighten-yellow active:border-tighten-yellow {{ $filterTechnology == null ? 'border-tighten-yellow hover:border-tighten-yellow text-black' : 'text-gray-400 hover:text-gray-600 hover:border-gray-400 ' }}">All Technologies</a>
+            @foreach ($this->technologies as $tech)
+                <a href="{{ route('technologies.show', $tech->slug) }}" class="px-3 py-1 border-b-2 active:text-tighten-yellow active:border-tighten-yellow {{ $filterTechnology == $tech->slug ? 'border-tighten-yellow hover:border-tighten-yellow text-black ' : 'text-bgrey-400 hover:text-gray-600 hover:border-gray-400 ' }}">{{ $tech->name }}</a>
+            @endforeach
         </div>
     </div>
 
