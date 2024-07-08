@@ -34,6 +34,9 @@ export default {
             },
             scale: {
                 '115': '1.15',
+            },
+            width: {
+                '128': '32rem',
             }
         },
     },
