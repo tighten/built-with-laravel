@@ -30,8 +30,8 @@ it('shows org sites', function () {
 
 it('shows org technologies', function () {
     $org = Organization::factory()->create();
-    $org->technologies()->attach($hasTech = Technology::factory()->create());
-    $hasntTech = Technology::factory()->create();
+    $org->technologies()->attach($hasTech = Technology::factory()->create(['name' => 'Alpine']));
+    $hasntTech = Technology::factory()->create(['name' => 'CakePHP']);
 
     $response = $this->get(route('organizations.show', $org));
 

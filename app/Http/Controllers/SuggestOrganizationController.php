@@ -26,8 +26,8 @@ class SuggestOrganizationController extends Controller
             'private_source' => $input['private_source'],
             'suggester_name' => $input['suggester_name'],
             'suggester_email' => $input['suggester_email'],
-            'sites' => json_encode(array_filter(explode("\n", $input['sites']))),
-            'technologies' => json_encode($input['technologies'] ?? []),
+            'sites' => array_filter(explode("\n", $input['sites'])),
+            'technologies' => $input['technologies'] ?? [],
         ]);
 
         return redirect()->back()->with('flash', 'Thanks for your suggestion!');
