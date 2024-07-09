@@ -1,12 +1,12 @@
 <x-public-layout>
-    <h2 class="text-2xl mb-2">Suggest an organization</h2>
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-2xl mb-2">Suggest an organization</h2>
 
-    @if (Session::has('flash'))
-        <div class="mb-4 px-4 py-2 bg-blue-100 border border-blue-400 text-blue-900 max-w-5xl">{{ Session::get('flash') }}</div>
-    @endif
+        @if (Session::has('flash'))
+            <div class="mb-4 px-4 py-2 bg-blue-100 border border-blue-400 text-blue-900 max-w-5xl">{{ Session::get('flash') }}</div>
+        @endif
 
-    <div class="max-w-5xl text-lg">
-        <div class="bg-white/20 backdrop-blur border p-4 md:p-8 rounded">
+        <div class="text-lg bg-white/10 backdrop-blur-sm border p-4 md:p-8 rounded">
             <form method="post" action="{{ route('suggestions.store') }}">
                 @csrf
                 <div class="mb-8">
