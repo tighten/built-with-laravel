@@ -1,41 +1,50 @@
 <x-public-layout>
-    <div class="grid-cols-3 gap-2 md:grid">
+    <div class="grid-cols-4 gap-10 md:grid">
+
         <div>
-            <h2 class="text-3xl font-bold md:text-4xl">
-                {{ $organization->name }}
-                <a href="{{ $organization->url }}">@include('icons.link')</a>
-            </h2>
-            <p class="mb-10 mt-2 md:text-lg">{{ $organization->description }}</p>
+            <div class="rounded-lg bg-black/4 p-4 backdrop-blur-sm">
+                <h2 class="mb-5 text-xl font-bold">
+                    <img src="{{ $organization->favicon }}" alt="{{ $organization->name }}" class="mr-2 inline-block w-9 rounded-lg" />
+                    {{ $organization->name }}
+                </h2>
+                <p class="mt-2 md:text-lg text-bgrey-500">{{ $organization->description }}</p>
+                <hr class="my-4">
+
+                <h3 class="font-bold">How do we know they use Laravel?</h3>
+                <p class="text-bgrey-500">{{ $organization->public_source }}</p>
+
+                @if ($organization->technologies->count() > 0)
+                    <div class="mt-3 flex gap-2">
+                        @foreach ($organization->technologies as $tech)
+                            <a
+                                href="{{ route('technologies.show', $tech) }}"
+                                class="inline-flex items-center rounded bg-white uppercase text-bgrey-500 px-2 text-sm hover:text-black"
+                            >
+                                {{ $tech->name }}
+                            </a>
+                        @endforeach
+                    </div>
+                @endif
+            </div>
 
             @if ($organization->sites->count() > 0)
                 <div class="my-4">
-                    <span class="font-bold uppercase">Sites using Laravel</span>
-                    <ul class="list-disc pl-4">
-                        @foreach ($organization->sites as $site)
-                            <li><a href="{{ $site->url }}" class="hover:underline">{{ $site->name }}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
-            <h3 class="font-bold">How do we know they use Laravel?</h3>
-            <p>{{ $organization->public_source }}</p>
-
-            @if ($organization->technologies->count() > 0)
-                <div class="mt-6">
-                    @foreach ($organization->technologies as $tech)
-                        <a
-                            href="{{ route('technologies.show', $tech) }}"
-                            class="inline-flex items-center rounded border bg-gray-100 px-2 py-1 text-sm hover:border-gray-400"
-                        >
-                            {{ $tech->name }}
+                    @foreach ($organization->sites as $site)
+                        <a href="{{ $site->url }}" class="block rounded-lg bg-black/4 p-4 py-2 backdrop-blur-sm mb-3 text-lg hover:bg-black/13">
+                            {{ $site->name }}
+                            <span class="float-right text-xl">&gt;</span>
                         </a>
                     @endforeach
                 </div>
+            @else
+                TODO No sites using Laravel
             @endif
+
+
         </div>
-        <div class="col-span-2 mt-8 md:mt-0">
-            <img src="{{ $organization->image }}" class="rounded-md border border-4 border-gray-200" />
+
+        <div class="col-span-3 mt-8 md:mt-0">
+            <img src="{{ $organization->image }}" class="rounded-md" />
         </div>
     </div>
 </x-public-layout>
