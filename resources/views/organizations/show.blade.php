@@ -18,7 +18,7 @@
                         @foreach ($organization->technologies as $tech)
                             <a
                                 href="{{ route('technologies.show', $tech) }}"
-                                class="inline-flex items-center rounded bg-white uppercase text-bgrey-500 px-2 text-sm hover:text-black"
+                                class="inline-flex items-center rounded bg-white uppercase text-bgrey-500 px-2 text-sm hover:text-gray-700 transition duration-300 hover:bg-gray-200"
                             >
                                 {{ $tech->name }}
                             </a>
@@ -30,7 +30,7 @@
             @if ($organization->sites->count() > 0)
                 <div class="my-4">
                     @foreach ($organization->sites as $site)
-                        <a href="{{ $site->url }}" class="block rounded-lg bg-black/4 p-4 py-2 backdrop-blur-sm mb-3 text-lg hover:bg-black/13">
+                        <a href="{{ $site->url }}" class="block rounded-lg bg-black/4 p-4 py-2 backdrop-blur-sm mb-3 text-lg hover:bg-black/13 transition duration-300">
                             {{ $site->name }}
                             <span class="float-right text-xl">&gt;</span>
                         </a>

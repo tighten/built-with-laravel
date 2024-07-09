@@ -39,11 +39,11 @@
                     </a>
                     <div x-data="{ expanded: false }">
                         <h2 class="text-bgrey-400 text-center text-xl md:text-3xl">
-                            A curated catalog of organizations using Laravel<a href="" class="text-tighten-yellow hover:text-black" @click.prevent="expanded = !expanded">*</a>
+                            A curated catalog of organizations using Laravel<a href="#" class="text-tighten-yellow hover:text-black" @click.prevent="expanded = !expanded" x-ref="asterisk">*</a>
                         </h2>
 
-                        <div class="absolute w-24 h-12" x-cloak x-show="expanded">
-                            Ya ya ya
+                        <div class="absolute rounded shadow bg-white p-3 border w-64 text-sm right-0" x-cloak x-show="expanded" x-anchor.bottom-start="$refs.asterisk">
+                            Any organizations listed here use Laravel <em>somewhere</em>, not necessarily on their primary home page.
                         </div>
                     </div>
 

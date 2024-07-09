@@ -15,7 +15,7 @@
         <div x-data="{ expanded: false }">
             <a
                 href="/#"
-                class="rounded-lg bg-bgrey-040 px-5 py-2 text-base text-black ring-1 ring-transparent transition hover:bg-gray-200 hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
+                class="rounded-lg bg-bgrey-040 px-5 py-2 text-base text-black ring-1 ring-transparent transition duration-300 hover:bg-gray-200 hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
                 @click.prevent="expanded = !expanded"
             >
                 What belongs here?

@@ -3,14 +3,14 @@
         <div class="flex flex-wrap justify-center text-sm font-bold uppercase md:text-base">
             <a
                 href="/"
-                class="{{ $filterTechnology == null ? 'border-tighten-yellow text-black hover:border-tighten-yellow' : 'text-gray-400 hover:text-gray-600 hover:border-gray-400 ' }} border-b-2 px-3 py-1 active:border-tighten-yellow active:text-tighten-yellow"
+                class="transition duration-300 {{ $filterTechnology == null ? 'border-tighten-yellow text-black hover:border-tighten-yellow' : 'text-gray-400 hover:text-gray-600 hover:border-gray-400 ' }} border-b-2 px-3 py-1 active:border-tighten-yellow active:text-tighten-yellow"
             >
                 All Technologies
             </a>
             @foreach ($this->technologies as $tech)
                 <a
                     href="{{ route('technologies.show', $tech->slug) }}"
-                    class="{{ $filterTechnology == $tech->slug ? 'border-tighten-yellow hover:border-tighten-yellow text-black ' : 'text-bgrey-400 hover:text-gray-600 hover:border-gray-400 ' }} border-b-2 px-3 py-1 active:border-tighten-yellow active:text-tighten-yellow"
+                    class="transition duration-300 {{ $filterTechnology == $tech->slug ? 'border-tighten-yellow hover:border-tighten-yellow text-black ' : 'text-bgrey-400 hover:text-gray-600 hover:border-gray-400 ' }} border-b-2 px-3 py-1 active:border-tighten-yellow active:text-tighten-yellow"
                 >
                     {{ $tech->name }}
                 </a>
