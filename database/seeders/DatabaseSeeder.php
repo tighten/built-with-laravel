@@ -137,6 +137,16 @@ class DatabaseSeeder extends Seeder
         $aic->technologies()->attach(Technology::create(['name' => 'Twill']));
 
         Organization::create([
+            'name' => 'Midwest Institute for Sexuality and Gender Diversity',
+            'url' => 'https://sgdinstitute.org',
+            'image' => '/images/temp/screenshots/misgd.jpg',
+            'favicon' => '/images/temp/favicons/misgd.png',
+            'description' => 'An all-volunteer organization dedicated to queer and trans success in the Midwest.',
+            'submitter_id' => $user->id,
+            'public_source' => 'Andy Newhouse developed the sites.',
+        ]);
+
+        Organization::create([
             'name' => 'Fathom Analytics',
             'url' => 'https://usefathom.com/',
             'image' => '/images/temp/screenshots/fathom.png',
