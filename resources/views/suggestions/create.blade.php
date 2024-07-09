@@ -12,7 +12,7 @@
             <form method="post" action="{{ route('suggestions.store') }}">
                 @csrf
                 <div class="mb-8">
-                    <label class="block">Organization name</label>
+                    <label class="block">Organization name *</label>
                     <input
                         type="text"
                         class="w-96 max-w-full border-gray-300"
@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="mb-8">
-                    <label class="block">Organization URL</label>
+                    <label class="block">Organization URL *</label>
                     <input
                         type="url"
                         class="w-96 max-w-full border-gray-300"
@@ -60,9 +60,7 @@
                             safely be shared publicly)
                         </span>
                     </label>
-                    <textarea class="h-32 w-128 max-w-full border-gray-300" name="private_source">
-{{ old('private_source') }}</textarea
-                    >
+                    <textarea class="h-32 w-128 max-w-full border-gray-300" name="private_source">{{ old('private_source') }}</textarea>
                 </div>
 
                 <div class="mb-8">
@@ -73,8 +71,7 @@
                         class="h-32 w-128 max-w-full border-gray-300"
                         name="sites"
                         placeholder="https://fieldgoal.io/"
-                    >
-{{ old('sites') }}</textarea
+                    >{{ old('sites') }}</textarea
                     >
                 </div>
 
@@ -92,10 +89,10 @@
                     </select>
                 </div>
 
-                <hr class="mb-8" />
+                <hr class="mb-8">
 
                 <div class="mb-8">
-                    <label class="block">Your name</label>
+                    <label class="block">Your name *</label>
                     <input
                         type="text"
                         class="w-96 max-w-full border-gray-300"
@@ -107,7 +104,7 @@
                 </div>
 
                 <div class="mb-8">
-                    <label class="block">Your email</label>
+                    <label class="block">Your email *</label>
                     <input
                         type="email"
                         class="w-96 max-w-full border-gray-300"
@@ -118,7 +115,7 @@
                     <x-input-error :messages="$errors->get('suggester_email')" class="mt-2" />
                 </div>
 
-                <hr class="my-8" />
+                <hr class="my-8">
 
                 <input
                     type="submit"
