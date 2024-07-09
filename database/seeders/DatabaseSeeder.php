@@ -51,6 +51,16 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Organization::create([
+            'name' => 'Curology',
+            'url' => 'https://curology.com/',
+            'image' => '/images/temp/screenshots/curology.jpg',
+            'favicon' => '/images/temp/favicons/curology.png',
+            'description' => 'A personalized skincare brand.',
+            'submitter_id' => $user->id,
+            'public_source' => "They've posted jobs for Laravel.",
+        ]);
+
+        Organization::create([
             'name' => 'Apple',
             'url' => 'https://apple.com/',
             'image' => '/images/temp/screenshots/apple.png',
