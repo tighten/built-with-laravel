@@ -68,7 +68,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/square.png',
             'description' => 'A payments technology company.',
             'submitter_id' => $user->id,
-            'public_source' => "Taylor named them as using Laravel on Twitter.",
+            'public_source' => 'Taylor named them as using Laravel on Twitter.',
         ]);
 
         $zillow = Organization::create([
@@ -78,7 +78,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/zillow.png',
             'description' => 'An online real-estate marketplace.',
             'submitter_id' => $user->id,
-            'public_source' => "They acquired Aryeo, which uses Laravel.",
+            'public_source' => 'They acquired Aryeo, which uses Laravel.',
         ]);
 
         $zillow->sites()->create([
@@ -106,7 +106,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/genentech.png',
             'description' => 'A research company.',
             'submitter_id' => $user->id,
-            'public_source' => "Tighten built their site(s).",
+            'public_source' => 'Tighten built their site(s).',
         ]);
 
         $aic = Organization::create([
@@ -116,7 +116,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/aic.png',
             'description' => 'An art institute.',
             'submitter_id' => $user->id,
-            'public_source' => "Tighten has contracted with them.",
+            'public_source' => 'Tighten has contracted with them.',
         ]);
 
         $aic->sites()->create([
@@ -133,7 +133,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/fathom.png',
             'description' => 'A privacy-focused analytics app.',
             'submitter_id' => $user->id,
-            'public_source' => "Co-founder talks about using Laravel in Fathom.",
+            'public_source' => 'Co-founder talks about using Laravel in Fathom.',
         ]);
 
         $spatie = Organization::create([
@@ -143,7 +143,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/spatie.png',
             'description' => 'A Laravel consultancy.',
             'submitter_id' => $user->id,
-            'public_source' => "Founders & employees talk about using Laravel in their apps.",
+            'public_source' => 'Founders & employees talk about using Laravel in their apps.',
         ]);
 
         $spatie->sites()->create([
@@ -158,7 +158,7 @@ class DatabaseSeeder extends Seeder
         // Fake data
 
         // if (app()->environment() === 'production') {
-            return;
+        return;
         // }
 
         $otherUser = User::factory()->create();
@@ -174,7 +174,6 @@ class DatabaseSeeder extends Seeder
                 $org->technologies()->attach(Technology::all()->random());
                 $org->technologies()->attach(Technology::all()->random());
             });
-
 
         Site::factory()
             ->create([

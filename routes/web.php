@@ -29,4 +29,3 @@ Route::view('profile', 'profile')
     ->name('profile');
 
 */
-

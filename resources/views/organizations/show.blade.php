@@ -21,7 +21,7 @@
             @if ($organization->technologies->count() > 0)
             <div class="mt-6">
             @foreach ($organization->technologies as $tech)
-                <a href="{{ route('technologies.show', $tech )}}" class="inline-flex items-center px-2 py-1 rounded bg-gray-100  text-sm border hover:border-gray-400">{{ $tech->name }}</a>
+                <a href="{{ route('technologies.show', $tech ) }}" class="inline-flex items-center px-2 py-1 rounded bg-gray-100  text-sm border hover:border-gray-400">{{ $tech->name }}</a>
             @endforeach
             </div>
             @endif

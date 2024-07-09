@@ -39,4 +39,3 @@ it('shows org technologies', function () {
     $response->assertSee($hasTech->name);
     $response->assertDontSee($hasntTech->name);
 });
-
