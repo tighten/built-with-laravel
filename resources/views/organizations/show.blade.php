@@ -21,13 +21,13 @@
             @if ($organization->technologies->count() > 0)
             <div class="mt-6">
             @foreach ($organization->technologies as $tech)
-                <a href="{{ route('technologies.show', $tech )}}" class="inline-flex items-center px-2 py-1 rounded bg-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 text-sm border dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600">{{ $tech->name }}</a>
+                <a href="{{ route('technologies.show', $tech )}}" class="inline-flex items-center px-2 py-1 rounded bg-gray-100  text-sm border hover:border-gray-400">{{ $tech->name }}</a>
             @endforeach
             </div>
             @endif
         </div>
         <div class="col-span-2 mt-8 md:mt-0">
-            <img src="{{ $organization->image }}" class="rounded-md border border-4 border-gray-200 dark:border-gray-800">
+            <img src="{{ $organization->image }}" class="rounded-md border border-4 border-gray-200">
         </div>
     </div>
 </x-public-layout>
