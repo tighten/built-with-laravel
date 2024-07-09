@@ -7,9 +7,7 @@
         <div class="mx-auto mb-6 max-w-4xl">
             <p>
                 This is a manually curated list of companies and organizations using Laravel, with an emphasis on
-                showing
-                <em>real-life</em>
-                projects (not just a bunch of Laravel-focused developer tools). Our goal isn't to get as many sites in
+                showing <em>real-life</em> projects, not just developer-focused tools and sites. Our goal isn't to get as many sites in
                 here as possible; it's to show people who are unsure about Laravel what it can be used for.
             </p>
         </div>
