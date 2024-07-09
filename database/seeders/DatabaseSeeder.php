@@ -121,7 +121,7 @@ class DatabaseSeeder extends Seeder
 
         $gene->sites()->create([
             'name' => 'Genentech.com',
-            'url' => 'https://www.genentech.com/',
+            'url' => 'https://www.gene.com/',
         ]);
 
         $aic = Organization::create([
