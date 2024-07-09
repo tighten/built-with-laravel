@@ -106,10 +106,10 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/pfizer.png',
             'description' => 'A drug company.',
             'submitter_id' => $user->id,
-            'public_source' => "Thye've long employed dozens of Laravel developers, including through several Laravel-based staff augmentation firms.",
+            'public_source' => "They've long employed dozens of Laravel developers, including through several Laravel-based staff augmentation firms.",
         ]);
 
-        Organization::create([
+        $gene = Organization::create([
             'name' => 'Genentech',
             'url' => 'https://gene.com/',
             'image' => '/images/temp/screenshots/genentech.jpg',
@@ -117,6 +117,11 @@ class DatabaseSeeder extends Seeder
             'description' => 'A research company.',
             'submitter_id' => $user->id,
             'public_source' => 'Tighten built their site(s).',
+        ]);
+
+        $gene->sites()->create([
+            'name' => 'Genentech.com',
+            'url' => 'https://www.genentech.com/',
         ]);
 
         $aic = Organization::create([
