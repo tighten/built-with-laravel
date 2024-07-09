@@ -22,12 +22,12 @@
                 </div>
 
                 <div class="mb-8">
-                    <label class="block">How do you know they use Laravel? (if shareable publicly)</label>
+                    <label class="block">Public: How do you know they use Laravel?<br><span class="text-gray-500 text-sm italic">(if this information <strong>can</strong> safely be shared publicly)</span></label>
                     <textarea class="w-128 h-32 border-gray-300 max-w-full " name="public_source">{{ old('public_source') }}</textarea>
                 </div>
 
                 <div class="mb-8">
-                    <label class="block">How do you know they use Laravel? (if not shareable publicly)</label>
+                    <label class="block">Private: How do you know they use Laravel?<br><span class="text-gray-500 text-sm italic">(if this information <strong>cannot</strong> safely be shared publicly)</span></label>
                     <textarea class="w-128 h-32 border-gray-300 max-w-full" name="private_source">{{ old('private_source') }}</textarea>
                 </div>
 
