@@ -1,19 +1,36 @@
-<nav class="mt-4 flex flex-1 gap-3 justify-center">
+<nav class="mt-5 flex flex-1 gap-3 justify-center">
     <a
         href="/#about"
-        class="rounded-2xl border px-4 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] bg-gray-100 hover:bg-gray-200"
+        class="rounded-lg px-6 py-1 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] bg-gray-100 hover:bg-gray-200"
     >
         About
     </a>
 
     <a
         href="{{ route('suggestions.create') }}"
-        class="rounded-2xl border px-4 text-white ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] bg-black hover:bg-gray-700"
+        class="rounded-lg px-6 py-1 text-white ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] bg-black hover:bg-gray-700"
     >
         Suggest
     </a>
 
+
     {{--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <a
         href="{{ route('submit') }}"
         class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"

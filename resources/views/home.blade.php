@@ -2,7 +2,7 @@
     <livewire:orgs-list />
 
     <div class="mt-36 text-center text-bgrey-500 md:text-2xl" id="about">
-        <h2 class="mb-10 text-3xl text-black md:text-5xl">About</h2>
+        <h2 class="mb-6 text-2xl text-black md:text-4xl uppercase font-bold">About</h2>
 
         <div class="mx-auto mb-6 max-w-4xl">
             <p>
@@ -15,7 +15,7 @@
         <div x-data="{ expanded: false }">
             <a
                 href="/#"
-                class="rounded-2xl border bg-bgrey-040 px-4 py-1 text-base text-black ring-1 ring-transparent transition hover:bg-gray-200 hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
+                class="rounded-lg bg-bgrey-040 px-5 py-2 text-base text-black ring-1 ring-transparent transition hover:bg-gray-200 hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
                 @click.prevent="expanded = !expanded"
             >
                 What belongs here?

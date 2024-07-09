@@ -20,12 +20,12 @@
     >
         <div class="relative flex min-h-screen flex-col items-center">
             <div class="relative w-full max-w-2xl px-6 lg:max-w-8xl">
-                <header class="py-10">
+                <header class="pb-10 pt-4">
                     <a
                         href="https://tighten.com/"
-                        class="group mb-8 flex flex-1 justify-center font-bold uppercase tracking-wide text-bgrey-400 md:justify-end"
+                        class="group mb-12 flex flex-1 text-xs justify-center font-bold uppercase tracking-wide text-bgrey-400 hover:text-bgrey-500 md:justify-end"
                     >
-                        Curated by&nbsp;&nbsp;
+                        <span class="mt-1 mr-2">Curated by</span>
                         <img
                             src="/images/tighten-logo.svg"
                             alt="Tighten"
@@ -34,12 +34,18 @@
                             class="transition group-hover:scale-110"
                         />
                     </a>
-                    <a href="/" class="mb-5 flex justify-center text-5xl font-bold hover:text-black/70 lg:col-start-2">
+                    <a href="/" class="mb-5 mt-8 flex justify-center text-5xl font-bold hover:text-black/70 lg:col-start-2">
                         <h1><img src="/images/bwl-logo.svg" alt="Built With Laravel" class="w-144" /></h1>
                     </a>
-                    <h2 class="text-bgrey-50 text-center text-xl md:text-3xl">
-                        A curated catalog of organizations using Laravel.
-                    </h2>
+                    <div x-data="{ expanded: false }">
+                        <h2 class="text-bgrey-400 text-center text-xl md:text-3xl">
+                            A curated catalog of organizations using Laravel<a href="" class="text-tighten-yellow hover:text-black" @click.prevent="expanded = !expanded">*</a>
+                        </h2>
+
+                        <div class="absolute w-24 h-12" x-cloak x-show="expanded">
+                            Ya ya ya
+                        </div>
+                    </div>
 
                     <livewire:public.navigation />
                 </header>
