@@ -8,7 +8,7 @@
             </div>
         @endif
 
-        <div class="rounded border bg-white/10 p-4 text-lg backdrop-blur-sm md:p-8">
+        <div class="rounded bg-white/50 p-4 text-lg backdrop-blur-lg md:p-8">
             <form method="post" action="{{ route('suggestions.store') }}">
                 @csrf
                 <div class="mb-8">

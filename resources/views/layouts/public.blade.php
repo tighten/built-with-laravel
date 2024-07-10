@@ -20,7 +20,7 @@
     >
         <div class="relative flex min-h-screen flex-col items-center">
             <div class="relative w-full max-w-2xl px-6 lg:max-w-8xl">
-                <header class="pb-6 pt-4">
+                <header class="pb-10 pt-4">
                     <a
                         href="https://tighten.com/"
                         class="group flex flex-1 justify-center text-xs font-bold uppercase tracking-wide text-bgrey-400 hover:text-bgrey-500 md:justify-end"
