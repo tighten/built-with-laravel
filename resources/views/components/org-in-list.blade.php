@@ -5,7 +5,7 @@
     x-on:click="window.location = link"
     onClick="window.location = this.getAttribute('link')"
     wire:key="org-{{ $org->id }}"
-    class="group relative cursor-pointer rounded-lg bg-black/4 p-4 backdrop-blur-sm transition duration-300 hover:bg-black/13 md:p-6 md:pt-5"
+    class="group relative cursor-pointer rounded-lg bg-black/4 p-4 backdrop-blur-lg transition duration-300 hover:bg-black/13 md:p-6 md:pt-5"
 >
     <h2 class="mb-5 text-xl font-bold">
         <img src="{{ $org->favicon }}" alt="{{ $org->name }}" class="mr-2 inline-block w-9 rounded-lg" />
