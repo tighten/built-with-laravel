@@ -1,14 +1,17 @@
 <x-public-layout>
     <div class="grid-cols-4 gap-10 md:grid">
-
         <div>
             <div class="rounded-lg bg-black/4 p-4 backdrop-blur-sm">
                 <h2 class="mb-5 text-xl font-bold">
-                    <img src="{{ $organization->favicon }}" alt="{{ $organization->name }}" class="mr-2 inline-block w-9 rounded-lg" />
+                    <img
+                        src="{{ $organization->favicon }}"
+                        alt="{{ $organization->name }}"
+                        class="mr-2 inline-block w-9 rounded-lg"
+                    />
                     {{ $organization->name }}
                 </h2>
-                <p class="mt-2 md:text-lg text-bgrey-500">{{ $organization->description }}</p>
-                <hr class="my-4">
+                <p class="mt-2 text-bgrey-500 md:text-lg">{{ $organization->description }}</p>
+                <hr class="my-4" />
 
                 <h3 class="font-bold">How do we know they use Laravel?</h3>
                 <p class="text-bgrey-500">{{ $organization->public_source }}</p>
@@ -18,7 +21,7 @@
                         @foreach ($organization->technologies as $tech)
                             <a
                                 href="{{ route('technologies.show', $tech) }}"
-                                class="inline-flex items-center rounded bg-white uppercase text-bgrey-500 px-2 text-sm hover:text-gray-700 transition duration-300 hover:bg-gray-200"
+                                class="inline-flex items-center rounded bg-white px-2 text-sm uppercase text-bgrey-500 transition duration-300 hover:bg-gray-200 hover:text-gray-700"
                             >
                                 {{ $tech->name }}
                             </a>
@@ -30,14 +33,18 @@
             <div class="my-4">
                 @if ($organization->sites->count() > 0)
                     @foreach ($organization->sites as $site)
-                        <a href="{{ $site->url }}" class="block rounded-lg bg-black/4 p-4 py-2 backdrop-blur-sm mb-3 text-lg hover:bg-black/13 transition duration-300">
+                        <a
+                            href="{{ $site->url }}"
+                            class="mb-3 block rounded-lg bg-black/4 p-4 py-2 text-lg backdrop-blur-sm transition duration-300 hover:bg-black/13"
+                        >
                             {{ $site->name }}
-                            <span class="float-right mt-1"><img src="/images/chevron-forward.svg" alt=">"></span>
+                            <span class="float-right mt-1"><img src="/images/chevron-forward.svg" alt=">" /></span>
                         </a>
                     @endforeach
                 @else
                     <div class="p-2 text-bgrey-500">
-                        While this organization is known to use Laravel, we don't currently have links to any publicly-accessible sites or apps known to be using Laravel.
+                        While this organization is known to use Laravel, we don't currently have links to any
+                        publicly-accessible sites or apps known to be using Laravel.
                     </div>
                 @endif
             </div>

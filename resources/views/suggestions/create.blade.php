@@ -60,7 +60,9 @@
                             safely be shared publicly)
                         </span>
                     </label>
-                    <textarea class="h-32 w-128 max-w-full border-gray-300" name="private_source">{{ old('private_source') }}</textarea>
+                    <textarea class="h-32 w-128 max-w-full border-gray-300" name="private_source">
+{{ old('private_source') }}</textarea
+                    >
                 </div>
 
                 <div class="mb-8">
@@ -71,7 +73,8 @@
                         class="h-32 w-128 max-w-full border-gray-300"
                         name="sites"
                         placeholder="https://fieldgoal.io/"
-                    >{{ old('sites') }}</textarea
+                    >
+{{ old('sites') }}</textarea
                     >
                 </div>
 
@@ -89,7 +92,7 @@
                     </select>
                 </div>
 
-                <hr class="mb-8">
+                <hr class="mb-8" />
 
                 <div class="mb-8">
                     <label class="block">Your name *</label>
@@ -115,7 +118,7 @@
                     <x-input-error :messages="$errors->get('suggester_email')" class="mt-2" />
                 </div>
 
-                <hr class="my-8">
+                <hr class="my-8" />
 
                 <input
                     type="submit"

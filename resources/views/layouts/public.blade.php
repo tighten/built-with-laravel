@@ -23,9 +23,9 @@
                 <header class="pb-10 pt-4">
                     <a
                         href="https://tighten.com/"
-                        class="group mb-12 flex flex-1 text-xs justify-center font-bold uppercase tracking-wide text-bgrey-400 hover:text-bgrey-500 md:justify-end"
+                        class="group mb-12 flex flex-1 justify-center text-xs font-bold uppercase tracking-wide text-bgrey-400 hover:text-bgrey-500 md:justify-end"
                     >
-                        <span class="mt-1 mr-2">Curated by</span>
+                        <span class="mr-2 mt-1">Curated by</span>
                         <img
                             src="/images/tighten-logo.svg"
                             alt="Tighten"
@@ -34,16 +34,34 @@
                             class="transition group-hover:scale-110"
                         />
                     </a>
-                    <a href="/" class="mb-5 mt-8 flex justify-center text-5xl font-bold hover:text-black/70 lg:col-start-2">
+                    <a
+                        href="/"
+                        class="mb-5 mt-8 flex justify-center text-5xl font-bold hover:text-black/70 lg:col-start-2"
+                    >
                         <h1><img src="/images/bwl-logo.svg" alt="Built With Laravel" class="w-144" /></h1>
                     </a>
                     <div x-data="{ expanded: false }">
-                        <h2 class="text-bgrey-400 text-center text-xl md:text-3xl">
-                            A curated catalog of organizations using Laravel<a href="#" class="text-tighten-yellow hover:text-black" @click.prevent="expanded = !expanded" x-ref="asterisk">*</a>
+                        <h2 class="text-center text-xl text-bgrey-400 md:text-3xl">
+                            A curated catalog of organizations using Laravel
+                            <a
+                                href="#"
+                                class="text-tighten-yellow hover:text-black"
+                                @click.prevent="expanded = !expanded"
+                                x-ref="asterisk"
+                            >
+                                *
+                            </a>
                         </h2>
 
-                        <div class="absolute rounded shadow bg-white p-3 border w-64 text-sm right-0" x-cloak x-show="expanded" x-anchor.bottom-start="$refs.asterisk">
-                            Any organizations listed here use Laravel <em>somewhere</em>, not necessarily on their primary home page.
+                        <div
+                            class="absolute right-0 w-64 rounded border bg-white p-3 text-sm shadow"
+                            x-cloak
+                            x-show="expanded"
+                            x-anchor.bottom-start="$refs.asterisk"
+                        >
+                            Any organizations listed here use Laravel
+                            <em>somewhere</em>
+                            , not necessarily on their primary home page.
                         </div>
                     </div>
 
