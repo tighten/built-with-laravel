@@ -44,7 +44,7 @@
         </div>
 
         <div class="col-span-3 mt-8 md:mt-0">
-            <img src="{{ $organization->image }}" class="rounded-md" />
+            <img src="{{ $organization->image }}" class="rounded-md border" />
         </div>
     </div>
 </x-public-layout>
