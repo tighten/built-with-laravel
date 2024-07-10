@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         Technology::create(['name' => 'React']);
         Technology::create(['name' => 'Alpine.js']);
         Technology::create(['name' => 'Filament']);
+        $statamic = Technology::create(['name' => 'Statamic']);
 
         $user = User::create([
             'name' => 'Matt Stauffer',
@@ -177,7 +178,7 @@ class DatabaseSeeder extends Seeder
             'url' => 'https://mailcoach.app/',
         ]);
 
-        $spatie->technologies()->create(['name' => 'Statamic']);
+        $spatie->technologies()->attach($statamic);
 
         $transistor = Organization::create([
             'name' => 'Transistor',
@@ -193,6 +194,23 @@ class DatabaseSeeder extends Seeder
             'name' => 'Transistor.fm',
             'url' => 'https://transistor.fm/',
         ]);
+
+        $spiegel = Organization::create([
+            'name' => 'Der Spiegel',
+            'url' => 'https://spiegel.de/',
+            'image' => '/images/temp/screenshots/spiegel.jpg',
+            'favicon' => '/images/temp/favicons/spiegel.png',
+            'description' => "One of Germany's largest newspapers.",
+            'submitter_id' => $user->id,
+            'public_source' => 'Jack McDade said so.',
+        ]);
+
+        $spiegel->sites()->create([
+            'name' => 'Der Spiegel',
+            'url' => 'https://spiegel.de',
+        ]);
+
+        $spiegel->technologies()->attach($statamic);
 
         // Does Flare fit? It's targeting Laravel devs so it's not exactly what we're looking for...
 
