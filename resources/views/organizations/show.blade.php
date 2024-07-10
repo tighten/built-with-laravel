@@ -21,7 +21,7 @@
                         @foreach ($organization->technologies as $tech)
                             <a
                                 href="{{ route('technologies.show', $tech) }}"
-                                class="inline-flex items-center rounded bg-white px-2 text-sm uppercase text-bgrey-500 transition duration-300 hover:bg-gray-200 hover:text-gray-700"
+                                class="inline-flex items-center rounded bg-white px-2 text-sm font-bold uppercase text-bgrey-400 transition duration-300 hover:bg-gray-200 hover:text-gray-700"
                             >
                                 {{ $tech->name }}
                             </a>
