@@ -19,7 +19,8 @@ class OrgsList extends Component
     #[Computed(cache: true, key: 'active-technologies')]
     public function technologies()
     {
-        return Technology::whereHas('organizations')->get();
+        return Technology::all();
+        // return Technology::whereHas('organizations')->get();
     }
 
     #[Computed]
