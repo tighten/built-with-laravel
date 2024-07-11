@@ -14,6 +14,7 @@ export default {
             colors: {
                 bgrey: {
                     '040': '#f5f5f5',
+                    100: '#e5e5e5',
                     200: '#cccccc',
                     400: '#999999',
                     500: '#808080',
