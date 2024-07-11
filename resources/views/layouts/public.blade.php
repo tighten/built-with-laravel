@@ -26,7 +26,7 @@
                     @endif
                     <a
                         href="/"
-                        class="mb-5 mt-8 flex justify-center text-5xl font-bold hover:text-black/70 lg:col-start-2 w-72 mx-auto md:w-auto"
+                        class="mb-5 mt-16 flex justify-center text-5xl font-bold hover:text-black/70 lg:col-start-2 w-72 mx-auto md:w-auto"
                     >
                         <h1><img src="/images/bwl-logo.svg" alt="Built With Laravel" class="w-144" /></h1>
                     </a>
@@ -46,7 +46,7 @@
                     </a>
 
                     <div x-data="{ expanded: false }">
-                        <h2 class="text-center text-2xl max-w-xs mx-auto text-bgrey-400 md:text-3xl">
+                        <h2 class="text-center text-2xl max-w-xs md:max-w-none mx-auto text-bgrey-400 md:text-3xl">
                             A curated catalog of organizations using Laravel
                             <a
                                 href="#"
