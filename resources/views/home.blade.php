@@ -1,7 +1,7 @@
 <x-public-layout>
     <livewire:orgs-list />
 
-    <div class="mt-36 text-center text-bgrey-500 md:text-2xl" id="about">
+    <div class="mt-24 md:mt-36 text-center text-bgrey-500 md:text-2xl" id="about">
         <h2 class="mb-6 text-2xl font-bold uppercase text-black md:text-4xl">About</h2>
 
         <div class="mx-auto mb-6 max-w-4xl">

@@ -26,6 +26,7 @@ export default {
             },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                mono: ['"Pitch Sans"', ...defaultTheme.fontFamily.mono],
             },
             maxWidth: {
                 '8xl': '88rem',
