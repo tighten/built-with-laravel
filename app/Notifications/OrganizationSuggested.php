@@ -4,12 +4,9 @@ namespace App\Notifications;
 
 use App\Models\SuggestedOrganization;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Slack\BlockKit\Blocks\ActionsBlock;
-use Illuminate\Notifications\Slack\BlockKit\Blocks\ContextBlock;
 use Illuminate\Notifications\Slack\BlockKit\Blocks\SectionBlock;
-use Illuminate\Notifications\Slack\BlockKit\Composites\ConfirmObject;
 use Illuminate\Notifications\Slack\SlackMessage;
 
 class OrganizationSuggested extends Notification
@@ -24,7 +21,6 @@ class OrganizationSuggested extends Notification
     {
         return ['slack'];
     }
-
 
     public function toSlack(): SlackMessage
     {
@@ -41,7 +37,7 @@ class OrganizationSuggested extends Notification
                 $block->field("*Sites:*\n{$this->suggested->sites}")->markdown();
                 $block->field("*Technologies:*\n{$this->suggested->technologies}")->markdown();
             });
-            // comment in once viewing suggested organization has been implemented
+        // comment in once viewing suggested organization has been implemented
         //     ->dividerBlock()
         //     ->actionsBlock(function (ActionsBlock $block) {
         //        $block->button('Acknowledge Invoice')->primary()->url('https://builtwithlaravel.com/admin/suggested-organization/');

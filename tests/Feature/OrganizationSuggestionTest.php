@@ -2,7 +2,6 @@
 
 use App\Models\SuggestedOrganization;
 use App\Notifications\OrganizationSuggested;
-use App\Notifications\SlackNotifiable;
 use Illuminate\Support\Facades\Notification;
 
 it('saves a suggested organization', function () {

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\SuggestedOrganization;
 use App\Notifications\OrganizationSuggested;
-use App\Notifications\SlackNotifiable;
 use Illuminate\Support\Facades\Notification;
 
 class SuggestOrganizationController extends Controller
