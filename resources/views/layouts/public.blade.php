@@ -67,6 +67,7 @@
                             x-cloak
                             x-show="expanded"
                             x-anchor.bottom-start="$refs.asterisk"
+                            @click.away="expanded = false"
                         >
                             Any organizations listed here use Laravel
                             <em>somewhere</em>
