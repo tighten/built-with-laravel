@@ -7,11 +7,13 @@ use App\Models\Technology;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Cache;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 
 class OrgsList extends Component
 {
-    public $technology = null;
+    #[Url()]
+    public ?string $technology = '';
 
     #[Computed(cache: true, key: 'active-technologies')]
     public function technologies()
