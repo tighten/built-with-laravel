@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\SuggestedOrganization;
+use App\Notifications\OrganizationSuggested;
+use App\Notifications\SlackNotifiable;
 
 class SuggestOrganizationController extends Controller
 {
@@ -19,7 +21,7 @@ class SuggestOrganizationController extends Controller
             'suggester_email' => 'required|email',
         ]);
 
-        SuggestedOrganization::create([
+        $suggested = SuggestedOrganization::create([
             'name' => $input['name'],
             'url' => $input['url'],
             'public_source' => $input['public_source'],
@@ -29,6 +31,8 @@ class SuggestOrganizationController extends Controller
             'sites' => array_filter(explode("\n", $input['sites'])),
             'technologies' => $input['technologies'] ?? [],
         ]);
+
+        (new SlackNotifiable)->notify(new OrganizationSuggested($suggested));
 
         return redirect()->back()->with('flash', 'Thanks for your suggestion!');
     }
