@@ -1,6 +1,6 @@
 <x-public-layout>
-    <div class="mx-auto max-w-5xl">
-        <div class="lg:grid lg:grid-cols-3 gap-10">
+    <div class="mx-auto max-w-8xl">
+        <div class="gap-10 lg:grid lg:grid-cols-3">
             <div class="col-span-2 text-lg">
                 <h2 class="mb-10 text-3xl">Suggest an organization</h2>
 
@@ -16,7 +16,7 @@
                         <label class="block">Organization name *</label>
                         <input
                             type="text"
-                            class="w-96 max-w-full bg-black/4 backdrop-blur-lg border-none rounded-xl"
+                            class="w-96 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg"
                             name="name"
                             placeholder="Tighten"
                             value="{{ old('name') }}"
@@ -28,7 +28,7 @@
                         <label class="block">Organization URL *</label>
                         <input
                             type="url"
-                            class="w-96 max-w-full bg-black/4 backdrop-blur-lg border-none rounded-xl"
+                            class="w-96 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg"
                             name="url"
                             placeholder="https://tighten.com/"
                             value="{{ old('url') }}"
@@ -36,13 +36,17 @@
                         <x-input-error :messages="$errors->get('url')" class="mt-2" />
                     </div>
 
-                    <div class="mb-8 md:grid md:grid-cols-2 gap-x-10">
-                        <div class="col-span-2">
-                            How do you know they use Laravel?
-                        </div>
+                    <div class="mb-8 gap-x-10 md:grid md:grid-cols-2">
+                        <div class="col-span-2">How do you know they use Laravel?</div>
 
                         <div>
-                            <textarea class="h-32 w-128 max-w-full bg-black/4 backdrop-blur-lg border-none rounded-xl" placeholder="Public" name="public_source">{{ old('public_source') }}</textarea>
+                            <textarea
+                                class="h-32 w-128 max-w-full rounded-xl border-none bg-black/4 text-lg backdrop-blur-lg"
+                                placeholder="Public"
+                                name="public_source"
+                            >
+{{ old('public_source') }}</textarea
+                            >
                             <label class="block">
                                 <span class="text-sm italic text-gray-500">
                                     (if this information
@@ -53,7 +57,16 @@
                         </div>
 
                         <div>
-                            <textarea class="h-32 w-128 max-w-full bg-black/4 backdrop-blur-lg border-none rounded-xl" placeholder="Private" name="private_source">{{ old('private_source') }}</textarea>
+                            <div class="relative">
+                                <img src="/images/lock.svg" alt="Lock" class="absolute right-3 top-3 z-50" />
+                                <textarea
+                                    class="h-32 w-128 max-w-full rounded-xl border-none bg-black/4 text-lg backdrop-blur-lg"
+                                    placeholder="Private"
+                                    name="private_source"
+                                >
+{{ old('private_source') }}</textarea
+                                >
+                            </div>
                             <label class="block">
                                 <span class="text-sm italic text-gray-500">
                                     (if this information
@@ -69,14 +82,21 @@
                             What sites/microsites/apps specifically use Laravel? (new line for each URL)
                         </label>
                         <textarea
-                            class="h-32 w-128 max-w-full bg-black/4 backdrop-blur-lg border-none rounded-xl"
+                            class="h-32 w-128 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg"
                             name="sites"
-                            placeholder="https://fieldgoal.io/">{{ old('sites') }}</textarea>
+                            placeholder="https://fieldgoal.io/"
+                        >
+{{ old('sites') }}</textarea
+                        >
                     </div>
 
                     <div class="mb-8">
                         <label class="block">What technologies are they using?</label>
-                        <select name="technologies[]" multiple class="h-32 w-64 bg-black/4 backdrop-blur-lg border-none rounded-xl">
+                        <select
+                            name="technologies[]"
+                            multiple
+                            class="h-32 w-64 rounded-xl border-none bg-black/4 backdrop-blur-lg"
+                        >
                             @foreach ($technologies as $technology)
                                 <option
                                     value="{{ $technology->slug }}"
@@ -92,7 +112,7 @@
                         <label class="block">Your name *</label>
                         <input
                             type="text"
-                            class="w-96 max-w-full bg-black/4 backdrop-blur-lg border-none rounded-xl"
+                            class="w-96 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg"
                             name="suggester_name"
                             placeholder="Firstname Lastname"
                             value="{{ old('suggester_name') }}"
@@ -104,7 +124,7 @@
                         <label class="block">Your email *</label>
                         <input
                             type="email"
-                            class="w-96 max-w-full bg-black/4 backdrop-blur-lg border-none rounded-xl"
+                            class="w-96 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg"
                             name="suggester_email"
                             placeholder="you@awesome.com"
                             value="{{ old('suggester_email') }}"
@@ -114,16 +134,16 @@
 
                     <input
                         type="submit"
-                        class="block rounded float-right text-white text-sm border-none rounded-lg p-2 px-5 bg-black hover:bg-black/80"
+                        class="float-right block rounded rounded-lg border-none bg-black p-2 px-5 text-sm text-white hover:bg-black/80"
                         value="Submit Suggestion"
                     />
                 </form>
             </div>
-            <div class="lg:border-l lg:pl-10 clear-both mt-32 lg:mt-0 backdrop-blur-lg">
+            <div class="clear-both mt-32 backdrop-blur-lg lg:mt-0 lg:border-l lg:pl-10">
                 <ul
                     class="mx-auto mb-4 divide-y divide-black/4 rounded-lg bg-black/4 text-left text-base text-bgrey-800"
                 >
-                    <li class="p-3 font-bold bg-black/10 rounded-t-lg">What belongs here?</li>
+                    <li class="rounded-t-lg bg-black/10 p-3 font-bold">What belongs here?</li>
                     <li class="p-3">
                         Companies and non-profits using Laravel to do or support the work of their organization (whether
                         that's "make profit" or "teach healthcare" or whatever else)
@@ -137,8 +157,8 @@
                     <li class="p-3">
                         We have a bias against tools that are
                         <em>only</em>
-                        targeted at Laravel developers, because those tools won't add any impact to folks' understanding how
-                        Laravel is used in the broader world
+                        targeted at Laravel developers, because those tools won't add any impact to folks' understanding
+                        how Laravel is used in the broader world
                     </li>
                     <li class="p-3">
                         Agencies are only allowed if they also have products, and are here to show their products

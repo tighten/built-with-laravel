@@ -30,7 +30,8 @@ class OrgsList extends Component
                 $query->whereHas('technologies', function (Builder $query) {
                     $query->where('slug', $this->filterTechnology);
                 });
-            })->orderBy('featured_at', 'desc')
+            })->with('sites') // @todo: Do a subquery for just the first site aaron francis style?
+                ->orderBy('featured_at', 'desc')
                 ->orderBy('created_at', 'desc')
                 ->get();
         });

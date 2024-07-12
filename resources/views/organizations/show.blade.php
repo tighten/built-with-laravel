@@ -1,5 +1,5 @@
 <x-public-layout>
-    <div class="grid-cols-3 xl:grid-cols-4 gap-10 lg:grid">
+    <div class="grid-cols-3 gap-10 lg:grid xl:grid-cols-4">
         <div>
             <div class="rounded-xl bg-black/4 p-4 backdrop-blur-lg">
                 <h2 class="mb-3 text-xl font-bold">
@@ -32,15 +32,19 @@
 
             <div class="my-4">
                 @if ($organization->sites->count() > 0)
-                    @foreach ($organization->sites as $site)
-                        <a
-                            href="{{ $site->url }}"
-                            class="mb-3 block rounded-xl bg-black/4 p-4 py-2 text-lg backdrop-blur-lg transition duration-300 hover:bg-black/13"
-                        >
-                            {{ $site->name }}
-                            <span class="float-right mt-1"><img src="/images/chevron-forward.svg" alt=">" /></span>
-                        </a>
-                    @endforeach
+                    <div class="mb-2 text-black/60">Projects using Laravel:</div>
+
+                    <div class="hidden md:block">
+                        @foreach ($organization->sites as $site)
+                            <a
+                                href="#site-{{ $site->id }}"
+                                class="mb-3 block rounded-xl bg-black/4 p-4 py-2 text-lg backdrop-blur-lg transition duration-300 hover:bg-black/13"
+                            >
+                                {{ $site->name }}
+                                <span class="float-right mt-1"><img src="/images/chevron-forward.svg" alt=">" /></span>
+                            </a>
+                        @endforeach
+                    </div>
                 @else
                     <div class="p-2 text-bgrey-500">
                         While this organization is known to use Laravel, we don't currently have links to any
@@ -50,8 +54,31 @@
             </div>
         </div>
 
-        <div class="col-span-2 xl:col-span-3 mt-8 md:mt-0">
-            <img src="{{ $organization->image }}" class="rounded-md border" />
+        <div class="col-span-2 mt-8 md:mt-0 xl:col-span-3">
+            @if ($organization->sites->count() === 0)
+                <img src="{{ $organization->image }}" class="rounded-md border" />
+            @else
+                @foreach ($organization->sites as $site)
+                    <div id="site-{{ $site->id }}" class="mb-10">
+                        <div class="font-bold">{{ $site->name }}</div>
+                        <div class="relative">
+                            <a
+                                href="{{ $site->url }}"
+                                target="_blank"
+                                class="w-38 absolute right-4 top-4 rounded-xl border bg-white px-4 shadow hover:bg-bgrey-100"
+                            >
+                                Visit website
+                                <img
+                                    src="/images/open-in-new.svg"
+                                    alt="Open in new"
+                                    class="ml-2 inline-block align-text-bottom"
+                                />
+                            </a>
+                            <img src="{{ $site->image }}" class="rounded-md border" />
+                        </div>
+                    </div>
+                @endforeach
+            @endif
         </div>
     </div>
 </x-public-layout>

@@ -15,6 +15,7 @@ class SiteFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'url' => $this->faker->url(),
+            'image' => $this->faker->url(),
             'organization_id' => Organization::factory(),
         ];
     }

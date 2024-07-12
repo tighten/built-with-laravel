@@ -28,7 +28,6 @@ class DatabaseSeeder extends Seeder
         $tighten = Organization::create([
             'name' => 'Tighten',
             'url' => 'https://tighten.com/',
-            'image' => '/images/temp/screenshots/tighten.png',
             'favicon' => '/images/temp/favicons/tighten.png',
             'description' => 'A Laravel consultancy.',
             'public_source' => 'Let us count the ways.',
@@ -41,13 +40,15 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $tighten->sites()->create([
-            'name' => 'Thermostat',
-            'url' => 'https://thermostat.io/',
+            'name' => 'FieldGoal',
+            'url' => 'https://fieldgoal.io/',
+            'image' => '/images/temp/screenshots/fieldgoal.jpg',
         ]);
 
         $tighten->sites()->create([
-            'name' => 'FieldGoal',
-            'url' => 'https://fieldgoal.io/',
+            'name' => 'Thermostat',
+            'url' => 'https://thermostat.io/',
+            'image' => '/images/temp/screenshots/thermostat.png',
         ]);
 
         Organization::create([
@@ -84,7 +85,6 @@ class DatabaseSeeder extends Seeder
         $zillow = Organization::create([
             'name' => 'Zillow',
             'url' => 'https://zillow.com/',
-            'image' => '/images/temp/screenshots/zillow.png',
             'favicon' => '/images/temp/favicons/zillow.png',
             'description' => 'An online real-estate marketplace.',
             'submitter_id' => $user->id,
@@ -94,6 +94,7 @@ class DatabaseSeeder extends Seeder
         $zillow->sites()->create([
             'name' => 'Aryeo',
             'url' => 'https://www.aryeo.com/',
+            'image' => '/images/temp/screenshots/aryeo.jpg',
         ]);
 
         $zillow->technologies()->attach(Technology::create(['name' => 'Inertia']));
@@ -112,7 +113,6 @@ class DatabaseSeeder extends Seeder
         $gene = Organization::create([
             'name' => 'Genentech',
             'url' => 'https://gene.com/',
-            'image' => '/images/temp/screenshots/genentech.jpg',
             'favicon' => '/images/temp/favicons/genentech.png',
             'description' => 'A research company.',
             'submitter_id' => $user->id,
@@ -122,12 +122,12 @@ class DatabaseSeeder extends Seeder
         $gene->sites()->create([
             'name' => 'Genentech.com',
             'url' => 'https://www.gene.com/',
+            'image' => '/images/temp/screenshots/genentech.jpg',
         ]);
 
         $aic = Organization::create([
             'name' => 'Art Institute of Chicago',
             'url' => 'https://artic.edu/',
-            'image' => '/images/temp/screenshots/aic.jpg',
             'favicon' => '/images/temp/favicons/aic.png',
             'description' => 'An art institute.',
             'submitter_id' => $user->id,
@@ -137,6 +137,7 @@ class DatabaseSeeder extends Seeder
         $aic->sites()->create([
             'name' => 'Artic.edu',
             'url' => 'https://artic.edu/',
+            'image' => '/images/temp/screenshots/aic.jpg',
         ]);
 
         $aic->technologies()->attach(Technology::create(['name' => 'Twill']));
@@ -166,7 +167,6 @@ class DatabaseSeeder extends Seeder
         $spatie = Organization::create([
             'name' => 'Spatie',
             'url' => 'https://spatie.be/',
-            'image' => '/images/temp/screenshots/spatie.jpg',
             'favicon' => '/images/temp/favicons/spatie.png',
             'description' => 'A Laravel consultancy.',
             'submitter_id' => $user->id,
@@ -176,6 +176,7 @@ class DatabaseSeeder extends Seeder
         $spatie->sites()->create([
             'name' => 'Mailcoach',
             'url' => 'https://mailcoach.app/',
+            'image' => '/images/temp/screenshots/mailcoach.png',
         ]);
 
         $spatie->technologies()->attach($statamic);
@@ -183,7 +184,6 @@ class DatabaseSeeder extends Seeder
         $transistor = Organization::create([
             'name' => 'Transistor',
             'url' => 'https://transistor.fm/',
-            'image' => '/images/temp/screenshots/transistor.jpg',
             'favicon' => '/images/temp/favicons/transistor.png',
             'description' => 'A podcast publishing platform.',
             'submitter_id' => $user->id,
@@ -193,12 +193,12 @@ class DatabaseSeeder extends Seeder
         $transistor->sites()->create([
             'name' => 'Transistor.fm',
             'url' => 'https://transistor.fm/',
+            'image' => '/images/temp/screenshots/transistor.jpg',
         ]);
 
         $spiegel = Organization::create([
             'name' => 'Der Spiegel',
             'url' => 'https://spiegel.de/',
-            'image' => '/images/temp/screenshots/spiegel.jpg',
             'favicon' => '/images/temp/favicons/spiegel.png',
             'description' => "One of Germany's largest newspapers.",
             'submitter_id' => $user->id,
@@ -208,6 +208,7 @@ class DatabaseSeeder extends Seeder
         $spiegel->sites()->create([
             'name' => 'Der Spiegel',
             'url' => 'https://spiegel.de',
+            'image' => '/images/temp/screenshots/spiegel.jpg',
         ]);
 
         $spiegel->technologies()->attach($statamic);
