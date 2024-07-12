@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @view-transition {
-  navigation: auto;
+    navigation: auto;
 }
 
 html {
