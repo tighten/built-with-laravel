@@ -24,9 +24,12 @@ class OrganizationSuggested extends Notification
 
     public function toSlack(): SlackMessage
     {
+        $sites = implode(', ', $this->suggested->sites);
+        $technologies = implode(', ', $this->suggested->technologies);
+
         return (new SlackMessage)
             ->headerBlock('Organization Suggestion')
-            ->sectionBlock(function (SectionBlock $block) {
+            ->sectionBlock(function (SectionBlock $block) use ($sites, $technologies) {
                 $block->text('An Organization has been suggested');
                 $block->field("*Name:*\n{$this->suggested->name}")->markdown();
                 $block->field("*URL:*\n{$this->suggested->url}")->markdown();
@@ -34,8 +37,8 @@ class OrganizationSuggested extends Notification
                 $block->field("*Private Source:*\n{$this->suggested->private_source}")->markdown();
                 $block->field("*Suggester Name:*\n{$this->suggested->suggester_name}")->markdown();
                 $block->field("*Suggester Email:*\n{$this->suggested->suggester_email}")->markdown();
-                $block->field("*Sites:*\n{$this->suggested->sites}")->markdown();
-                $block->field("*Technologies:*\n{$this->suggested->technologies}")->markdown();
+                $block->field("*Sites:*\n{$sites}")->markdown();
+                $block->field("*Technologies:*\n{$technologies}")->markdown();
             });
         // comment in once viewing suggested organization has been implemented
         //     ->dividerBlock()
