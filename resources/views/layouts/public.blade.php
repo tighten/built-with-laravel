@@ -25,9 +25,9 @@
     >
         <div class="relative flex min-h-screen flex-col items-center">
             <div class="relative w-full max-w-2xl px-6 lg:max-w-8xl">
-                <header class="pb-10 pt-4">
+                <header class="pb-10 pt-4" style="view-transition-name: main-heading;">
                     @if (in_array(request()->route()->getName(),['organizations.show']))
-                        <a href="/">
+                        <a href="/" class="absolute top-10 left-10">
                             <img src="/images/arrow-back.svg" loading="lazy" alt="<-" class="inline-block" />
                             Back
                         </a>
