@@ -1,6 +1,10 @@
 <div>
     <div class="mb-2 md:mb-10">
-        <div class="flex pb-1 overflow-x-scroll sm:pb-0 sm:flex-wrap sm:justify-center sm:overflow-x-hidden font-mono text-sm font-bold uppercase md:text-base">
+        <div
+            x-data="{filterTechnology: @js($filterTechnology)}"
+            x-init="filterTechnology !== null && document.getElementById(filterTechnology).scrollIntoView(false)"
+            class="flex pb-1 overflow-x-scroll sm:pb-0 sm:flex-wrap sm:justify-center sm:overflow-x-hidden font-mono text-sm font-bold uppercase md:text-base"
+        >
             <a
                 href="/"
                 class="{{ $filterTechnology == null ? 'border-tighten-yellow text-black hover:border-tighten-yellow' : 'text-gray-400 hover:text-gray-600 hover:border-gray-400 ' }} border-b-2 border-black/10 px-3 py-1 transition duration-300 active:border-tighten-yellow active:text-tighten-yellow"
