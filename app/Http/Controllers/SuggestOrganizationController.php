@@ -3,10 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\SuggestedOrganization;
+use App\Models\Technology;
 
 class SuggestOrganizationController extends Controller
 {
-    public function __invoke()
+    public function create()
+    {
+        return view('suggestions.create', [
+            'technologies' => Technology::orderBy('name')->get(),
+        ]);
+    }
+
+    public function store()
     {
         $input = request()->validate([
             'name' => 'required',
