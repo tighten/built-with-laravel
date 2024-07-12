@@ -28,7 +28,7 @@
                 <header class="pb-10 pt-4">
                     @if (in_array(request()->route()->getName(),['organizations.show']))
                         <a href="/">
-                            <img src="/images/arrow-back.svg" alt="<-" class="inline-block" />
+                            <img src="/images/arrow-back.svg" loading="lazy" alt="<-" class="inline-block" />
                             Back
                         </a>
                     @endif
@@ -37,7 +37,7 @@
                         href="/"
                         class="mx-auto mb-5 mt-16 flex w-72 justify-center text-5xl font-bold hover:text-black/70 md:w-auto lg:col-start-2"
                     >
-                        <h1><img src="/images/bwl-logo.svg" alt="Built With Laravel" class="w-144" /></h1>
+                        <h1><img src="/images/bwl-logo.svg" loading="lazy" alt="Built With Laravel" class="w-144" /></h1>
                     </a>
 
                     <a
@@ -47,6 +47,7 @@
                         <span class="mr-2 mt-1">Curated by</span>
                         <img
                             src="/images/tighten-logo.svg"
+                            loading="lazy"
                             alt="Tighten"
                             width="100"
                             height="22"

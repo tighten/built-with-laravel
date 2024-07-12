@@ -4,6 +4,7 @@
             <div class="rounded-xl bg-black/4 p-4 backdrop-blur-lg">
                 <h2 class="mb-3 text-xl font-bold">
                     <img
+                        loading="lazy"
                         src="{{ $organization->favicon }}"
                         alt="{{ $organization->name }}"
                         class="mr-2 inline-block w-9 rounded-lg"
@@ -56,7 +57,7 @@
 
         <div class="col-span-2 mt-8 md:mt-0 xl:col-span-3">
             @if ($organization->sites->count() === 0)
-                <img src="{{ $organization->image }}" class="rounded-md border" />
+                <img loading="lazy" src="{{ $organization->image }}" class="rounded-md border" />
             @else
                 @foreach ($organization->sites as $site)
                     <div id="site-{{ $site->slug }}" class="mb-10">
@@ -69,12 +70,13 @@
                             >
                                 Visit website
                                 <img
+                                    loading="lazy"
                                     src="/images/open-in-new.svg"
                                     alt="Open in new"
                                     class="ml-2 inline-block align-text-bottom"
                                 />
                             </a>
-                            <img src="{{ $site->image }}" class="rounded-md border" />
+                            <img loading="lazy" src="{{ $site->image }}" class="rounded-md border" />
                         </div>
                     </div>
                 @endforeach
