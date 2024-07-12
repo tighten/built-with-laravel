@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Organization;
 use App\Models\Site;
+use App\Models\SuggestedOrganization;
 use App\Models\Technology;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -213,33 +214,20 @@ class DatabaseSeeder extends Seeder
 
         $spiegel->technologies()->attach($statamic);
 
+        // Create a suggested organization
+        SuggestedOrganization::create([
+            'name' => 'OpenAI',
+            'url' => 'https://openai.com/',
+            'public_source' => 'Runs on Twill',
+            'private_source' => '',
+            'sites' => ['https://openai.com/'],
+            'technologies' => ['twill'],
+            'suggester_name' => 'Matt Stauffer',
+            'suggester_email' => 'matt@tighten.co',
+        ]);
+
         // Does Flare fit? It's targeting Laravel devs so it's not exactly what we're looking for...
 
         // Do laracasts and codecourse fit in?
-
-        // Fake data
-
-        // if (app()->environment() === 'production') {
-        return;
-        // }
-
-        $otherUser = User::factory()->create();
-
-        Technology::factory()->count(5)->create();
-
-        $orgs = Organization::factory()
-            ->count(10)
-            ->create([
-                'submitter_id' => $user->id,
-            ])
-            ->each(function ($org) {
-                $org->technologies()->attach(Technology::all()->random());
-                $org->technologies()->attach(Technology::all()->random());
-            });
-
-        Site::factory()
-            ->create([
-                'organization_id' => $orgs[0]->id,
-            ]);
     }
 }
