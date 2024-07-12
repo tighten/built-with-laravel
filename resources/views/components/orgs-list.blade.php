@@ -1,9 +1,12 @@
 <div>
     <div class="mb-2 md:mb-10">
         <div
-            x-data="{filterTechnology: @js($filterTechnology)}"
-            x-init="filterTechnology !== null && document.getElementById(filterTechnology).scrollIntoView(false)"
-            class="flex pb-1 overflow-x-scroll sm:pb-0 sm:flex-wrap sm:justify-center sm:overflow-x-hidden font-mono text-sm font-bold uppercase md:text-base  scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar:bg-transparent scrollbar-track:!bg-bgrey-100/50 scrollbar-thumb:!rounded scrollbar-thumb:!bg-bgrey-200 scrollbar-track:!rounded"
+            x-data="{ filterTechnology: @js($filterTechnology) }"
+            x-init="
+                filterTechnology !== null &&
+                    document.getElementById(filterTechnology).scrollIntoView(false)
+            "
+            class="flex overflow-x-scroll pb-1 font-mono text-sm font-bold uppercase scrollbar:!h-1.5 scrollbar:!w-1.5 scrollbar:bg-transparent scrollbar-track:!rounded scrollbar-track:!bg-bgrey-100/50 scrollbar-thumb:!rounded scrollbar-thumb:!bg-bgrey-200 sm:flex-wrap sm:justify-center sm:overflow-x-hidden sm:pb-0 md:text-base"
         >
             <a
                 href="/"
