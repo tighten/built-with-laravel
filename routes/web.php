@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\SuggestOrganizationController;
 use App\Models\Organization;
 use App\Models\Technology;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'home')->name('home');
+Route::get('/', [OrganizationController::class, 'index'])->name('home');
 Route::get('orgs/{organization}', function (Organization $organization) {
     return view('organizations.show', ['organization' => $organization]);
 })->name('organizations.show');
@@ -16,7 +17,7 @@ Route::post('suggest', SuggestOrganizationController::class)->name('suggestions.
 
 require __DIR__ . '/auth.php';
 
-Route::view('{technology}', 'technologies.show')->name('technologies.show');
+Route::get('{technology}', [OrganizationController::class, 'indexbyTechnology'])->name('technologies.show');
 
 /*
 
