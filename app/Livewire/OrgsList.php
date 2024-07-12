@@ -11,10 +11,7 @@ use Livewire\Component;
 
 class OrgsList extends Component
 {
-    public function __construct(public $filterTechnology = null)
-    {
-        // @todo: Change navigation to filter/not filter technology to be on the same livewire page, even with URL changing
-    }
+    public $technology = null;
 
     #[Computed(cache: true, key: 'active-technologies')]
     public function technologies()
@@ -25,12 +22,14 @@ class OrgsList extends Component
     #[Computed]
     public function organizations()
     {
-        return Cache::remember('orgs-list-filter[' . $this->filterTechnology . ']', 3600, function () {
-            return Organization::when(! is_null($this->filterTechnology), function (Builder $query) {
-                $query->whereHas('technologies', function (Builder $query) {
-                    $query->where('slug', $this->filterTechnology);
-                });
-            })->with('sites') // @todo: Do a subquery for just the first site aaron francis style?
+        return Cache::remember('orgs-list-filter[' . $this->technology . ']', 3600, function () {
+            return Organization::query()
+                ->when(!is_null($this->technology), function (Builder $query) {
+                    $query->whereHas('technologies', function (Builder $query) {
+                        $query->where('slug', $this->technology);
+                    });
+                })
+                ->with('sites') // @todo: Do a subquery for just the first site aaron francis style?
                 ->orderBy('featured_at', 'desc')
                 ->orderBy('created_at', 'desc')
                 ->get();
