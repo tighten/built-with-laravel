@@ -26,7 +26,7 @@ class OrgsList extends Component
     {
         return Cache::remember('orgs-list-filter[' . $this->technology . ']', 3600, function () {
             return Organization::query()
-                ->when(!is_null($this->technology), function (Builder $query) {
+                ->when($this->technology, function (Builder $query) {
                     $query->whereHas('technologies', function (Builder $query) {
                         $query->where('slug', $this->technology);
                     });

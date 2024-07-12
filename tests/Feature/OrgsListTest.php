@@ -18,8 +18,8 @@ it('filters organizations', function () {
 
     $otherOrg = Organization::factory()->create();
 
-    $response = $this->get(route('technologies.show', [
-        'technology' => $tech,
+    $response = $this->get(route('home', [
+        'technology' => $tech->slug,
     ]));
 
     $response->assertStatus(200);
