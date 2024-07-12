@@ -47,7 +47,7 @@
                             >
 {{ old('public_source') }}</textarea
                             >
-                            <label class="block -mt-2">
+                            <label class="-mt-2 block">
                                 <span class="text-sm italic text-gray-500">
                                     (if this information
                                     <strong>can</strong>
@@ -67,7 +67,7 @@
 {{ old('private_source') }}</textarea
                                 >
                             </div>
-                            <label class="block -mt-2">
+                            <label class="-mt-2 block">
                                 <span class="text-sm italic text-gray-500">
                                     (if this information
                                     <strong>cannot</strong>
