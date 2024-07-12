@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SuggestedOrganization;
 use App\Notifications\OrganizationSuggested;
 use App\Notifications\SlackNotifiable;
+use Illuminate\Support\Facades\Notification;
 
 class SuggestOrganizationController extends Controller
 {
@@ -32,7 +33,8 @@ class SuggestOrganizationController extends Controller
             'technologies' => $input['technologies'] ?? [],
         ]);
 
-        (new SlackNotifiable)->notify(new OrganizationSuggested($suggested));
+        Notification::route('slack', config('services.slack.notifications.channel'))
+            ->notify(new OrganizationSuggested($suggested));
 
         return redirect()->back()->with('flash', 'Thanks for your suggestion!');
     }
