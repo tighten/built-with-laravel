@@ -39,7 +39,7 @@
                     <div class="mb-8 gap-x-10 md:grid md:grid-cols-2">
                         <div class="col-span-2">How do you know they use Laravel?</div>
 
-                        <div>
+                        <div class="mb-6 md:mb-0">
                             <textarea
                                 class="h-32 w-128 max-w-full rounded-xl border-none bg-black/4 text-lg backdrop-blur-lg"
                                 placeholder="Public"
@@ -47,7 +47,7 @@
                             >
 {{ old('public_source') }}</textarea
                             >
-                            <label class="block">
+                            <label class="block -mt-2">
                                 <span class="text-sm italic text-gray-500">
                                     (if this information
                                     <strong>can</strong>
@@ -67,7 +67,7 @@
 {{ old('private_source') }}</textarea
                                 >
                             </div>
-                            <label class="block">
+                            <label class="block -mt-2">
                                 <span class="text-sm italic text-gray-500">
                                     (if this information
                                     <strong>cannot</strong>
