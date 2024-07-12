@@ -7,6 +7,7 @@
     </a>
 
     <a
+        wire:navigate
         href="{{ route('suggestions.create') }}"
         class="rounded-lg px-6 py-1 text-white ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] bg-black hover:bg-black/75"
     >

@@ -1,5 +1,5 @@
 <x-public-layout>
-    <livewire:orgs-list />
+    <livewire:orgs-list technology="{{ request('technology', null) }}" />
 
     <div class="mt-24 text-center text-bgrey-500 md:text-2xl" id="about">
         <h2 class="mb-6 text-2xl font-bold uppercase text-black md:text-4xl">About</h2>

@@ -4,10 +4,9 @@
 >
     <h2 class="mb-5 text-xl font-bold">
         <img src="{{ $org->favicon }}" alt="{{ $org->name }}" class="mr-2 inline-block w-9 rounded-lg" />
-        <a wire:navigate href="{{ route('organizations.show', ['organization' => $org->slug]) }}">{{ $org->name }} <span class="absolute inset-0"></span></a>
+        <a wire:navigate href="{{ route('organizations.show', ['organization' => $org->slug]) }}">{{ $org->name }}<span class="absolute inset-0 z-10"></span></a>
     </h2>
-    <div class="relative aspect-[600/444] overflow-hidden rounded border border-black/4">
-        <div class="absolute bottom-0 z-50 h-full w-full"></div>
+    <div class="aspect-[600/444] overflow-hidden rounded border border-black/4">
         <img
             loading="lazy"
             alt="{{ $org->name }}"

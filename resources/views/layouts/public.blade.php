@@ -27,13 +27,14 @@
             <div class="relative w-full max-w-2xl px-6 lg:max-w-8xl">
                 <header class="pb-10 pt-4">
                     @if (in_array(request()->route()->getName(),['organizations.show']))
-                        <a href="/">
+                        <a href="/" wire:navigate>
                             <img src="/images/arrow-back.svg" alt="<-" class="inline-block" />
                             Back
                         </a>
                     @endif
 
                     <a
+                        wire:navigate
                         href="/"
                         class="mx-auto mb-5 mt-16 flex w-72 justify-center text-5xl font-bold hover:text-black/70 md:w-auto lg:col-start-2"
                     >
