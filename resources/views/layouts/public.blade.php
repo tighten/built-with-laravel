@@ -13,6 +13,10 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        @if (app()->environment() === 'production')
+            <script src="https://cdn.usefathom.com/script.js" data-site="SBSAGNHU" defer></script>
+        @endif
     </head>
     <body
         class="bg-cover bg-fixed bg-no-repeat font-sans text-black antialiased"
