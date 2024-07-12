@@ -8,7 +8,7 @@ it('lists organizations', function () {
 
     $response = $this->get(route('home'));
 
-    $response->assertStatus(200);
+    $response->assertOk();
     $response->assertSee($org->name);
 });
 
@@ -22,7 +22,7 @@ it('filters organizations', function () {
         'technology' => $tech,
     ]));
 
-    $response->assertStatus(200);
+    $response->assertOk();
     $response->assertSee($org->name);
     $response->assertDontSee($otherOrg->name);
 });
