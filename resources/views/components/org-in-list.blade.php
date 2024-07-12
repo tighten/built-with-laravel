@@ -24,7 +24,10 @@
                 src="{{ $org->sites->first()->image }}"
             />
         @else
-            <div class="bg-white bg-contain transition duration-300 group-hover:scale-115" style="background-image: url('/images/siteless-background.png')">
+            <div
+                class="bg-white bg-contain transition duration-300 group-hover:scale-115"
+                style="background-image: url('/images/siteless-background.png')"
+            >
                 <img
                     loading="lazy"
                     alt="{{ $org->name }}"
@@ -35,6 +38,5 @@
                 />
             </div>
         @endif
-
     </div>
 </div>
