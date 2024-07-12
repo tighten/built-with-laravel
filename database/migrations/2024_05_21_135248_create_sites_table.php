@@ -13,6 +13,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('url');
+            $table->string('slug');
             $table->string('image');
             $table->foreignIdFor(Organization::class);
             $table->timestamps();

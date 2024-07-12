@@ -37,7 +37,7 @@
                     <div class="hidden md:block">
                         @foreach ($organization->sites as $site)
                             <a
-                                href="#site-{{ $site->id }}"
+                                href="#site-{{ $site->slug }}"
                                 class="mb-3 block rounded-xl bg-black/4 p-4 py-2 text-lg backdrop-blur-lg transition duration-300 hover:bg-black/13"
                             >
                                 {{ $site->name }}
@@ -59,7 +59,7 @@
                 <img src="{{ $organization->image }}" class="rounded-md border" />
             @else
                 @foreach ($organization->sites as $site)
-                    <div id="site-{{ $site->id }}" class="mb-10">
+                    <div id="site-{{ $site->slug }}" class="mb-10">
                         <div class="font-bold">{{ $site->name }}</div>
                         <div class="relative">
                             <a

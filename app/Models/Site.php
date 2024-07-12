@@ -2,27 +2,19 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Site extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
 
-    protected $fillable = [
-        'name',
-        'url',
-        'image',
-        'published_at',
-        'submitter_id',
-        'organization_id',
-    ];
+    protected $guarded = ['id'];
 
     protected $casts = [
         'id' => 'integer',
-        'published_at' => 'timestamp',
-        'submitter_id' => 'integer',
         'organization_id' => 'integer',
     ];
 
@@ -34,5 +26,14 @@ class Site extends Model
     public function submitter(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name',
+            ],
+        ];
     }
 }

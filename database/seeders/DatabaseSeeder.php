@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
         Organization::create([
             'name' => 'Curology',
             'url' => 'https://curology.com/',
-            'image' => '/images/temp/screenshots/curology.jpg',
+            'image' => '/images/temp/screenshots/curology.png',
             'favicon' => '/images/temp/favicons/curology.png',
             'description' => 'A personalized skincare brand.',
             'submitter_id' => $user->id,
@@ -103,7 +103,7 @@ class DatabaseSeeder extends Seeder
         Organization::create([
             'name' => 'Pfizer',
             'url' => 'https://pfizer.com/',
-            'image' => '/images/temp/screenshots/pfizer.jpg',
+            'image' => '/images/temp/screenshots/pfizer.png',
             'favicon' => '/images/temp/favicons/pfizer.png',
             'description' => 'A drug company.',
             'submitter_id' => $user->id,
