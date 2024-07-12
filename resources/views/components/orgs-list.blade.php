@@ -3,7 +3,7 @@
         <div
             x-data="{filterTechnology: @js($filterTechnology)}"
             x-init="filterTechnology !== null && document.getElementById(filterTechnology).scrollIntoView(false)"
-            class="flex pb-1 overflow-x-scroll sm:pb-0 sm:flex-wrap sm:justify-center sm:overflow-x-hidden font-mono text-sm font-bold uppercase md:text-base"
+            class="flex pb-1 overflow-x-scroll sm:pb-0 sm:flex-wrap sm:justify-center sm:overflow-x-hidden font-mono text-sm font-bold uppercase md:text-base  scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar:bg-transparent scrollbar-track:!bg-bgrey-100/50 scrollbar-thumb:!rounded scrollbar-thumb:!bg-bgrey-200 scrollbar-track:!rounded"
         >
             <a
                 href="/"
