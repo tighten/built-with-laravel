@@ -23,7 +23,22 @@ class SuggestedOrganizationResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('name')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('url')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('public_source'),
+                Forms\Components\TextInput::make('private_source'),
+                Forms\Components\TextInput::make('sites'), // @todo encode to and from json
+                Forms\Components\TextInput::make('technologies'), // @todo encode to and from json
+                Forms\Components\TextInput::make('suggester_name')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('suggester_email')
+                    ->required()
+                    ->maxLength(255),
             ]);
     }
 
@@ -31,7 +46,12 @@ class SuggestedOrganizationResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('url')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('suggester_name'),
+                Tables\Columns\TextColumn::make('suggester_email'),
             ])
             ->filters([
                 //
