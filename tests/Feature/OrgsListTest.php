@@ -18,7 +18,7 @@ it('filters organizations', function () {
 
     $otherOrg = Organization::factory()->create();
 
-    $response = $this->get(route('technologies.show', [
+    $response = $this->get(route('home', [
         'technology' => $tech,
     ]));
 

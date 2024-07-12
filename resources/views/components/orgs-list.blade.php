@@ -10,7 +10,7 @@
             </a>
             @foreach ($technologies as $tech)
                 <a
-                    href="{{ route('technologies.show', $tech->slug) }}"
+                    href="{{ route('home', ['technology' => $tech->slug]) }}"
                     class="{{ $filterTechnology == $tech->slug ? 'border-tighten-yellow hover:border-tighten-yellow text-black ' : 'text-bgrey-400 hover:text-gray-600 hover:border-gray-400 ' }} border-b-2 border-black/10 px-3 py-1 transition duration-300 active:border-tighten-yellow active:text-tighten-yellow"
                 >
                     {{ $tech->name }}

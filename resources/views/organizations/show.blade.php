@@ -20,7 +20,7 @@
                     <div class="mt-3 flex gap-2 font-mono">
                         @foreach ($organization->technologies as $tech)
                             <a
-                                href="{{ route('technologies.show', $tech) }}"
+                                href="{{ route('home', ['technology' => $tech]) }}"
                                 class="inline-flex items-center rounded bg-white px-2 text-sm font-bold uppercase text-bgrey-400 transition duration-300 hover:bg-gray-200 hover:text-gray-700"
                             >
                                 {{ $tech->name }}
