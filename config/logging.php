@@ -58,6 +58,10 @@ return [
             'ignore_exceptions' => false,
         ],
 
+        'bugsnag' => [
+            'driver' => 'bugsnag',
+        ],
+
         'single' => [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),
