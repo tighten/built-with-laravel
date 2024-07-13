@@ -13,7 +13,7 @@
         @else
             <div
                 class="bg-white bg-contain transition duration-300 group-hover:scale-115"
-                style="background-image: url('/images/siteless-background.png')"
+                style="background-image: url('/images/siteless-background.png'); view-transition-name: no-site-{{ $org->slug }}"
             >
                 <img
                     loading="lazy"
@@ -22,7 +22,6 @@
                     height="400"
                     class="aspect-[600/444] max-w-full rounded-sm transition duration-300 group-hover:scale-115"
                     src="{{ $org->image }}"
-                    style="view-transition-name: no-site-{{ $org->slug }}"
                 />
             </div>
         @endif

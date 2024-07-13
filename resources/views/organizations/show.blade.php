@@ -57,7 +57,12 @@
 
         <div class="col-span-2 mt-8 md:mt-0 xl:col-span-3">
             @if ($organization->sites->count() === 0)
-                <img style="view-transition-name: no-site-{{ $organization->slug }}" loading="lazy" src="{{ $organization->image }}" class="rounded-md border" />
+                <div
+                    class="bg-white bg-contain transition duration-300 group-hover:scale-115"
+                    style="background-image: url('/images/siteless-background.png'); view-transition-name: no-site-{{ $organization->slug }}"
+                >
+                    <img loading="lazy" src="{{ $organization->image }}" class="rounded-md border" />
+                </div>
             @else
                 @foreach ($organization->sites as $site)
                     <div id="site-{{ $site->slug }}" class="mb-10" style="view-transition-name: main-site-{{ $site->slug }}">
