@@ -2,8 +2,9 @@
     <div class="grid-cols-3 gap-10 lg:grid xl:grid-cols-4">
         <div>
             <div class="rounded-xl bg-black/4 p-4 backdrop-blur-lg">
-                <h2 class="mb-3 text-xl font-bold">
+                <h2 class="mb-3 text-xl font-bold" style="view-transition-name: organization-{{ $organization->slug }};">
                     <img
+                        loading="lazy"
                         src="{{ $organization->favicon }}"
                         alt="{{ $organization->name }}"
                         class="mr-2 inline-block w-9 rounded-lg"
@@ -20,7 +21,7 @@
                     <div class="mt-3 flex gap-2 font-mono">
                         @foreach ($organization->technologies as $tech)
                             <a
-                                href="{{ route('technologies.show', $tech) }}"
+                                href="{{ route('home', ['technology' => $tech]) }}"
                                 class="inline-flex items-center rounded bg-white px-2 text-sm font-bold uppercase text-bgrey-400 transition duration-300 hover:bg-gray-200 hover:text-gray-700"
                             >
                                 {{ $tech->name }}
@@ -56,10 +57,10 @@
 
         <div class="col-span-2 mt-8 md:mt-0 xl:col-span-3">
             @if ($organization->sites->count() === 0)
-                <img src="{{ $organization->image }}" class="rounded-md border" />
+                <img style="view-transition-name: no-site-{{ $organization->slug }}" loading="lazy" src="{{ $organization->image }}" class="rounded-md border" />
             @else
                 @foreach ($organization->sites as $site)
-                    <div id="site-{{ $site->slug }}" class="mb-10">
+                    <div id="site-{{ $site->slug }}" class="mb-10" style="view-transition-name: main-site-{{ $site->slug }}">
                         <div class="font-bold">{{ $site->name }}</div>
                         <div class="relative">
                             <a
@@ -69,12 +70,13 @@
                             >
                                 Visit website
                                 <img
+                                    loading="lazy"
                                     src="/images/open-in-new.svg"
                                     alt="Open in new"
                                     class="ml-2 inline-block align-text-bottom"
                                 />
                             </a>
-                            <img src="{{ $site->image }}" class="rounded-md border" />
+                            <img loading="lazy" src="{{ $site->image }}" class="rounded-md border" />
                         </div>
                     </div>
                 @endforeach

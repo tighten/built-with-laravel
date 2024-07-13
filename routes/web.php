@@ -1,23 +1,15 @@
 <?php
 
 use App\Http\Controllers\OrganizationController;
-use App\Http\Controllers\SuggestOrganizationController;
-use App\Models\Organization;
-use App\Models\Technology;
+use App\Http\Controllers\SuggestionsController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [OrganizationController::class, 'index'])->name('home');
-Route::get('orgs/{organization}', function (Organization $organization) {
-    return view('organizations.show', ['organization' => $organization]);
-})->name('organizations.show');
-Route::get('suggest', function () {
-    return view('suggestions.create', ['technologies' => Technology::orderBy('name')->get()]);
-})->name('suggestions.create');
-Route::post('suggest', SuggestOrganizationController::class)->name('suggestions.store');
+Route::resource('organizations', OrganizationController::class)->only('show');
+Route::resource('suggestions', SuggestionsController::class)->only(['create', 'store']);
 
 require __DIR__ . '/auth.php';
 
-Route::get('{technology}', [OrganizationController::class, 'indexbyTechnology'])->name('technologies.show');
+Route::get('/{technology:slug?}', [OrganizationController::class, 'index'])->name('home');
 
 /*
 

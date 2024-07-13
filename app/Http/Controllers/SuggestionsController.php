@@ -3,12 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\SuggestedOrganization;
+use App\Models\Technology;
 use App\Notifications\OrganizationSuggested;
 use Illuminate\Support\Facades\Notification;
 
-class SuggestOrganizationController extends Controller
+class SuggestionsController extends Controller
 {
-    public function __invoke()
+    public function create()
+    {
+        return view('suggestions.create', [
+            'technologies' => Technology::orderBy('name')->get(),
+        ]);
+    }
+
+    public function store()
     {
         $input = request()->validate([
             'name' => 'required',

@@ -9,32 +9,32 @@ use Illuminate\Support\Facades\Cache;
 
 class OrganizationController extends Controller
 {
-    public function index()
+    public function index(Technology $technology)
     {
         return view('organizations.index', [
-            'organizations' => $this->organizations(),
+            'filterTechnology' => $technology->slug,
+            'organizations' => $this->organizations($technology),
             'technologies' => $this->technologies(),
-            'filterTechnology' => null,
         ]);
     }
 
-    public function indexByTechnology(string $filterTechnology)
+    public function show(Organization $organization)
     {
-        return view('organizations.index', [
-            'organizations' => $this->organizations($filterTechnology),
-            'technologies' => $this->technologies(),
-            'filterTechnology' => $filterTechnology,
+        return view('organizations.show', [
+            'organization' => $organization,
         ]);
     }
 
-    private function organizations(?string $filterTechnology = null)
+    private function organizations(Technology $technology)
     {
-        return Cache::remember('orgs-list-filter[' . $filterTechnology . ']', 3600, function () use ($filterTechnology) {
-            return Organization::when(! is_null($filterTechnology), function (Builder $query) use ($filterTechnology) {
-                $query->whereHas('technologies', function (Builder $query) use ($filterTechnology) {
-                    $query->where('slug', $filterTechnology);
-                });
-            })->with('sites') // @todo: Do a subquery for just the first site aaron francis style?
+        return Cache::remember('orgs-list-filter[' . $technology->slug . ']', 3600, function () use ($technology) {
+            return Organization::query()
+                ->when($technology->exists, function (Builder $query) use ($technology) {
+                    $query->whereHas('technologies', function (Builder $query) use ($technology) {
+                        $query->where('id', $technology->id);
+                    });
+                })
+                ->with('sites') // @todo: Do a subquery for just the first site aaron francis style?
                 ->orderBy('featured_at', 'desc')
                 ->orderBy('created_at', 'desc')
                 ->get();
