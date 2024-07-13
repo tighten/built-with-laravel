@@ -25,9 +25,9 @@
     >
         <div class="relative flex min-h-screen flex-col items-center">
             <div class="relative w-full max-w-2xl px-6 lg:max-w-8xl">
-                <header class="pb-10 pt-4" style="view-transition-name: main-heading;">
+                <header class="pb-10 pt-4" style="view-transition-name: main-heading">
                     @if (in_array(request()->route()->getName(),['organizations.show']))
-                        <a href="/" class="absolute top-10 left-10">
+                        <a href="/" class="absolute left-10 top-10">
                             <img src="/images/arrow-back.svg" loading="lazy" alt="<-" class="inline-block" />
                             Back
                         </a>
@@ -37,7 +37,9 @@
                         href="/"
                         class="mx-auto mb-5 mt-16 flex w-72 justify-center text-5xl font-bold hover:text-black/70 md:w-auto lg:col-start-2"
                     >
-                        <h1><img src="/images/bwl-logo.svg" loading="lazy" alt="Built With Laravel" class="w-144" /></h1>
+                        <h1>
+                            <img src="/images/bwl-logo.svg" loading="lazy" alt="Built With Laravel" class="w-144" />
+                        </h1>
                     </a>
 
                     <a

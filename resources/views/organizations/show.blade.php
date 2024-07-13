@@ -2,7 +2,10 @@
     <div class="grid-cols-3 gap-10 lg:grid xl:grid-cols-4">
         <div>
             <div class="rounded-xl bg-black/4 p-4 backdrop-blur-lg">
-                <h2 class="mb-3 text-xl font-bold" style="view-transition-name: organization-{{ $organization->slug }};">
+                <h2
+                    class="mb-3 text-xl font-bold"
+                    style="view-transition-name: organization-{{ $organization->slug }}"
+                >
                     <img
                         loading="lazy"
                         src="{{ $organization->favicon }}"
@@ -59,13 +62,20 @@
             @if ($organization->sites->count() === 0)
                 <div
                     class="bg-white bg-contain transition duration-300 group-hover:scale-115"
-                    style="background-image: url('/images/siteless-background.png'); view-transition-name: no-site-{{ $organization->slug }}"
+                    style="
+                        background-image: url('/images/siteless-background.png');
+                        view-transition-name: no-site-{{ $organization->slug }};
+                    "
                 >
                     <img loading="lazy" src="{{ $organization->image }}" class="rounded-md border" />
                 </div>
             @else
                 @foreach ($organization->sites as $site)
-                    <div id="site-{{ $site->slug }}" class="mb-10" style="view-transition-name: main-site-{{ $site->slug }}">
+                    <div
+                        id="site-{{ $site->slug }}"
+                        class="mb-10"
+                        style="view-transition-name: main-site-{{ $site->slug }}"
+                    >
                         <div class="font-bold">{{ $site->name }}</div>
                         <div class="relative">
                             <a

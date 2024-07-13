@@ -9,7 +9,7 @@ Route::resource('suggestions', SuggestionsController::class)->only(['create', 's
 
 require __DIR__ . '/auth.php';
 
-Route::get('/{technology:slug?}', [OrganizationController::class, 'index'])->name('home');
+Route::get('{technology:slug?}', [OrganizationController::class, 'index'])->name('home');
 
 /*
 
