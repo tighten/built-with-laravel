@@ -4,7 +4,7 @@
             x-data="{ filterTechnology: @js($filterTechnology) }"
             x-init="
                 filterTechnology !== null &&
-                    document.getElementById(filterTechnology).scrollIntoView(false)
+                    document.getElementById(`tech-filter--${filterTechnology}`).scrollIntoView(false)
             "
             class="flex overflow-x-scroll pb-1 font-mono text-sm font-bold uppercase scrollbar:!h-1.5 scrollbar:!w-1.5 scrollbar:bg-transparent scrollbar-track:!rounded scrollbar-track:!bg-bgrey-100/50 scrollbar-thumb:!rounded scrollbar-thumb:!bg-bgrey-200 sm:flex-wrap sm:justify-center sm:overflow-x-hidden sm:pb-0 md:text-base"
         >
@@ -19,7 +19,7 @@
                 <a
                     href="{{ route('home', ['technology' => $tech->slug]) }}"
                     class="{{ $filterTechnology == $tech->slug ? 'border-tighten-yellow hover:border-tighten-yellow text-black ' : 'text-bgrey-400 hover:text-gray-600 hover:border-gray-400 ' }} border-b-2 border-black/10 px-3 py-1 transition duration-300 active:border-tighten-yellow active:text-tighten-yellow"
-                    id="{{ $tech->slug }}"
+                    id="tech-filter--{{ $tech->slug }}"
                 >
                     {{ $tech->name }}
                 </a>
