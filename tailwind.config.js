@@ -48,5 +48,14 @@ export default {
         },
     },
 
-    plugins: [forms],
+    plugins: [
+        forms,
+        // used to style landing page's horizontal scrollbar on mobile
+        function ({ addVariant }) {
+            addVariant('supports-scrollbars', '@supports selector(::-webkit-scrollbar)')
+            addVariant('scrollbar', '&::-webkit-scrollbar')
+            addVariant('scrollbar-track', '&::-webkit-scrollbar-track')
+            addVariant('scrollbar-thumb', '&::-webkit-scrollbar-thumb')
+        },
+    ],
 };
