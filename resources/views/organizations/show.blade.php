@@ -1,4 +1,4 @@
-<x-public-layout>
+<x-public-layout :prependTitle="$organization->name">
     <div class="grid-cols-3 gap-10 lg:grid xl:grid-cols-4">
         <div>
             <div class="rounded-xl bg-black/4 p-4 backdrop-blur-lg">

@@ -8,7 +8,7 @@
                 alt="{{ $org->name }}"
                 width="540"
                 height="400"
-                class="aspect-[600/444] max-w-full rounded-sm drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] transition duration-300 group-hover:scale-115"
+                class="aspect-[600/444] max-w-full rounded-sm transition duration-300 group-hover:scale-115"
                 src="{{ $org->sites->first()->image }}"
                 style="view-transition-name: main-site-{{ $org->sites->first()->slug }}"
             />

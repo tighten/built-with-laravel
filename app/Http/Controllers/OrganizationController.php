@@ -12,7 +12,7 @@ class OrganizationController extends Controller
     public function index(Technology $technology)
     {
         return view('organizations.index', [
-            'filterTechnology' => $technology->slug,
+            'filterTechnology' => $technology,
             'organizations' => $this->organizations($technology),
             'technologies' => $this->technologies(),
         ]);

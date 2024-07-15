@@ -5,8 +5,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-        <title>Built with Laravel</title>
+        @php
+            $title = 'Built with Laravel';
+
+            if ($prependTitle) {
+                $title = $prependTitle . ' | ' . $title;
+            }
+
+            $description = 'A curated list of companies and organizations building with Laravel.';
+        @endphp
+
+        <title>{{ $title }}</title>
         <link rel="icon" href="/images/favicon.ico" />
+
+        <meta property="og:title" content="{{ $title }}">
+
+        <meta property="og:description" content="{{ $description }}">
+        <meta name="description" content="{{ $description }}">
+        <meta property="og:image"
+            content="{{ asset('/images/og.jpg') }}">
+        <meta property="og:url" content="{{ request()->fullUrl() }}">
+        <meta property="og:site_name" content="{{ $title }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net" />

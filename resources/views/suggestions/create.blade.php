@@ -1,4 +1,4 @@
-<x-public-layout>
+<x-public-layout prependTitle="Suggest an Organization">
     <div class="mx-auto max-w-8xl">
         <div class="gap-10 lg:grid lg:grid-cols-3">
             <div class="col-span-2 text-lg">

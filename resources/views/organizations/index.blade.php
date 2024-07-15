@@ -1,8 +1,8 @@
-<x-public-layout>
+<x-public-layout :prependTitle="$filterTechnology ? $filterTechnology->name : null">
     <x-orgs-list
         :organizations="$organizations"
         :technologies="$technologies"
-        :filterTechnology="$filterTechnology"
+        :filterTechnology="$filterTechnology->slug"
     ></x-orgs-list>
 
     <div class="mt-24 text-center text-bgrey-500 md:text-2xl" id="about">
