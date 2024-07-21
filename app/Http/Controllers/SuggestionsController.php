@@ -40,8 +40,10 @@ class SuggestionsController extends Controller
             'technologies' => $input['technologies'] ?? [],
         ]);
 
-        Notification::route('slack', config('services.slack.notifications.channel'))
-            ->notify(new OrganizationSuggested($suggested));
+        if (app()->environment() === 'production') {
+            Notification::route('slack', config('services.slack.notifications.channel'))
+                ->notify(new OrganizationSuggested($suggested));
+        }
 
         return redirect()->back()->with('flash', 'Thanks for your suggestion!');
     }

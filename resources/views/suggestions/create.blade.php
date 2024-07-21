@@ -20,6 +20,7 @@
                             name="name"
                             placeholder="Tighten"
                             value="{{ old('name') }}"
+                            required
                         />
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
@@ -32,6 +33,7 @@
                             name="url"
                             placeholder="https://tighten.com/"
                             value="{{ old('url') }}"
+                            required
                         />
                         <x-input-error :messages="$errors->get('url')" class="mt-2" />
                     </div>
@@ -116,6 +118,7 @@
                             name="suggester_name"
                             placeholder="Firstname Lastname"
                             value="{{ old('suggester_name') }}"
+                            required
                         />
                         <x-input-error :messages="$errors->get('suggester_name')" class="mt-2" />
                     </div>
@@ -128,6 +131,7 @@
                             name="suggester_email"
                             placeholder="you@awesome.com"
                             value="{{ old('suggester_email') }}"
+                            required
                         />
                         <x-input-error :messages="$errors->get('suggester_email')" class="mt-2" />
                     </div>
