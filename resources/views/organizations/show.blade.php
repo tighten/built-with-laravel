@@ -1,6 +1,9 @@
 <x-public-layout :prependTitle="$organization->name">
-    <div class="grid-cols-3 gap-10 lg:grid xl:grid-cols-4">
+    <div class="grid-cols-3 gap-10 lg:grid xl:grid-cols-4"
+        x-data="orgshow"
+        x-init="parseHash">
         <div>
+            <span x-text="selected"></span>
             <div class="rounded-xl bg-black/4 p-4 backdrop-blur-lg">
                 <h2
                     class="mb-3 text-xl font-bold"
@@ -43,6 +46,7 @@
                             <a
                                 href="#site-{{ $site->slug }}"
                                 class="mb-3 block rounded-xl bg-black/4 p-4 py-2 text-lg backdrop-blur-lg transition duration-300 hover:bg-black/13"
+                                @click="selected = '{{ $site->slug }}'"
                             >
                                 {{ $site->name }}
                                 <span class="float-right mt-1"><img src="/images/chevron-forward.svg" alt=">" /></span>
@@ -76,7 +80,7 @@
                         class="mb-10"
                         style="view-transition-name: main-site-{{ $site->slug }}"
                     >
-                        <div class="font-bold">{{ $site->name }}</div>
+                        <div class="font-bold" :class="selected == '{{ $site->slug }}' ? 'text-black' : 'text-bgrey-500'">{{ $site->name }}</div>
                         <div class="relative">
                             <a
                                 href="{{ $site->url }}"
@@ -91,11 +95,34 @@
                                     class="ml-2 inline-block align-text-bottom"
                                 />
                             </a>
-                            <img loading="lazy" src="{{ $site->image }}" class="rounded-md border" />
+                            <a href="#site-{{ $site->slug }}" @click="selected = '{{ $site->slug }}'">
+                                <img
+                                    loading="lazy"
+                                    src="{{ $site->image }}"
+                                    class="rounded-md border"
+                                    :class="selected == '{{ $site->slug }}' && 'border border-2 border-black/20'"
+                                />
+                            </a>
                         </div>
                     </div>
                 @endforeach
             @endif
         </div>
     </div>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('orgshow', () => ({
+                selected: null,
+
+                parseHash() {
+                    let hash = window.location.hash;
+
+                    if (hash.includes('#site-')) {
+                        this.selected = hash.substring(6);
+                    }
+                },
+            }))
+        })
+    </script>
 </x-public-layout>
