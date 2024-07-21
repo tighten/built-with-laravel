@@ -1,7 +1,5 @@
 <x-public-layout :prependTitle="$organization->name">
-    <div class="grid-cols-3 gap-10 lg:grid xl:grid-cols-4"
-        x-data="orgshow"
-        x-init="parseHash">
+    <div class="grid-cols-3 gap-10 lg:grid xl:grid-cols-4" x-data="orgshow" x-init="parseHash">
         <div>
             <span x-text="selected"></span>
             <div class="rounded-xl bg-black/4 p-4 backdrop-blur-lg">
@@ -80,7 +78,12 @@
                         class="mb-10"
                         style="view-transition-name: main-site-{{ $site->slug }}"
                     >
-                        <div class="font-bold" :class="selected == '{{ $site->slug }}' ? 'text-black' : 'text-bgrey-500'">{{ $site->name }}</div>
+                        <div
+                            class="font-bold"
+                            :class="selected == '{{ $site->slug }}' ? 'text-black' : 'text-bgrey-500'"
+                        >
+                            {{ $site->name }}
+                        </div>
                         <div class="relative">
                             <a
                                 href="{{ $site->url }}"
@@ -122,7 +125,7 @@
                         this.selected = hash.substring(6);
                     }
                 },
-            }))
-        })
+            }));
+        });
     </script>
 </x-public-layout>

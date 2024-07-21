@@ -18,14 +18,13 @@
         <title>{{ $title }}</title>
         <link rel="icon" href="/images/favicon.ico" />
 
-        <meta property="og:title" content="{{ $title }}">
+        <meta property="og:title" content="{{ $title }}" />
 
-        <meta property="og:description" content="{{ $description }}">
-        <meta name="description" content="{{ $description }}">
-        <meta property="og:image"
-            content="{{ asset('/images/og.jpg') }}">
-        <meta property="og:url" content="{{ request()->fullUrl() }}">
-        <meta property="og:site_name" content="{{ $title }}">
+        <meta property="og:description" content="{{ $description }}" />
+        <meta name="description" content="{{ $description }}" />
+        <meta property="og:image" content="{{ asset('/images/og.jpg') }}" />
+        <meta property="og:url" content="{{ request()->fullUrl() }}" />
+        <meta property="og:site_name" content="{{ $title }}" />
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net" />
