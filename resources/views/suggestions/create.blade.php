@@ -13,7 +13,7 @@
                 <form method="post" action="{{ route('suggestions.store') }}">
                     @csrf
                     <div class="mb-8">
-                        <label class="block">Organization name *</label>
+                        <label class="block mb-1">Organization name *</label>
                         <input
                             type="text"
                             class="w-96 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg"
@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="mb-8">
-                        <label class="block">Organization URL *</label>
+                        <label class="block mb-1">Organization URL *</label>
                         <input
                             type="url"
                             class="w-96 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg"
@@ -80,12 +80,14 @@
                     </div>
 
                     <div class="mb-8">
-                        <label class="block">
+                        <label class="block mb-1">
                             What sites/microsites/apps specifically use Laravel? (new line for each URL)
                         </label>
                         <textarea
                             class="h-32 w-128 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg"
                             name="sites"
+                            autocorrect="off"
+                            autocapitalize="none"
                             placeholder="https://fieldgoal.io/"
                         >
 {{ old('sites') }}</textarea
@@ -93,7 +95,7 @@
                     </div>
 
                     <div class="mb-8">
-                        <label class="block">What technologies are they using?</label>
+                        <label class="block mb-1">What technologies are they using?</label>
                         <select
                             name="technologies[]"
                             multiple
@@ -111,7 +113,7 @@
                     </div>
 
                     <div class="mb-8">
-                        <label class="block">Your name *</label>
+                        <label class="block mb-1">Your name *</label>
                         <input
                             type="text"
                             class="w-96 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg"
@@ -124,7 +126,7 @@
                     </div>
 
                     <div class="mb-8">
-                        <label class="block">Your email *</label>
+                        <label class="block mb-1">Your email *</label>
                         <input
                             type="email"
                             class="w-96 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg"
