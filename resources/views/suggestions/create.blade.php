@@ -84,32 +84,28 @@
                             </span>
                         </div>
 
-                        <div>
-                            <div class="relative group">
-                                <label for="private_source" id="sources-label-private" class="
-                                    z-10 block absolute top-0 -translate-y-1 ml-2 px-1 py-0 backdrop-blur-lg bg-black/4 rounded-lg text-xs font-normal leading-normal duration-300 ease-out cursor-text
-                                    text-black
-                                    group-has-[:placeholder-shown]:z-0 group-has-[:placeholder-shown]:text-transparent group-has-[:placeholder-shown]:top-[17px] group-has-[:placeholder-shown]:ml-3 group-has-[:placeholder-shown]:text-[16px] group-has-[:placeholder-shown]:bg-transparent group-has-[:placeholder-shown]:backdrop-blur-none
-                                    group-focus-within:!z-10 group-focus-within:!bg-black/4 group-focus-within:!text-black group-focus-within:!top-0 group-focus-within:!ml-2 group-focus-within:!text-xs group-focus-within:!backdrop-blur-lg
-                                ">Private</label>
+                        <div class="relative group">
+                            <label for="private_source" id="sources-label-private" class="
+                                z-10 block absolute top-0 -translate-y-1 ml-2 px-1 py-0 backdrop-blur-lg bg-black/4 rounded-lg text-xs font-normal leading-normal duration-300 ease-out cursor-text
+                                text-black
+                                group-has-[:placeholder-shown]:z-0 group-has-[:placeholder-shown]:text-transparent group-has-[:placeholder-shown]:top-[17px] group-has-[:placeholder-shown]:ml-3 group-has-[:placeholder-shown]:text-[16px] group-has-[:placeholder-shown]:bg-transparent group-has-[:placeholder-shown]:backdrop-blur-none
+                                group-focus-within:!z-10 group-focus-within:!bg-black/4 group-focus-within:!text-black group-focus-within:!top-0 group-focus-within:!ml-2 group-focus-within:!text-xs group-focus-within:!backdrop-blur-lg
+                            ">Private</label>
 
-                                <img aria-hidden="true" src="/images/lock.svg" alt="Lock" class="absolute right-3 top-3 z-50" />
+                            <img aria-hidden="true" src="/images/lock.svg" alt="Lock" class="absolute right-3 top-3 z-50" />
 
-                                <textarea
-                                    class="h-32 w-128 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg my-2 border-gray-300 ring-offset-background placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
-                                    placeholder="Private"
-                                    name="private_source"
-                                    id="private_source"
-                                    aria-labelledby="sources-heading sources-help-private"
-                                >{{ old('private_source') }}</textarea>
-                            </div>
+                            <textarea
+                                class="h-32 w-128 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg mt-2 border-gray-300 ring-offset-background placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
+                                placeholder="Private"
+                                name="private_source"
+                                id="private_source"
+                                aria-labelledby="sources-heading sources-help-private"
+                            >{{ old('private_source') }}</textarea>
 
-                            <span class="block">
-                                <span id="sources-help-private" class="text-sm italic text-gray-500">
-                                    (if this information
-                                    <strong>cannot</strong>
-                                    safely be shared publicly)
-                                </span>
+                            <span id="sources-help-private" class="block text-sm italic text-gray-500">
+                                (if this information
+                                <strong>cannot</strong>
+                                safely be shared publicly)
                             </span>
                         </div>
                     </div>
