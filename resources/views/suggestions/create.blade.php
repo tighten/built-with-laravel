@@ -99,7 +99,7 @@
                         <select
                             name="technologies[]"
                             multiple
-                            class="h-32 w-64 rounded-xl border-none bg-black/4 backdrop-blur-lg"
+                            class="w-64 md:h-32 rounded-xl border-none bg-black/4 backdrop-blur-lg"
                         >
                             @foreach ($technologies as $technology)
                                 <option
