@@ -13,7 +13,7 @@
                 <form method="post" action="{{ route('suggestions.store') }}">
                     @csrf
                     <div class="mb-8">
-                        <label class="block mb-1">Organization name *</label>
+                        <label class="mb-1 block">Organization name *</label>
                         <input
                             type="text"
                             class="w-96 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg"
@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="mb-8">
-                        <label class="block mb-1">Organization URL *</label>
+                        <label class="mb-1 block">Organization URL *</label>
                         <input
                             type="url"
                             class="w-96 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg"
@@ -80,7 +80,7 @@
                     </div>
 
                     <div class="mb-8">
-                        <label class="block mb-1">
+                        <label class="mb-1 block">
                             What sites/microsites/apps specifically use Laravel? (new line for each URL)
                         </label>
                         <textarea
@@ -95,11 +95,11 @@
                     </div>
 
                     <div class="mb-8">
-                        <label class="block mb-1">What technologies are they using?</label>
+                        <label class="mb-1 block">What technologies are they using?</label>
                         <select
                             name="technologies[]"
                             multiple
-                            class="w-64 md:h-32 rounded-xl border-none bg-black/4 backdrop-blur-lg"
+                            class="w-64 rounded-xl border-none bg-black/4 backdrop-blur-lg md:h-32"
                         >
                             @foreach ($technologies as $technology)
                                 <option
@@ -113,7 +113,7 @@
                     </div>
 
                     <div class="mb-8">
-                        <label class="block mb-1">Your name *</label>
+                        <label class="mb-1 block">Your name *</label>
                         <input
                             type="text"
                             class="w-96 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg"
@@ -126,7 +126,7 @@
                     </div>
 
                     <div class="mb-8">
-                        <label class="block mb-1">Your email *</label>
+                        <label class="mb-1 block">Your email *</label>
                         <input
                             type="email"
                             class="w-96 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg"
