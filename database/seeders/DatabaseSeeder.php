@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Organization;
-use App\Models\Site;
 use App\Models\Technology;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -96,7 +95,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/sweetwater.png',
             'description' => 'Music technology and instrument retailer.',
             'submitter_id' => $user->id,
-            'public_source' => "Tighten works with them, and they employ dozens of Laravel programmers.",
+            'public_source' => 'Tighten works with them, and they employ dozens of Laravel programmers.',
         ]);
 
         $sweetwater->sites()->create([

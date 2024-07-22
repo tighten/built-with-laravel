@@ -83,11 +83,10 @@
                         >
                             {{ $site->name }}
                         </div>
-                        <div class="relative">
-                            <a
-                                href="{{ $site->url }}"
+                        <div class="group relative">
+                            <span
                                 target="_blank"
-                                class="w-38 absolute right-4 top-4 rounded-xl border bg-white px-4 shadow hover:bg-bgrey-100"
+                                class="w-38 absolute right-4 top-4 rounded-xl border bg-white px-4 shadow group-hover:bg-bgrey-100"
                             >
                                 Visit website
                                 <img
@@ -96,8 +95,8 @@
                                     alt="Open in new"
                                     class="ml-2 inline-block align-text-bottom"
                                 />
-                            </a>
-                            <a href="#site-{{ $site->slug }}" @click="selected = '{{ $site->slug }}'">
+                            </span>
+                            <a href="{{ $site->url }}" target="_blank">
                                 <img
                                     loading="lazy"
                                     src="{{ $site->image }}"
