@@ -89,27 +89,20 @@
                             autocorrect="off"
                             autocapitalize="none"
                             placeholder="https://fieldgoal.io/"
-                        >
-{{ old('sites') }}</textarea
-                        >
+                        >{{ old('sites') }}</textarea>
                     </div>
 
                     <div class="mb-8">
                         <label class="mb-1 block">What technologies are they using?</label>
-                        <select
-                            name="technologies[]"
-                            multiple
-                            class="w-64 rounded-xl border-none bg-black/4 backdrop-blur-lg md:h-32"
-                        >
+
+                        <div class="flex flex-wrap gap-2 leading-none">
                             @foreach ($technologies as $technology)
-                                <option
-                                    value="{{ $technology->slug }}"
-                                    {{ collect(old('technologies'))->contains($technology->slug) ? 'selected' : '' }}
-                                >
-                                    {{ $technology->name }}
-                                </option>
+                                <label class="text-center rounded-xl border-none px-2 pt-1.5 pb-1 leading-none text-gray-500 font-semibold uppercase text-xs font-mono bg-black/4 backdrop-blur-lg transition cursor-pointer has-[:checked]:bg-black has-[:checked]:text-white">
+                                    <input class="sr-only" type="checkbox" name="technologies[]" value="{{ $technology->id }}" @if (in_array($technology->id, old('technologies', []))) checked @endif />
+                                    <span class="whitespace-nowrap">{{ $technology->name }}</span>
+                                </label>
                             @endforeach
-                        </select>
+                        </div>
                     </div>
 
                     <div class="mb-8">
