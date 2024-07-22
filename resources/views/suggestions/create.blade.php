@@ -98,7 +98,7 @@
                         <div class="flex flex-wrap gap-2 leading-none">
                             @foreach ($technologies as $technology)
                                 <label class="align-middle text-center rounded-xl border-none px-2 py-1 leading-none text-gray-500 font-medium uppercase text-sm font-sans bg-black/4 backdrop-blur-lg transition cursor-pointer has-[:checked]:bg-black has-[:checked]:text-white">
-                                    <input class="sr-only" type="checkbox" name="technologies[]" value="{{ $technology->id }}" @if (in_array($technology->id, old('technologies', []))) checked @endif />
+                                    <input class="sr-only" type="checkbox" name="technologies[]" value="{{ $technology->slug }}" @if (in_array($technology->slug, old('technologies', []))) checked @endif />
                                     <span class="whitespace-nowrap">{{ $technology->name }}</span>
                                 </label>
                             @endforeach
