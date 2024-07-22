@@ -158,7 +158,7 @@
                     <div>
                         <label id="suggester-heading" for="suggester_name" class="mb-1 block">Tell us about yourself</label>
 
-                        <div class="mb-1 relative group">
+                        <div class="mb-2 relative group">
                             <label for="suggester_name" class="
                                 z-10 block absolute top-0 -translate-y-1 ml-2 px-1 py-0 backdrop-blur-lg bg-black/4 rounded-lg text-xs font-normal leading-normal duration-300 ease-out cursor-text
                                 text-black
@@ -168,7 +168,7 @@
 
                             <input
                                 type="text"
-                                class="w-96 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg my-2 border-gray-300 ring-offset-background placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
+                                class="w-96 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg mt-2 border-gray-300 ring-offset-background placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
                                 name="suggester_name"
                                 id="suggester_name"
                                 aria-labelledby="suggester-heading suggester_name"
