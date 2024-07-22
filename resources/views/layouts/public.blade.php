@@ -95,9 +95,10 @@
                             x-anchor.bottom-start="$refs.asterisk"
                             @click.away="expanded = false"
                         >
-                            Any organizations listed here use Laravel
-                            <em>somewhere</em>
-                            , not necessarily on their primary home page.
+                            {{-- format-ignore-start --}}
+                            Any organizations listed here use Laravel <em>somewhere</em>,
+                            not necessarily on their primary home page.
+                            {{-- format-ignore-end --}}
                         </div>
                     </div>
 
