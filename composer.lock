@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7270100446405c9af82336c45714a894",
+    "content-hash": "a5450877fa6731d779b33004466c6433",
     "packages": [
         {
             "name": "brick/math",
@@ -3726,6 +3726,71 @@
                 }
             ],
             "time": "2024-04-27T21:32:50+00:00"
+        },
+        {
+            "name": "silber/page-cache",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JosephSilber/page-cache.git",
+                "reference": "6c37f01ef63cbd518b370c2ccaeccd0052c14bb4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JosephSilber/page-cache/zipball/6c37f01ef63cbd518b370c2ccaeccd0052c14bb4",
+                "reference": "6c37f01ef63cbd518b370c2ccaeccd0052c14bb4",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^11.0",
+                "illuminate/filesystem": "^11.0",
+                "php": "^8.2",
+                "symfony/http-foundation": "^7.0"
+            },
+            "require-dev": {
+                "illuminate/container": "^11.0",
+                "laravel/pint": "^1.14",
+                "mockery/mockery": "^1.6.9",
+                "pestphp/pest": "3.x-dev",
+                "phpunit/phpunit": "^11.0",
+                "symfony/var-dumper": "^7.0"
+            },
+            "suggest": {
+                "illuminate/console": "Allows clearing the cache via artisan"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Silber\\PageCache\\LaravelServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Silber\\PageCache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joseph Silber",
+                    "email": "contact@josephsilber.com"
+                }
+            ],
+            "description": "Caches responses as static files on disk for lightning fast page loads.",
+            "keywords": [
+                "cache",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/JosephSilber/page-cache/issues",
+                "source": "https://github.com/JosephSilber/page-cache/tree/v1.1.0"
+            },
+            "time": "2024-03-19T03:39:06+00:00"
         },
         {
             "name": "symfony/clock",
