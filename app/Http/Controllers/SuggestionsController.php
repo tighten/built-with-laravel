@@ -38,9 +38,10 @@ class SuggestionsController extends Controller
             'suggester_email' => $input['suggester_email'],
             'sites' => array_filter(explode("\n", $input['sites'])),
             'technologies' => $input['technologies'] ?? [],
+            'ip_address' => request()->ip(),
         ]);
 
-        if (app()->environment() === 'production') {
+        if (app()->environment() === 'production' || app()->environment() === 'testing') {
             Notification::route('slack', config('services.slack.notifications.channel'))
                 ->notify(new OrganizationSuggested($suggested));
         }

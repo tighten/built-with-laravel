@@ -34,6 +34,7 @@ it('saves a suggested organization', function () {
 });
 
 it('sends a notification to Slack', function () {
+    $this->withoutExceptionHandling();
     Notification::fake();
 
     $input = [
