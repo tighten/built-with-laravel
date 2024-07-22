@@ -1,7 +1,6 @@
 <x-public-layout :prependTitle="$organization->name">
     <div class="grid-cols-3 gap-10 lg:grid xl:grid-cols-4" x-data="orgshow" x-init="parseHash">
         <div>
-            <span x-text="selected"></span>
             <div class="rounded-xl bg-black/4 p-4 backdrop-blur-lg">
                 <h2
                     class="mb-3 text-xl font-bold"
