@@ -13,7 +13,7 @@
                 <form method="post" action="{{ route('suggestions.store') }}">
                     @csrf
                     <div>
-                        <label id="organization-heading" class="mb-1 block">Tell us about the Organization</label>
+                        <label id="organization-heading" for="name" class="mb-1 block">Tell us about the Organization</label>
 
                         <div class="mb-2 relative group">
                             <label for="name" class="
@@ -59,7 +59,7 @@
                     </div>
 
                     <div class="mb-6 gap-x-10 md:grid md:grid-cols-2">
-                        <span id="sources-heading" class="col-span-2">How do you know they use Laravel?</span>
+                        <label id="sources-heading" for="public_source" class="col-span-2">How do you know they use Laravel?</label>
 
                         <div class="mb-4 md:mb-0 relative group">
                             <label for="public_source" id="sources-label-public" class="
@@ -156,7 +156,7 @@
                     </div>
 
                     <div>
-                        <label id="suggester-heading" class="mb-1 block">Tell us about yourself</label>
+                        <label id="suggester-heading" for="suggester_name" class="mb-1 block">Tell us about yourself</label>
 
                         <div class="mb-1 relative group">
                             <label for="suggester_name" class="
