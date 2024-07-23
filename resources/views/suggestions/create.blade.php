@@ -13,19 +13,21 @@
                 <form method="post" action="{{ route('suggestions.store') }}">
                     @csrf
                     <div>
-                        <label id="organization-heading" for="name" class="mb-1 block">Tell us about the Organization</label>
+                        <label id="organization-heading" for="name" class="mb-1 block">
+                            Tell us about the Organization
+                        </label>
 
-                        <div class="mb-2 relative group">
-                            <label for="name" class="
-                                z-10 block absolute top-0 -translate-y-1 ml-2 px-1 py-0 backdrop-blur-lg bg-black/4 rounded-lg text-xs font-normal leading-normal duration-300 ease-out cursor-text
-                                text-black
-                                group-has-[:placeholder-shown]:z-0 group-has-[:placeholder-shown]:text-transparent group-has-[:placeholder-shown]:top-[17px] group-has-[:placeholder-shown]:ml-3 group-has-[:placeholder-shown]:text-[16px] group-has-[:placeholder-shown]:bg-transparent group-has-[:placeholder-shown]:backdrop-blur-none
-                                group-focus-within:!z-10 group-focus-within:!bg-black/4 group-focus-within:!text-black group-focus-within:!top-0 group-focus-within:!ml-2 group-focus-within:!text-xs group-focus-within:!backdrop-blur-lg
-                            ">Organization name *</label>
+                        <div class="group relative mb-2">
+                            <label
+                                for="name"
+                                class="absolute top-0 z-10 ml-2 block -translate-y-1 cursor-text rounded-lg bg-black/4 px-1 py-0 text-xs font-normal leading-normal text-black backdrop-blur-lg duration-300 ease-out group-focus-within:!top-0 group-focus-within:!z-10 group-focus-within:!ml-2 group-focus-within:!bg-black/4 group-focus-within:!text-xs group-focus-within:!text-black group-focus-within:!backdrop-blur-lg group-has-[:placeholder-shown]:top-[17px] group-has-[:placeholder-shown]:z-0 group-has-[:placeholder-shown]:ml-3 group-has-[:placeholder-shown]:bg-transparent group-has-[:placeholder-shown]:text-[16px] group-has-[:placeholder-shown]:text-transparent group-has-[:placeholder-shown]:backdrop-blur-none"
+                            >
+                                Organization name *
+                            </label>
 
                             <input
                                 type="text"
-                                class="w-96 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg my-1 border-gray-300 ring-offset-background placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
+                                class="ring-offset-background my-1 w-96 max-w-full rounded-xl border-none border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
                                 name="name"
                                 placeholder="Organization name *"
                                 id="name"
@@ -37,17 +39,17 @@
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                         </div>
 
-                        <div class="mb-2 relative group">
-                            <label for="url" class="
-                                z-10 block absolute top-0 -translate-y-1 ml-2 px-1 py-0 backdrop-blur-lg bg-black/4 rounded-lg text-xs font-normal leading-normal duration-300 ease-out cursor-text
-                                text-black
-                                group-has-[:placeholder-shown]:z-0 group-has-[:placeholder-shown]:text-transparent group-has-[:placeholder-shown]:top-[17px] group-has-[:placeholder-shown]:ml-3 group-has-[:placeholder-shown]:text-[16px] group-has-[:placeholder-shown]:bg-transparent group-has-[:placeholder-shown]:backdrop-blur-none
-                                group-focus-within:!z-10 group-focus-within:!bg-black/4 group-focus-within:!text-black group-focus-within:!top-0 group-focus-within:!ml-2 group-focus-within:!text-xs group-focus-within:!backdrop-blur-lg
-                            ">Organization URL *</label>
+                        <div class="group relative mb-2">
+                            <label
+                                for="url"
+                                class="absolute top-0 z-10 ml-2 block -translate-y-1 cursor-text rounded-lg bg-black/4 px-1 py-0 text-xs font-normal leading-normal text-black backdrop-blur-lg duration-300 ease-out group-focus-within:!top-0 group-focus-within:!z-10 group-focus-within:!ml-2 group-focus-within:!bg-black/4 group-focus-within:!text-xs group-focus-within:!text-black group-focus-within:!backdrop-blur-lg group-has-[:placeholder-shown]:top-[17px] group-has-[:placeholder-shown]:z-0 group-has-[:placeholder-shown]:ml-3 group-has-[:placeholder-shown]:bg-transparent group-has-[:placeholder-shown]:text-[16px] group-has-[:placeholder-shown]:text-transparent group-has-[:placeholder-shown]:backdrop-blur-none"
+                            >
+                                Organization URL *
+                            </label>
 
                             <input
                                 type="url"
-                                class="w-96 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg my-1 border-gray-300 ring-offset-background placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
+                                class="ring-offset-background my-1 w-96 max-w-full rounded-xl border-none border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
                                 name="url"
                                 id="url"
                                 placeholder="https://tighten.com/"
@@ -59,23 +61,28 @@
                     </div>
 
                     <div class="mb-6 gap-x-10 md:grid md:grid-cols-2">
-                        <label id="sources-heading" for="public_source" class="col-span-2">How do you know they use Laravel?</label>
+                        <label id="sources-heading" for="public_source" class="col-span-2">
+                            How do you know they use Laravel?
+                        </label>
 
-                        <div class="mb-4 md:mb-0 relative group">
-                            <label for="public_source" id="sources-label-public" class="
-                                z-10 block absolute top-0 -translate-y-1 ml-2 px-1 py-0 backdrop-blur-lg bg-black/4 rounded-lg text-xs font-normal leading-normal duration-300 ease-out cursor-text
-                                text-black
-                                group-has-[:placeholder-shown]:z-0 group-has-[:placeholder-shown]:text-transparent group-has-[:placeholder-shown]:top-[17px] group-has-[:placeholder-shown]:ml-3 group-has-[:placeholder-shown]:text-[16px] group-has-[:placeholder-shown]:bg-transparent group-has-[:placeholder-shown]:backdrop-blur-none
-                                group-focus-within:!z-10 group-focus-within:!bg-black/4 group-focus-within:!text-black group-focus-within:!top-0 group-focus-within:!ml-2 group-focus-within:!text-xs group-focus-within:!backdrop-blur-lg
-                            ">Public</label>
+                        <div class="group relative mb-4 md:mb-0">
+                            <label
+                                for="public_source"
+                                id="sources-label-public"
+                                class="absolute top-0 z-10 ml-2 block -translate-y-1 cursor-text rounded-lg bg-black/4 px-1 py-0 text-xs font-normal leading-normal text-black backdrop-blur-lg duration-300 ease-out group-focus-within:!top-0 group-focus-within:!z-10 group-focus-within:!ml-2 group-focus-within:!bg-black/4 group-focus-within:!text-xs group-focus-within:!text-black group-focus-within:!backdrop-blur-lg group-has-[:placeholder-shown]:top-[17px] group-has-[:placeholder-shown]:z-0 group-has-[:placeholder-shown]:ml-3 group-has-[:placeholder-shown]:bg-transparent group-has-[:placeholder-shown]:text-[16px] group-has-[:placeholder-shown]:text-transparent group-has-[:placeholder-shown]:backdrop-blur-none"
+                            >
+                                Public
+                            </label>
 
                             <textarea
-                                class="h-32 w-128 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg mt-2 border-gray-300 ring-offset-background placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
+                                class="ring-offset-background mt-2 h-32 w-128 max-w-full rounded-xl border-none border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
                                 placeholder="Public"
                                 name="public_source"
                                 id="public_source"
                                 aria-labelledby="sources-heading sources-help-public"
-                            >{{ old('public_source') }}</textarea>
+                            >
+{{ old('public_source') }}</textarea
+                            >
 
                             <span id="sources-help-public" class="block text-sm italic text-gray-500">
                                 (if this information
@@ -84,23 +91,31 @@
                             </span>
                         </div>
 
-                        <div class="relative group">
-                            <label for="private_source" id="sources-label-private" class="
-                                z-10 block absolute top-0 -translate-y-1 ml-2 px-1 py-0 backdrop-blur-lg bg-black/4 rounded-lg text-xs font-normal leading-normal duration-300 ease-out cursor-text
-                                text-black
-                                group-has-[:placeholder-shown]:z-0 group-has-[:placeholder-shown]:text-transparent group-has-[:placeholder-shown]:top-[17px] group-has-[:placeholder-shown]:ml-3 group-has-[:placeholder-shown]:text-[16px] group-has-[:placeholder-shown]:bg-transparent group-has-[:placeholder-shown]:backdrop-blur-none
-                                group-focus-within:!z-10 group-focus-within:!bg-black/4 group-focus-within:!text-black group-focus-within:!top-0 group-focus-within:!ml-2 group-focus-within:!text-xs group-focus-within:!backdrop-blur-lg
-                            ">Private</label>
+                        <div class="group relative">
+                            <label
+                                for="private_source"
+                                id="sources-label-private"
+                                class="absolute top-0 z-10 ml-2 block -translate-y-1 cursor-text rounded-lg bg-black/4 px-1 py-0 text-xs font-normal leading-normal text-black backdrop-blur-lg duration-300 ease-out group-focus-within:!top-0 group-focus-within:!z-10 group-focus-within:!ml-2 group-focus-within:!bg-black/4 group-focus-within:!text-xs group-focus-within:!text-black group-focus-within:!backdrop-blur-lg group-has-[:placeholder-shown]:top-[17px] group-has-[:placeholder-shown]:z-0 group-has-[:placeholder-shown]:ml-3 group-has-[:placeholder-shown]:bg-transparent group-has-[:placeholder-shown]:text-[16px] group-has-[:placeholder-shown]:text-transparent group-has-[:placeholder-shown]:backdrop-blur-none"
+                            >
+                                Private
+                            </label>
 
-                            <img aria-hidden="true" src="/images/lock.svg" alt="Lock" class="absolute right-3 top-3 z-50" />
+                            <img
+                                aria-hidden="true"
+                                src="/images/lock.svg"
+                                alt="Lock"
+                                class="absolute right-3 top-3 z-50"
+                            />
 
                             <textarea
-                                class="h-32 w-128 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg mt-2 border-gray-300 ring-offset-background placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
+                                class="ring-offset-background mt-2 h-32 w-128 max-w-full rounded-xl border-none border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
                                 placeholder="Private"
                                 name="private_source"
                                 id="private_source"
                                 aria-labelledby="sources-heading sources-help-private"
-                            >{{ old('private_source') }}</textarea>
+                            >
+{{ old('private_source') }}</textarea
+                            >
 
                             <span id="sources-help-private" class="block text-sm italic text-gray-500">
                                 (if this information
@@ -115,22 +130,24 @@
                             What sites/microsites/apps specifically use Laravel? (new line for each URL)
                         </label>
 
-                        <div class="relative group">
-                            <label for="sites" class="
-                                z-10 block absolute top-0 -translate-y-1 ml-2 px-1 py-0 backdrop-blur-lg bg-black/4 rounded-lg text-xs font-normal leading-normal duration-300 ease-out cursor-text
-                                text-black
-                                group-has-[:placeholder-shown]:z-0 group-has-[:placeholder-shown]:text-transparent group-has-[:placeholder-shown]:top-[17px] group-has-[:placeholder-shown]:ml-3 group-has-[:placeholder-shown]:text-[16px] group-has-[:placeholder-shown]:bg-transparent group-has-[:placeholder-shown]:backdrop-blur-none
-                                group-focus-within:!z-10 group-focus-within:!bg-black/4 group-focus-within:!text-black group-focus-within:!top-0 group-focus-within:!ml-2 group-focus-within:!text-xs group-focus-within:!backdrop-blur-lg
-                            ">Sites</label>
+                        <div class="group relative">
+                            <label
+                                for="sites"
+                                class="absolute top-0 z-10 ml-2 block -translate-y-1 cursor-text rounded-lg bg-black/4 px-1 py-0 text-xs font-normal leading-normal text-black backdrop-blur-lg duration-300 ease-out group-focus-within:!top-0 group-focus-within:!z-10 group-focus-within:!ml-2 group-focus-within:!bg-black/4 group-focus-within:!text-xs group-focus-within:!text-black group-focus-within:!backdrop-blur-lg group-has-[:placeholder-shown]:top-[17px] group-has-[:placeholder-shown]:z-0 group-has-[:placeholder-shown]:ml-3 group-has-[:placeholder-shown]:bg-transparent group-has-[:placeholder-shown]:text-[16px] group-has-[:placeholder-shown]:text-transparent group-has-[:placeholder-shown]:backdrop-blur-none"
+                            >
+                                Sites
+                            </label>
 
                             <textarea
-                                class="h-32 w-128 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg my-2 border-gray-300 ring-offset-background placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
+                                class="ring-offset-background my-2 h-32 w-128 max-w-full rounded-xl border-none border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
                                 id="sites"
                                 name="sites"
                                 autocorrect="off"
                                 autocapitalize="none"
                                 placeholder="https://fieldgoal.io/"
-                            >{{ old('sites') }}</textarea>
+                            >
+{{ old('sites') }}</textarea
+                            >
                         </div>
                     </div>
 
@@ -139,7 +156,9 @@
 
                         <div class="flex flex-wrap gap-2 leading-none">
                             @foreach ($technologies as $technology)
-                                <label class="align-middle text-center rounded-xl border-none px-2 py-1 leading-none text-gray-500 font-medium uppercase text-sm font-sans bg-black/4 backdrop-blur-lg transition cursor-pointer has-[:checked]:bg-black has-[:checked]:text-white ring-offset-background focus-within:outline-none focus-within:ring-1 focus-within:ring-zinc-800">
+                                <label
+                                    class="ring-offset-background cursor-pointer rounded-md border-none bg-black/4 px-2 py-1 text-center align-middle font-sans text-sm font-medium uppercase leading-none text-gray-500 backdrop-blur-lg transition focus-within:outline-none focus-within:ring-1 focus-within:ring-zinc-800 has-[:checked]:bg-black has-[:checked]:text-white"
+                                >
                                     <input
                                         class="sr-only"
                                         type="checkbox"
@@ -149,26 +168,30 @@
                                         @if (in_array($technology->slug, old('technologies', []))) checked @endif
                                     />
 
-                                    <span id="technology-{{ $technology->slug }}" class="whitespace-nowrap">{{ $technology->name }}</span>
+                                    <span id="technology-{{ $technology->slug }}" class="whitespace-nowrap">
+                                        {{ $technology->name }}
+                                    </span>
                                 </label>
                             @endforeach
                         </div>
                     </div>
 
                     <div>
-                        <label id="suggester-heading" for="suggester_name" class="mb-1 block">Tell us about yourself</label>
+                        <label id="suggester-heading" for="suggester_name" class="mb-1 block">
+                            Tell us about yourself
+                        </label>
 
-                        <div class="mb-2 relative group">
-                            <label for="suggester_name" class="
-                                z-10 block absolute top-0 -translate-y-1 ml-2 px-1 py-0 backdrop-blur-lg bg-black/4 rounded-lg text-xs font-normal leading-normal duration-300 ease-out cursor-text
-                                text-black
-                                group-has-[:placeholder-shown]:z-0 group-has-[:placeholder-shown]:text-transparent group-has-[:placeholder-shown]:top-[17px] group-has-[:placeholder-shown]:ml-3 group-has-[:placeholder-shown]:text-[16px] group-has-[:placeholder-shown]:bg-transparent group-has-[:placeholder-shown]:backdrop-blur-none
-                                group-focus-within:!z-10 group-focus-within:!bg-black/4 group-focus-within:!text-black group-focus-within:!top-0 group-focus-within:!ml-2 group-focus-within:!text-xs group-focus-within:!backdrop-blur-lg
-                            ">Your name *</label>
+                        <div class="group relative mb-2">
+                            <label
+                                for="suggester_name"
+                                class="absolute top-0 z-10 ml-2 block -translate-y-1 cursor-text rounded-lg bg-black/4 px-1 py-0 text-xs font-normal leading-normal text-black backdrop-blur-lg duration-300 ease-out group-focus-within:!top-0 group-focus-within:!z-10 group-focus-within:!ml-2 group-focus-within:!bg-black/4 group-focus-within:!text-xs group-focus-within:!text-black group-focus-within:!backdrop-blur-lg group-has-[:placeholder-shown]:top-[17px] group-has-[:placeholder-shown]:z-0 group-has-[:placeholder-shown]:ml-3 group-has-[:placeholder-shown]:bg-transparent group-has-[:placeholder-shown]:text-[16px] group-has-[:placeholder-shown]:text-transparent group-has-[:placeholder-shown]:backdrop-blur-none"
+                            >
+                                Your name *
+                            </label>
 
                             <input
                                 type="text"
-                                class="w-96 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg mt-2 border-gray-300 ring-offset-background placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
+                                class="ring-offset-background mt-2 w-96 max-w-full rounded-xl border-none border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
                                 name="suggester_name"
                                 id="suggester_name"
                                 aria-labelledby="suggester-heading suggester_name"
@@ -179,17 +202,17 @@
                             <x-input-error :messages="$errors->get('suggester_name')" class="mt-2" />
                         </div>
 
-                        <div class="mb-6 relative group">
-                            <label for="suggester_email" class="
-                                z-10 block absolute top-0 -translate-y-1 ml-2 px-1 py-0 backdrop-blur-lg bg-black/4 rounded-lg text-xs font-normal leading-normal duration-300 ease-out cursor-text
-                                text-black
-                                group-has-[:placeholder-shown]:z-0 group-has-[:placeholder-shown]:text-transparent group-has-[:placeholder-shown]:top-[17px] group-has-[:placeholder-shown]:ml-3 group-has-[:placeholder-shown]:text-[16px] group-has-[:placeholder-shown]:bg-transparent group-has-[:placeholder-shown]:backdrop-blur-none
-                                group-focus-within:!z-10 group-focus-within:!bg-black/4 group-focus-within:!text-black group-focus-within:!top-0 group-focus-within:!ml-2 group-focus-within:!text-xs group-focus-within:!backdrop-blur-lg
-                            ">Your email *</label>
+                        <div class="group relative mb-6">
+                            <label
+                                for="suggester_email"
+                                class="absolute top-0 z-10 ml-2 block -translate-y-1 cursor-text rounded-lg bg-black/4 px-1 py-0 text-xs font-normal leading-normal text-black backdrop-blur-lg duration-300 ease-out group-focus-within:!top-0 group-focus-within:!z-10 group-focus-within:!ml-2 group-focus-within:!bg-black/4 group-focus-within:!text-xs group-focus-within:!text-black group-focus-within:!backdrop-blur-lg group-has-[:placeholder-shown]:top-[17px] group-has-[:placeholder-shown]:z-0 group-has-[:placeholder-shown]:ml-3 group-has-[:placeholder-shown]:bg-transparent group-has-[:placeholder-shown]:text-[16px] group-has-[:placeholder-shown]:text-transparent group-has-[:placeholder-shown]:backdrop-blur-none"
+                            >
+                                Your email *
+                            </label>
 
                             <input
                                 type="email"
-                                class="w-96 max-w-full rounded-xl border-none bg-black/4 backdrop-blur-lg my-2 border-gray-300 ring-offset-background placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
+                                class="ring-offset-background my-2 w-96 max-w-full rounded-xl border-none border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
                                 name="suggester_email"
                                 id="suggester_email"
                                 placeholder="you@awesome.com"
