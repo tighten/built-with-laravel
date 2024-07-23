@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Alpine from 'alpinejs';
-import anchor from '@alpinejs/anchor'
+import anchor from '@alpinejs/anchor';
 
 window.axios = axios;
 
