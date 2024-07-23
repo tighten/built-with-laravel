@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Alpine from 'alpinejs';
+import anchor from '@alpinejs/anchor'
 
 window.axios = axios;
 
@@ -10,4 +11,5 @@ if (typeof window.Alpine === 'undefined') {
     window.Alpine = Alpine;
 
     Alpine.start();
+    Alpine.plugin(anchor);
 }
