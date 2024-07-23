@@ -154,10 +154,12 @@
                     <div class="mb-6">
                         <label id="technologies-heading" class="mb-1 block">What technologies are they using?</label>
 
-                        <div class="flex flex-wrap gap-2 leading-none">
+                        <div
+                            class="flex flex-wrap gap-2 font-mono text-sm font-bold uppercase leading-none text-bgrey-500"
+                        >
                             @foreach ($technologies as $technology)
                                 <label
-                                    class="ring-offset-background cursor-pointer rounded-md border-none bg-black/4 px-2 py-1 text-center align-middle font-sans text-sm font-medium uppercase leading-none text-gray-500 backdrop-blur-lg transition focus-within:outline-none focus-within:ring-1 focus-within:ring-zinc-800 has-[:checked]:bg-black has-[:checked]:text-white"
+                                    class="ring-offset-background cursor-pointer rounded-md border-none bg-black/4 px-2 py-1 text-center align-middle backdrop-blur-lg transition focus-within:outline-none focus-within:ring-1 focus-within:ring-zinc-800 hover:bg-black/8 has-[:checked]:bg-black has-[:checked]:text-white"
                                 >
                                     <input
                                         class="sr-only"
