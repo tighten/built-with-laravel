@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.4",
         "livewire/volt": "^1.0",
+        "silber/page-cache": "^1.1",
         "tightenco/duster": "^3.0"
     },
     "require-dev": {
