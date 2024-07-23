@@ -56,7 +56,7 @@
                         class="mx-auto mb-5 mt-16 flex w-72 justify-center text-5xl font-bold hover:text-black/70 md:w-auto lg:col-start-2"
                     >
                         <h1>
-                            <img src="/images/bwl-logo.svg" loading="lazy" alt="Built With Laravel" class="w-144" />
+                            <img src="/images/bwl-logo.svg" fetchpriority="high" alt="Built With Laravel" class="w-144" />
                         </h1>
                     </a>
 
@@ -67,7 +67,7 @@
                         <span class="mr-2 mt-1">Curated by</span>
                         <img
                             src="/images/tighten-logo.svg"
-                            loading="lazy"
+                            fetchpriority="high"
                             alt="Tighten"
                             width="100"
                             height="22"
