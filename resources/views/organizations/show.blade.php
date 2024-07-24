@@ -86,7 +86,7 @@
                         <div class="group relative">
                             <span
                                 target="_blank"
-                                class="w-38 absolute right-4 top-4 rounded-xl border bg-white px-4 shadow group-hover:bg-bgrey-100"
+                                class="w-38 pointer-events-none absolute right-4 top-4 rounded-xl border bg-white px-4 shadow group-hover:bg-bgrey-100"
                             >
                                 Visit website
                                 <img
