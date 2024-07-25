@@ -2,18 +2,20 @@
     <div class="grid-cols-3 gap-10 lg:grid xl:grid-cols-4" x-data="orgshow" x-init="parseHash">
         <div>
             <div class="rounded-xl bg-black/4 p-4 backdrop-blur-lg">
-                <h2
-                    class="mb-3 text-xl font-bold"
-                    style="view-transition-name: organization-{{ $organization->slug }}"
-                >
-                    <img
-                        loading="lazy"
-                        src="{{ $organization->favicon }}"
-                        alt="{{ $organization->name }}"
-                        class="mr-2 inline-block w-9 rounded-lg"
-                    />
-                    {{ $organization->name }}
-                </h2>
+                <a href="{{ $organization->url }}">
+                    <h2
+                        class="mb-3 text-xl font-bold"
+                        style="view-transition-name: organization-{{ $organization->slug }}"
+                    >
+                        <img
+                            loading="lazy"
+                            src="{{ $organization->favicon }}"
+                            alt="{{ $organization->name }}"
+                            class="mr-2 inline-block w-9 rounded-lg"
+                        />
+                        {{ $organization->name }}
+                    </h2>
+                </a>
                 <p class="text-bgrey-500 md:text-lg">{{ $organization->description }}</p>
                 <hr class="my-3 border-black/4" />
 
@@ -61,15 +63,28 @@
 
         <div class="col-span-2 mt-8 md:mt-0 xl:col-span-3">
             @if ($organization->sites->count() === 0)
-                <div
-                    class="bg-white bg-contain transition duration-300 group-hover:scale-115"
+                <a
+                    href="{{ $organization->url }}"
+                    class="group relative block bg-white bg-contain transition duration-300 group-hover:scale-115"
                     style="
                         background-image: url('/images/siteless-background.png');
                         view-transition-name: no-site-{{ $organization->slug }};
                     "
                 >
+                    <span
+                        target="_blank"
+                        class="w-38 pointer-events-none absolute right-4 top-4 rounded-xl border bg-white px-4 shadow group-hover:bg-bgrey-100"
+                    >
+                        Visit website
+                        <img
+                            loading="lazy"
+                            src="/images/open-in-new.svg"
+                            alt="Open in new"
+                            class="ml-2 inline-block align-text-bottom"
+                        />
+                    </span>
                     <img loading="lazy" src="{{ $organization->image }}" class="rounded-md border" />
-                </div>
+                </a>
             @else
                 @foreach ($organization->sites as $site)
                     <div
