@@ -2,7 +2,7 @@
     <div class="grid-cols-3 gap-10 lg:grid xl:grid-cols-4" x-data="orgshow" x-init="parseHash">
         <div>
             <div class="rounded-xl bg-black/4 p-4 backdrop-blur-lg">
-                <a href="{{ $organization->url }}">
+                <a href="{{ $organization->url }}" target="_blank">
                     <h2
                         class="mb-3 text-xl font-bold"
                         style="view-transition-name: organization-{{ $organization->slug }}"
@@ -66,6 +66,7 @@
                 <a
                     href="{{ $organization->url }}"
                     class="group relative block bg-white bg-contain transition duration-300 group-hover:scale-115"
+                    target="_blank"
                     style="
                         background-image: url('/images/siteless-background.png');
                         view-transition-name: no-site-{{ $organization->slug }};
