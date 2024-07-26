@@ -10,6 +10,6 @@ if (typeof window.Alpine === 'undefined') {
     // Manually start up Alpine so it works on cached pages when Livewire doesn't load
     window.Alpine = Alpine;
 
-    Alpine.start();
     Alpine.plugin(anchor);
+    Alpine.start();
 }
