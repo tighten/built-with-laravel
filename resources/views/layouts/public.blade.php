@@ -107,7 +107,7 @@
                         </div>
                     </div>
 
-                    <livewire:public.navigation />
+                    <x-navigation />
                 </header>
 
                 <!-- Page Content -->
