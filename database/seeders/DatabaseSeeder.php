@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Organization;
-use App\Models\Site;
 use App\Models\SuggestedOrganization;
 use App\Models\Technology;
 use App\Models\User;
@@ -15,7 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         // Real data
 
-        Technology::create(['name' => 'React']);
+        $react = Technology::create(['name' => 'React']);
         Technology::create(['name' => 'Alpine.js']);
         Technology::create(['name' => 'Filament']);
         $statamic = Technology::create(['name' => 'Statamic']);
@@ -24,32 +23,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'Matt Stauffer',
             'email' => 'matt@tighten.co',
             'password' => bcrypt('password'),
-        ]);
-
-        $tighten = Organization::create([
-            'name' => 'Tighten',
-            'url' => 'https://tighten.com/',
-            'favicon' => '/images/temp/favicons/tighten.png',
-            'description' => 'A Laravel consultancy.',
-            'public_source' => 'Let us count the ways.',
-            'submitter_id' => $user->id,
-        ]);
-
-        $tighten->technologies()->createMany([
-            ['name' => 'Jigsaw'],
-            ['name' => 'Livewire'],
-        ]);
-
-        $tighten->sites()->create([
-            'name' => 'FieldGoal',
-            'url' => 'https://fieldgoal.io/',
-            'image' => '/images/temp/screenshots/fieldgoal.jpg',
-        ]);
-
-        $tighten->sites()->create([
-            'name' => 'Thermostat',
-            'url' => 'https://thermostat.io/',
-            'image' => '/images/temp/screenshots/thermostat.png',
         ]);
 
         Organization::create([
@@ -62,6 +35,23 @@ class DatabaseSeeder extends Seeder
             'public_source' => "They've posted jobs for Laravel.",
         ]);
 
+        $gene = Organization::create([
+            'name' => 'Genentech',
+            'url' => 'https://gene.com/',
+            'favicon' => '/images/temp/favicons/genentech.png',
+            'description' => 'A research company.',
+            'submitter_id' => $user->id,
+            'public_source' => 'Tighten built their site(s).',
+        ]);
+
+        $gene->sites()->create([
+            'name' => 'Genentech.com',
+            'url' => 'https://www.gene.com/',
+            'image' => '/images/temp/screenshots/genentech.jpg',
+        ]);
+
+        $gene->technologies()->attach($react);
+
         Organization::create([
             'name' => 'Apple',
             'url' => 'https://apple.com/',
@@ -70,17 +60,6 @@ class DatabaseSeeder extends Seeder
             'description' => 'A personal electronics technology company.',
             'submitter_id' => $user->id,
             'public_source' => "They've posted jobs for Laravel.",
-            'featured_at' => now(),
-        ]);
-
-        Organization::create([
-            'name' => 'Square',
-            'url' => 'https://square.com/',
-            'image' => '/images/temp/screenshots/square.png',
-            'favicon' => '/images/temp/favicons/square.png',
-            'description' => 'A payments technology company.',
-            'submitter_id' => $user->id,
-            'public_source' => 'Taylor named them as using Laravel on Twitter.',
         ]);
 
         $zillow = Organization::create([
@@ -111,19 +90,87 @@ class DatabaseSeeder extends Seeder
             'public_source' => "They've long employed dozens of Laravel developers, including through several Laravel-based staff augmentation firms.",
         ]);
 
-        $gene = Organization::create([
-            'name' => 'Genentech',
-            'url' => 'https://gene.com/',
-            'favicon' => '/images/temp/favicons/genentech.png',
-            'description' => 'A research company.',
+        $sweetwater = Organization::create([
+            'name' => 'Sweetwater',
+            'url' => 'https://sweetwater.com/',
+            'favicon' => '/images/temp/favicons/sweetwater.png',
+            'description' => 'Music technology and instrument retailer.',
             'submitter_id' => $user->id,
-            'public_source' => 'Tighten built their site(s).',
+            'public_source' => 'Tighten works with them, and they employ dozens of Laravel programmers.',
         ]);
 
-        $gene->sites()->create([
-            'name' => 'Genentech.com',
-            'url' => 'https://www.gene.com/',
-            'image' => '/images/temp/screenshots/genentech.jpg',
+        $sweetwater->sites()->create([
+            'name' => 'Sweetwater.com',
+            'url' => 'https://sweetwater.com/',
+            'image' => '/images/temp/screenshots/sweetwater.jpg',
+        ]);
+
+        $fathom = Organization::create([
+            'name' => 'Fathom Analytics',
+            'url' => 'https://usefathom.com/',
+            'favicon' => '/images/temp/favicons/fathom.png',
+            'description' => 'A privacy-focused analytics app.',
+            'submitter_id' => $user->id,
+            'public_source' => 'Co-founder talks about using Laravel in Fathom.',
+        ]);
+
+        $fathom->sites()->create([
+            'name' => 'Fathom Analytics',
+            'url' => 'https://usefathom.com/',
+            'image' => '/images/temp/screenshots/fathom.png',
+        ]);
+
+        Organization::create([
+            'name' => 'Square',
+            'url' => 'https://square.com/',
+            'image' => '/images/temp/screenshots/square.png',
+            'favicon' => '/images/temp/favicons/square.png',
+            'description' => 'A payments technology company.',
+            'submitter_id' => $user->id,
+            'public_source' => 'Taylor named them as using Laravel on Twitter.',
+        ]);
+
+        $spiegel = Organization::create([
+            'name' => 'Der Spiegel',
+            'url' => 'https://spiegel.de/',
+            'favicon' => '/images/temp/favicons/spiegel.png',
+            'description' => "One of Germany's largest newspapers.",
+            'submitter_id' => $user->id,
+            'public_source' => 'Jack McDade said so.',
+        ]);
+
+        $spiegel->sites()->create([
+            'name' => 'Der Spiegel',
+            'url' => 'https://spiegel.de',
+            'image' => '/images/temp/screenshots/spiegel.jpg',
+        ]);
+
+        $spiegel->technologies()->attach($statamic);
+
+        $tighten = Organization::create([
+            'name' => 'Tighten',
+            'url' => 'https://tighten.com/',
+            'favicon' => '/images/temp/favicons/tighten.png',
+            'description' => 'A Laravel consultancy.',
+            'public_source' => 'Let us count the ways.',
+            'submitter_id' => $user->id,
+        ]);
+
+        $tighten->technologies()->createMany([
+            ['name' => 'Jigsaw'],
+            ['name' => 'Livewire'],
+        ]);
+
+        $tighten->sites()->create([
+            'name' => 'FieldGoal',
+            'url' => 'https://fieldgoal.io/',
+            'image' => '/images/temp/screenshots/fieldgoal.jpg',
+        ]);
+
+        $tighten->sites()->create([
+            'name' => 'Thermostat',
+            'url' => 'https://thermostat.io/',
+            'image' => '/images/temp/screenshots/thermostat.png',
         ]);
 
         $aic = Organization::create([
@@ -142,28 +189,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $aic->technologies()->attach(Technology::create(['name' => 'Twill']));
-
-        /*
-        Organization::create([
-            'name' => 'Midwest Institute for Sexuality and Gender Diversity',
-            'url' => 'https://sgdinstitute.org',
-            'image' => '/images/temp/screenshots/misgd.jpg',
-            'favicon' => '/images/temp/favicons/misgd.png',
-            'description' => 'An all-volunteer organization dedicated to queer and trans success in the Midwest.',
-            'submitter_id' => $user->id,
-            'public_source' => 'Andy Newhouse developed the sites.',
-        ]);
-        */
-
-        Organization::create([
-            'name' => 'Fathom Analytics',
-            'url' => 'https://usefathom.com/',
-            'image' => '/images/temp/screenshots/fathom.png',
-            'favicon' => '/images/temp/favicons/fathom.png',
-            'description' => 'A privacy-focused analytics app.',
-            'submitter_id' => $user->id,
-            'public_source' => 'Co-founder talks about using Laravel in Fathom.',
-        ]);
 
         $spatie = Organization::create([
             'name' => 'Spatie',
@@ -188,31 +213,44 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/transistor.png',
             'description' => 'A podcast publishing platform.',
             'submitter_id' => $user->id,
-            'public_source' => 'Founder talks publicly about using Statamic to power their web site.',
+            'public_source' => 'Founder talks publicly about using Statamic to power their sales web site (not the app, which is on Rails).',
         ]);
 
         $transistor->sites()->create([
-            'name' => 'Transistor.fm',
+            'name' => 'Transistor.fm sales site',
             'url' => 'https://transistor.fm/',
             'image' => '/images/temp/screenshots/transistor.jpg',
         ]);
 
-        $spiegel = Organization::create([
-            'name' => 'Der Spiegel',
-            'url' => 'https://spiegel.de/',
-            'favicon' => '/images/temp/favicons/spiegel.png',
-            'description' => "One of Germany's largest newspapers.",
+        $userscape = Organization::create([
+            'name' => 'UserScape',
+            'url' => 'https://userscape.com/',
+            'favicon' => '/images/temp/favicons/userscape.png',
+            'description' => 'A product company, behind helpdesk software HelpSpot and more.',
             'submitter_id' => $user->id,
-            'public_source' => 'Jack McDade said so.',
+            'public_source' => 'Founder talks publicly about using Laravel to power their web sites.',
         ]);
 
-        $spiegel->sites()->create([
-            'name' => 'Der Spiegel',
-            'url' => 'https://spiegel.de',
-            'image' => '/images/temp/screenshots/spiegel.jpg',
+        $userscape->sites()->create([
+            'name' => 'HelpSpot',
+            'url' => 'https://helpspot.com/',
+            'image' => '/images/temp/screenshots/helpspot.png',
         ]);
 
-        $spiegel->technologies()->attach($statamic);
+        $genesis = Organization::create([
+            'name' => 'Genesis',
+            'url' => 'https://genesis.com/',
+            'favicon' => '/images/temp/favicons/genesis.png',
+            'description' => 'A car company.',
+            'submitter_id' => $user->id,
+            'public_source' => 'Laravel cookie can be seen on some microsites.',
+        ]);
+
+        $genesis->sites()->create([
+            'name' => 'Genesis software update',
+            'url' => 'https://update.genesis.com/',
+            'image' => '/images/temp/screenshots/genesis-update.jpg',
+        ]);
 
         // Create a suggested organization
         SuggestedOrganization::create([
@@ -226,8 +264,7 @@ class DatabaseSeeder extends Seeder
             'suggester_email' => 'matt@tighten.co',
         ]);
 
-        // Does Flare fit? It's targeting Laravel devs so it's not exactly what we're looking for...
-
+        // Does Flare fit? OhDear? They're targeting Laravel devs so it's not exactly what we're looking for...
         // Do laracasts and codecourse fit in?
     }
 }

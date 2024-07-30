@@ -8,7 +8,7 @@ it('lists organizations', function () {
 
     $response = $this->get(route('home'));
 
-    $response->assertStatus(200);
+    $response->assertOk();
     $response->assertSee($org->name);
 });
 
@@ -18,11 +18,11 @@ it('filters organizations', function () {
 
     $otherOrg = Organization::factory()->create();
 
-    $response = $this->get(route('technologies.show', [
+    $response = $this->get(route('home', [
         'technology' => $tech,
     ]));
 
-    $response->assertStatus(200);
+    $response->assertOk();
     $response->assertSee($org->name);
     $response->assertDontSee($otherOrg->name);
 });

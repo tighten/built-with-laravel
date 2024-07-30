@@ -5,8 +5,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-        <title>Built with Laravel</title>
+        @php
+            $title = 'Built with Laravel';
+
+            if ($prependTitle) {
+                $title = $prependTitle . ' | ' . $title;
+            }
+
+            $description = 'A curated list of companies and organizations building with Laravel.';
+        @endphp
+
+        <title>{{ $title }}</title>
         <link rel="icon" href="/images/favicon.ico" />
+
+        <meta property="og:title" content="{{ $title }}" />
+
+        <meta property="og:description" content="{{ $description }}" />
+        <meta name="description" content="{{ $description }}" />
+        <meta property="og:image" content="{{ asset('/images/og.jpg') }}" />
+        <meta property="og:url" content="{{ request()->fullUrl() }}" />
+        <meta property="og:site_name" content="{{ $title }}" />
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net" />
@@ -25,10 +43,10 @@
     >
         <div class="relative flex min-h-screen flex-col items-center">
             <div class="relative w-full max-w-2xl px-6 lg:max-w-8xl">
-                <header class="pb-10 pt-4">
+                <header class="pb-10 pt-4" style="view-transition-name: main-heading">
                     @if (in_array(request()->route()->getName(),['organizations.show']))
-                        <a href="/">
-                            <img src="/images/arrow-back.svg" alt="<-" class="inline-block" />
+                        <a href="/" class="absolute left-10 top-10">
+                            <img src="/images/arrow-back.svg" loading="lazy" alt="<-" class="inline-block" />
                             Back
                         </a>
                     @endif
@@ -37,7 +55,14 @@
                         href="/"
                         class="mx-auto mb-5 mt-16 flex w-72 justify-center text-5xl font-bold hover:text-black/70 md:w-auto lg:col-start-2"
                     >
-                        <h1><img src="/images/bwl-logo.svg" alt="Built With Laravel" class="w-144" /></h1>
+                        <h1>
+                            <img
+                                src="/images/bwl-logo.svg"
+                                fetchpriority="high"
+                                alt="Built With Laravel"
+                                class="w-144"
+                            />
+                        </h1>
                     </a>
 
                     <a
@@ -47,6 +72,7 @@
                         <span class="mr-2 mt-1">Curated by</span>
                         <img
                             src="/images/tighten-logo.svg"
+                            fetchpriority="high"
                             alt="Tighten"
                             width="100"
                             height="22"
@@ -74,13 +100,14 @@
                             x-anchor.bottom-start="$refs.asterisk"
                             @click.away="expanded = false"
                         >
-                            Any organizations listed here use Laravel
-                            <em>somewhere</em>
-                            , not necessarily on their primary home page.
+                            {{-- format-ignore-start --}}
+                            Any organizations listed here use Laravel <em>somewhere</em>,
+                            not necessarily on their primary home page.
+                            {{-- format-ignore-end --}}
                         </div>
                     </div>
 
-                    <livewire:public.navigation />
+                    <x-navigation />
                 </header>
 
                 <!-- Page Content -->

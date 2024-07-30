@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@view-transition {
+    navigation: auto;
+}
+
+[x-cloak] {
+    display: none;
+}
+
 html {
     scroll-behavior: smooth;
 }

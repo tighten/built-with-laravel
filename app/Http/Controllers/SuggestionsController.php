@@ -3,10 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\SuggestedOrganization;
+use App\Models\Technology;
+use App\Notifications\OrganizationSuggested;
+use Illuminate\Support\Facades\Notification;
 
-class SuggestOrganizationController extends Controller
+class SuggestionsController extends Controller
 {
-    public function __invoke()
+    public function create()
+    {
+        return view('suggestions.create', [
+            'technologies' => Technology::orderBy('name')->get(),
+        ]);
+    }
+
+    public function store()
     {
         $input = request()->validate([
             'name' => 'required',
@@ -19,7 +29,7 @@ class SuggestOrganizationController extends Controller
             'suggester_email' => 'required|email',
         ]);
 
-        SuggestedOrganization::create([
+        $suggested = SuggestedOrganization::create([
             'name' => $input['name'],
             'url' => $input['url'],
             'public_source' => $input['public_source'],
@@ -28,7 +38,13 @@ class SuggestOrganizationController extends Controller
             'suggester_email' => $input['suggester_email'],
             'sites' => array_filter(explode("\n", $input['sites'])),
             'technologies' => $input['technologies'] ?? [],
+            'ip_address' => request()->ip(),
         ]);
+
+        if (app()->environment() === 'production' || app()->environment() === 'testing') {
+            Notification::route('slack', config('services.slack.notifications.channel'))
+                ->notify(new OrganizationSuggested($suggested));
+        }
 
         return redirect()->back()->with('flash', 'Thanks for your suggestion!');
     }

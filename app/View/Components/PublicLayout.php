@@ -7,6 +7,11 @@ use Illuminate\View\View;
 
 class PublicLayout extends Component
 {
+    public function __construct(
+        public ?string $prependTitle = null
+    ) {
+    }
+
     /**
      * Get the view / contents that represents the component.
      */
