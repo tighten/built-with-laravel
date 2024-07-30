@@ -256,12 +256,13 @@ class DatabaseSeeder extends Seeder
         SuggestedOrganization::create([
             'name' => 'OpenAI',
             'url' => 'https://openai.com/',
-            'public_source' => 'Runs on Twill',
-            'private_source' => '',
-            'sites' => ['https://openai.com/'],
-            'technologies' => ['twill'],
+            'public_source' => 'Displayed on the Twill "Made with Twill" page.',
+            'private_source' => 'They emailed us and said they love Taylor.',
+            'sites' => ['https://openai.com/', 'https://old.openai.com/'],
+            'technologies' => ['twill', 'react'],
             'suggester_name' => 'Matt Stauffer',
             'suggester_email' => 'matt@tighten.co',
+            'ip_address' => '192.168.1.1',
         ]);
 
         // Does Flare fit? OhDear? They're targeting Laravel devs so it's not exactly what we're looking for...

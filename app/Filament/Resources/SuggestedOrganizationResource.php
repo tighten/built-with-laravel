@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\SuggestedOrganizationResource\Pages;
 use App\Filament\Resources\SuggestedOrganizationResource\RelationManagers;
 use App\Models\SuggestedOrganization;
+use App\Models\Technology;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -28,16 +29,30 @@ class SuggestedOrganizationResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('url')
                     ->required()
+                    ->url()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('public_source'),
-                Forms\Components\TextInput::make('private_source'),
-                Forms\Components\TextInput::make('sites'), // @todo encode to and from json
-                Forms\Components\TextInput::make('technologies'), // @todo encode to and from json
+                Forms\Components\TextArea::make('public_source'),
+                Forms\Components\TextArea::make('private_source'),
+                Forms\Components\TextArea::make('sites')
+                    ->afterStateHydrated(function (Forms\Components\TextArea $component, string|array|null $state) {
+                        if (is_array($state)) {
+                            $state = implode("\n", $state);
+                        }
+                        $component->state($state);
+                    })->dehydrateStateUsing(function (string $state) {
+                        return explode("\n", $state);
+                    }),
+                Forms\Components\Select::make('technologies')
+                    ->multiple()
+                    ->options(
+                        Technology::all()->pluck('name', 'slug')
+                    ),
                 Forms\Components\TextInput::make('suggester_name')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('suggester_email')
                     ->required()
+                    ->email()
                     ->maxLength(255),
             ]);
     }
