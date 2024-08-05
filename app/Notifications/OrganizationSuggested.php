@@ -13,9 +13,7 @@ class OrganizationSuggested extends Notification
 {
     use Queueable;
 
-    public function __construct(public SuggestedOrganization $suggested)
-    {
-    }
+    public function __construct(public SuggestedOrganization $suggested) {}
 
     public function via(object $notifiable): array
     {

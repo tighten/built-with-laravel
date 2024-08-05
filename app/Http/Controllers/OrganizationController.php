@@ -20,6 +20,11 @@ class OrganizationController extends Controller
 
     public function show(Organization $organization)
     {
+        // @todo test this
+        if (! $organization->published_at) {
+            abort(404);
+        }
+
         return view('organizations.show', [
             'organization' => $organization,
         ]);
@@ -34,6 +39,7 @@ class OrganizationController extends Controller
                         $query->where('id', $technology->id);
                     });
                 })
+                ->where('published_at', '!=', null) // @todo test this is working
                 ->with('sites') // @todo: Do a subquery for just the first site aaron francis style?
                 ->orderBy('featured_at', 'desc')
                 ->orderBy('created_at', 'desc')

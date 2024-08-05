@@ -2,17 +2,26 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\SuggestedOrganizationResource\Pages;
-use App\Filament\Resources\SuggestedOrganizationResource\RelationManagers;
+use App\Actions\ApproveSuggestedOrganization;
+use App\Actions\RejectSuggestedOrganization;
+use App\Filament\Resources\SuggestedOrganizationResource\Pages\CreateSuggestedOrganization;
+use App\Filament\Resources\SuggestedOrganizationResource\Pages\EditSuggestedOrganization;
+use App\Filament\Resources\SuggestedOrganizationResource\Pages\ListSuggestedOrganizations;
 use App\Models\SuggestedOrganization;
 use App\Models\Technology;
-use Filament\Forms;
+use Filament\Actions\Action;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Tables;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class SuggestedOrganizationResource extends Resource
 {
@@ -24,17 +33,17 @@ class SuggestedOrganizationResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+                TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('url')
+                TextInput::make('url')
                     ->required()
                     ->url()
                     ->maxLength(255),
-                Forms\Components\TextArea::make('public_source'),
-                Forms\Components\TextArea::make('private_source'),
-                Forms\Components\TextArea::make('sites')
-                    ->afterStateHydrated(function (Forms\Components\TextArea $component, string|array|null $state) {
+                Textarea::make('public_source'),
+                TextArea::make('private_source'),
+                TextArea::make('sites')
+                    ->afterStateHydrated(function (TextArea $component, string|array|null $state) {
                         if (is_array($state)) {
                             $state = implode("\n", $state);
                         }
@@ -42,15 +51,15 @@ class SuggestedOrganizationResource extends Resource
                     })->dehydrateStateUsing(function (string $state) {
                         return explode("\n", $state);
                     }),
-                Forms\Components\Select::make('technologies')
+                Select::make('technologies')
                     ->multiple()
                     ->options(
                         Technology::all()->pluck('name', 'slug')
                     ),
-                Forms\Components\TextInput::make('suggester_name')
+                TextInput::make('suggester_name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('suggester_email')
+                TextInput::make('suggester_email')
                     ->required()
                     ->email()
                     ->maxLength(255),
@@ -61,22 +70,41 @@ class SuggestedOrganizationResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('url')
+                TextColumn::make('url')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('suggester_name'),
-                Tables\Columns\TextColumn::make('suggester_email'),
+                TextColumn::make('suggester_name'),
+                TextColumn::make('suggester_email'),
             ])
             ->filters([
-                //
+                Filter::make('exclude_rejected')
+                    ->query(fn (Builder $query): Builder => $query->whereNull('rejected_at'))
+                    ->toggle()
+                    ->default(),
+                Filter::make('exclude_approved')
+                    ->query(fn (Builder $query): Builder => $query->whereNull('approved_at'))
+                    ->toggle()
+                    ->default(),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                EditAction::make(),
+                Action::make('approve')
+                    ->requiresConfirmation()
+                    ->icon('heroicon-m-check-badge')
+                    ->action(function (SuggestedOrganization $record) {
+                        (new ApproveSuggestedOrganization)($record);
+                    }),
+                Action::make('reject')
+                    ->requiresConfirmation()
+                    ->icon('heroicon-m-hand-thumb-down')
+                    ->action(function (SuggestedOrganization $record) {
+                        (new RejectSuggestedOrganization)($record);
+                    }),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -91,9 +119,9 @@ class SuggestedOrganizationResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSuggestedOrganizations::route('/'),
-            'create' => Pages\CreateSuggestedOrganization::route('/create'),
-            'edit' => Pages\EditSuggestedOrganization::route('/{record}/edit'),
+            'index' => ListSuggestedOrganizations::route('/'),
+            'create' => CreateSuggestedOrganization::route('/create'),
+            'edit' => EditSuggestedOrganization::route('/{record}/edit'),
         ];
     }
 }

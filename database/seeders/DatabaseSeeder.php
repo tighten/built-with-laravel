@@ -31,7 +31,6 @@ class DatabaseSeeder extends Seeder
             'image' => '/images/temp/screenshots/curology.png',
             'favicon' => '/images/temp/favicons/curology.png',
             'description' => 'A personalized skincare brand.',
-            'submitter_id' => $user->id,
             'public_source' => "They've posted jobs for Laravel.",
         ]);
 
@@ -40,7 +39,6 @@ class DatabaseSeeder extends Seeder
             'url' => 'https://gene.com/',
             'favicon' => '/images/temp/favicons/genentech.png',
             'description' => 'A research company.',
-            'submitter_id' => $user->id,
             'public_source' => 'Tighten built their site(s).',
         ]);
 
@@ -58,7 +56,6 @@ class DatabaseSeeder extends Seeder
             'image' => '/images/temp/screenshots/apple.png',
             'favicon' => '/images/temp/favicons/apple.png',
             'description' => 'A personal electronics technology company.',
-            'submitter_id' => $user->id,
             'public_source' => "They've posted jobs for Laravel.",
         ]);
 
@@ -67,7 +64,6 @@ class DatabaseSeeder extends Seeder
             'url' => 'https://zillow.com/',
             'favicon' => '/images/temp/favicons/zillow.png',
             'description' => 'An online real-estate marketplace.',
-            'submitter_id' => $user->id,
             'public_source' => 'They acquired Aryeo, which uses Laravel.',
         ]);
 
@@ -86,7 +82,6 @@ class DatabaseSeeder extends Seeder
             'image' => '/images/temp/screenshots/pfizer.png',
             'favicon' => '/images/temp/favicons/pfizer.png',
             'description' => 'A drug company.',
-            'submitter_id' => $user->id,
             'public_source' => "They've long employed dozens of Laravel developers, including through several Laravel-based staff augmentation firms.",
         ]);
 
@@ -95,7 +90,6 @@ class DatabaseSeeder extends Seeder
             'url' => 'https://sweetwater.com/',
             'favicon' => '/images/temp/favicons/sweetwater.png',
             'description' => 'Music technology and instrument retailer.',
-            'submitter_id' => $user->id,
             'public_source' => 'Tighten works with them, and they employ dozens of Laravel programmers.',
         ]);
 
@@ -110,7 +104,6 @@ class DatabaseSeeder extends Seeder
             'url' => 'https://usefathom.com/',
             'favicon' => '/images/temp/favicons/fathom.png',
             'description' => 'A privacy-focused analytics app.',
-            'submitter_id' => $user->id,
             'public_source' => 'Co-founder talks about using Laravel in Fathom.',
         ]);
 
@@ -126,7 +119,6 @@ class DatabaseSeeder extends Seeder
             'image' => '/images/temp/screenshots/square.png',
             'favicon' => '/images/temp/favicons/square.png',
             'description' => 'A payments technology company.',
-            'submitter_id' => $user->id,
             'public_source' => 'Taylor named them as using Laravel on Twitter.',
         ]);
 
@@ -135,7 +127,6 @@ class DatabaseSeeder extends Seeder
             'url' => 'https://spiegel.de/',
             'favicon' => '/images/temp/favicons/spiegel.png',
             'description' => "One of Germany's largest newspapers.",
-            'submitter_id' => $user->id,
             'public_source' => 'Jack McDade said so.',
         ]);
 
@@ -153,7 +144,6 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/tighten.png',
             'description' => 'A Laravel consultancy.',
             'public_source' => 'Let us count the ways.',
-            'submitter_id' => $user->id,
         ]);
 
         $tighten->technologies()->createMany([
@@ -178,7 +168,6 @@ class DatabaseSeeder extends Seeder
             'url' => 'https://artic.edu/',
             'favicon' => '/images/temp/favicons/aic.png',
             'description' => 'An art institute.',
-            'submitter_id' => $user->id,
             'public_source' => 'Tighten has contracted with them.',
         ]);
 
@@ -195,7 +184,6 @@ class DatabaseSeeder extends Seeder
             'url' => 'https://spatie.be/',
             'favicon' => '/images/temp/favicons/spatie.png',
             'description' => 'A Laravel consultancy.',
-            'submitter_id' => $user->id,
             'public_source' => 'Founders & employees talk about using Laravel in their apps.',
         ]);
 
@@ -212,7 +200,6 @@ class DatabaseSeeder extends Seeder
             'url' => 'https://transistor.fm/',
             'favicon' => '/images/temp/favicons/transistor.png',
             'description' => 'A podcast publishing platform.',
-            'submitter_id' => $user->id,
             'public_source' => 'Founder talks publicly about using Statamic to power their sales web site (not the app, which is on Rails).',
         ]);
 
@@ -227,7 +214,6 @@ class DatabaseSeeder extends Seeder
             'url' => 'https://userscape.com/',
             'favicon' => '/images/temp/favicons/userscape.png',
             'description' => 'A product company, behind helpdesk software HelpSpot and more.',
-            'submitter_id' => $user->id,
             'public_source' => 'Founder talks publicly about using Laravel to power their web sites.',
         ]);
 
@@ -242,7 +228,6 @@ class DatabaseSeeder extends Seeder
             'url' => 'https://genesis.com/',
             'favicon' => '/images/temp/favicons/genesis.png',
             'description' => 'A car company.',
-            'submitter_id' => $user->id,
             'public_source' => 'Laravel cookie can be seen on some microsites.',
         ]);
 
