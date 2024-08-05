@@ -19,9 +19,9 @@ class ApproveSuggestedOrganization
             $org = Organization::create([
                 'name' => $suggested->name,
                 'url' => $suggested->url,
-                'description' => 'Todo write this', // @todo Add to suggested and let me write in Filament
-                'image' => 'Todo build this', // @todo Add to suggested and let me write in Filament
-                'favicon' => 'Todo build this', // @todo Add to suggested and let me write in Filament
+                'description' => 'TODO: Write this',
+                'image' => '/images/temp/screenshots/missing.png',
+                'favicon' => '/images/temp/favicons/missing.png',
                 'public_source' => $suggested->public_source,
                 'private_source' => $suggested->private_source,
                 'published_at' => null,
@@ -30,8 +30,8 @@ class ApproveSuggestedOrganization
             // Create sites
             foreach ($suggested->sites as $url) {
                 $org->sites()->create([
-                    'name' => 'TBD', // @todo Allow this to be set in Filament, too
-                    'image' => 'tbd', // @todo Allow this to be set in Filament, too
+                    'name' => 'TODO Write this',
+                    'image' => '/images/temp/screenshots/missing.png',
                     'url' => $url,
                 ]);
             }
