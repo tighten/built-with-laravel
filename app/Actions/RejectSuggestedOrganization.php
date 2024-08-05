@@ -7,10 +7,10 @@ use Illuminate\Support\Facades\Log;
 
 class RejectSuggestedOrganization
 {
-    public function __invoke(SuggestedOrganization $org)
+    public function __invoke(SuggestedOrganization $suggested)
     {
         Log::info('Rejected suggested organization ' . $suggested->id);
 
-        $org->update(['rejected_at' => now()]);
+        $suggested->update(['rejected_at' => now()]);
     }
 }

@@ -17,6 +17,7 @@ class OrganizationFactory extends Factory
             'image' => $this->faker->url(),
             'favicon' => $this->faker->url(),
             'description' => $this->faker->sentence(),
+            'published_at' => now(),
         ];
     }
 }

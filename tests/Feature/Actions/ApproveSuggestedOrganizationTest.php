@@ -31,4 +31,4 @@ it('approves a suggested organization', function () {
     expect($org->public_source)->toBe($imported->public_source);
     expect($org->private_source)->toBe($imported->private_source);
     expect($org->published_at)->toBeNull();
-})->only();
+});
