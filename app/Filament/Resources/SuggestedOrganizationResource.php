@@ -9,12 +9,12 @@ use App\Filament\Resources\SuggestedOrganizationResource\Pages\EditSuggestedOrga
 use App\Filament\Resources\SuggestedOrganizationResource\Pages\ListSuggestedOrganizations;
 use App\Models\SuggestedOrganization;
 use App\Models\Technology;
-use Filament\Actions\Action;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
