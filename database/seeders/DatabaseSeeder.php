@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/curology.png',
             'description' => 'A personalized skincare brand.',
             'public_source' => "They've posted jobs for Laravel.",
+            'published_at' => now(),
         ]);
 
         $gene = Organization::create([
@@ -40,6 +41,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/genentech.png',
             'description' => 'A research company.',
             'public_source' => 'Tighten built their site(s).',
+            'published_at' => now(),
         ]);
 
         $gene->sites()->create([
@@ -57,6 +59,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/apple.png',
             'description' => 'A personal electronics technology company.',
             'public_source' => "They've posted jobs for Laravel.",
+            'published_at' => now(),
         ]);
 
         $zillow = Organization::create([
@@ -65,6 +68,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/zillow.png',
             'description' => 'An online real-estate marketplace.',
             'public_source' => 'They acquired Aryeo, which uses Laravel.',
+            'published_at' => now(),
         ]);
 
         $zillow->sites()->create([
@@ -83,6 +87,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/pfizer.png',
             'description' => 'A drug company.',
             'public_source' => "They've long employed dozens of Laravel developers, including through several Laravel-based staff augmentation firms.",
+            'published_at' => now(),
         ]);
 
         $sweetwater = Organization::create([
@@ -91,6 +96,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/sweetwater.png',
             'description' => 'Music technology and instrument retailer.',
             'public_source' => 'Tighten works with them, and they employ dozens of Laravel programmers.',
+            'published_at' => now(),
         ]);
 
         $sweetwater->sites()->create([
@@ -105,6 +111,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/fathom.png',
             'description' => 'A privacy-focused analytics app.',
             'public_source' => 'Co-founder talks about using Laravel in Fathom.',
+            'published_at' => now(),
         ]);
 
         $fathom->sites()->create([
@@ -120,6 +127,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/square.png',
             'description' => 'A payments technology company.',
             'public_source' => 'Taylor named them as using Laravel on Twitter.',
+            'published_at' => now(),
         ]);
 
         $spiegel = Organization::create([
@@ -128,6 +136,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/spiegel.png',
             'description' => "One of Germany's largest newspapers.",
             'public_source' => 'Jack McDade said so.',
+            'published_at' => now(),
         ]);
 
         $spiegel->sites()->create([
@@ -144,6 +153,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/tighten.png',
             'description' => 'A Laravel consultancy.',
             'public_source' => 'Let us count the ways.',
+            'published_at' => now(),
         ]);
 
         $tighten->technologies()->createMany([
@@ -169,6 +179,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/aic.png',
             'description' => 'An art institute.',
             'public_source' => 'Tighten has contracted with them.',
+            'published_at' => now(),
         ]);
 
         $aic->sites()->create([
@@ -185,6 +196,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/spatie.png',
             'description' => 'A Laravel consultancy.',
             'public_source' => 'Founders & employees talk about using Laravel in their apps.',
+            'published_at' => now(),
         ]);
 
         $spatie->sites()->create([
@@ -201,6 +213,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/transistor.png',
             'description' => 'A podcast publishing platform.',
             'public_source' => 'Founder talks publicly about using Statamic to power their sales web site (not the app, which is on Rails).',
+            'published_at' => now(),
         ]);
 
         $transistor->sites()->create([
@@ -215,6 +228,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/userscape.png',
             'description' => 'A product company, behind helpdesk software HelpSpot and more.',
             'public_source' => 'Founder talks publicly about using Laravel to power their web sites.',
+            'published_at' => now(),
         ]);
 
         $userscape->sites()->create([
@@ -229,6 +243,7 @@ class DatabaseSeeder extends Seeder
             'favicon' => '/images/temp/favicons/genesis.png',
             'description' => 'A car company.',
             'public_source' => 'Laravel cookie can be seen on some microsites.',
+            'published_at' => now(),
         ]);
 
         $genesis->sites()->create([
