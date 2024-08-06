@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\OrganizationResource\Pages;
 use App\Filament\Resources\OrganizationResource\RelationManagers;
+use App\Filament\Resources\OrganizationResource\RelationManagers\SitesRelationManager;
 use App\Models\Organization;
 use App\Models\Technology;
 use Filament\Forms;
@@ -15,6 +16,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
@@ -72,6 +74,9 @@ class OrganizationResource extends Resource
                     ->searchable(),
                 TextColumn::make('url')
                     ->searchable(),
+                IconColumn::make('published_at')
+                    ->label('Published?')
+                    ->icon('heroicon-o-check-badge'),
             ])
             ->filters([
                 Filter::make('unpublished')
@@ -92,7 +97,7 @@ class OrganizationResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            SitesRelationManager::class,
         ];
     }
 
