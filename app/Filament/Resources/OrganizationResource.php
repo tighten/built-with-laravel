@@ -17,6 +17,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
@@ -59,7 +60,6 @@ class OrganizationResource extends Resource
 
                 // @todo: favicon
 
-                // @todo: relationship:  sites
                 Select::make('technologies')
                     ->multiple()
                     ->relationship(titleAttribute: 'name'),
@@ -70,6 +70,7 @@ class OrganizationResource extends Resource
     {
         return $table
             ->columns([
+                ImageColumn::make('favicon'),
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('url')
