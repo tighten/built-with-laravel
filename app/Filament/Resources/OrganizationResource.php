@@ -58,7 +58,6 @@ class OrganizationResource extends Resource
                 //        because Filament doesn't handle that
 
                 FileUpload::make('image')
-                    ->disk('do')
                     ->directory('images/organizations/images')
                     ->image()
                     ->imageResizeMode('cover')
@@ -67,7 +66,6 @@ class OrganizationResource extends Resource
                     ->imageResizeTargetHeight(888),
 
                 FileUpload::make('favicon')
-                    ->disk('do')
                     ->directory('images/organizations/favicons')
                     ->image()
                     ->imageResizeMode('cover')
@@ -81,7 +79,7 @@ class OrganizationResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('favicon')->disk('do'),
+                ImageColumn::make('favicon'),
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('url')

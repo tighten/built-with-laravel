@@ -30,7 +30,6 @@ class SitesRelationManager extends RelationManager
                     ->maxLength(255),
 
                 FileUpload::make('image')
-                    ->disk('do')
                     ->directory('images/sites')
                     ->image()
                     ->imageResizeMode('cover')
@@ -47,7 +46,7 @@ class SitesRelationManager extends RelationManager
             ->columns([
                 TextColumn::make('name'),
                 TextColumn::make('url'),
-                ImageColumn::make('image')->disk('do'),
+                ImageColumn::make('image'),
             ])
             ->filters([
                 //
