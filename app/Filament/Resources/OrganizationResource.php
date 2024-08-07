@@ -50,11 +50,10 @@ class OrganizationResource extends Resource
 
                 DateTimePicker::make('published_at'),
 
-                // @todo: Set up `content_images` S3 bucket
-                // FileUpload::make('image')
-                //     ->disk('content_images')
-                //     ->image()
-                //     ->imageEditor(),
+                FileUpload::make('image')
+                    ->disk('do')
+                    ->directory('images/organizations/images')
+                    ->image(),
                     // @todo: Handle deleting the old image if a new one is uploaded
                     //        because Filament doesn't handle that
 
