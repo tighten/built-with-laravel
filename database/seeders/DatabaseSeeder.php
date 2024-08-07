@@ -28,8 +28,8 @@ class DatabaseSeeder extends Seeder
         Organization::create([
             'name' => 'Curology',
             'url' => 'https://curology.com/',
-            'image' => asset('/images/temp/screenshots/curology.png'),
-            'favicon' => asset('/images/temp/favicons/curology.png'),
+            'image' => '/images/temp/screenshots/curology.png',
+            'favicon' => '/images/temp/favicons/curology.png',
             'description' => 'A personalized skincare brand.',
             'public_source' => "They've posted jobs for Laravel.",
             'published_at' => now(),
@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
         $gene = Organization::create([
             'name' => 'Genentech',
             'url' => 'https://gene.com/',
-            'favicon' => asset('/images/temp/favicons/genentech.png'),
+            'favicon' => '/images/temp/favicons/genentech.png',
             'description' => 'A research company.',
             'public_source' => 'Tighten built their site(s).',
             'published_at' => now(),
@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
         $gene->sites()->create([
             'name' => 'Genentech.com',
             'url' => 'https://www.gene.com/',
-            'image' => asset('/images/temp/screenshots/genentech.jpg'),
+            'image' => '/images/temp/screenshots/genentech.jpg',
         ]);
 
         $gene->technologies()->attach($react);
@@ -55,8 +55,8 @@ class DatabaseSeeder extends Seeder
         Organization::create([
             'name' => 'Apple',
             'url' => 'https://apple.com/',
-            'image' => asset('/images/temp/screenshots/apple.png'),
-            'favicon' => asset('/images/temp/favicons/apple.png'),
+            'image' => '/images/temp/screenshots/apple.png',
+            'favicon' => '/images/temp/favicons/apple.png',
             'description' => 'A personal electronics technology company.',
             'public_source' => "They've posted jobs for Laravel.",
             'published_at' => now(),
@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
         $zillow = Organization::create([
             'name' => 'Zillow',
             'url' => 'https://zillow.com/',
-            'favicon' => asset('/images/temp/favicons/zillow.png'),
+            'favicon' => '/images/temp/favicons/zillow.png',
             'description' => 'An online real-estate marketplace.',
             'public_source' => 'They acquired Aryeo, which uses Laravel.',
             'published_at' => now(),
@@ -74,7 +74,7 @@ class DatabaseSeeder extends Seeder
         $zillow->sites()->create([
             'name' => 'Aryeo',
             'url' => 'https://www.aryeo.com/',
-            'image' => asset('/images/temp/screenshots/aryeo.jpg'),
+            'image' => '/images/temp/screenshots/aryeo.jpg',
         ]);
 
         $zillow->technologies()->attach(Technology::create(['name' => 'Inertia']));
@@ -83,8 +83,8 @@ class DatabaseSeeder extends Seeder
         Organization::create([
             'name' => 'Pfizer',
             'url' => 'https://pfizer.com/',
-            'image' => asset('/images/temp/screenshots/pfizer.png'),
-            'favicon' => asset('/images/temp/favicons/pfizer.png'),
+            'image' => '/images/temp/screenshots/pfizer.png',
+            'favicon' => '/images/temp/favicons/pfizer.png',
             'description' => 'A drug company.',
             'public_source' => "They've long employed dozens of Laravel developers, including through several Laravel-based staff augmentation firms.",
             'published_at' => now(),
@@ -93,7 +93,7 @@ class DatabaseSeeder extends Seeder
         $sweetwater = Organization::create([
             'name' => 'Sweetwater',
             'url' => 'https://sweetwater.com/',
-            'favicon' => asset('/images/temp/favicons/sweetwater.png'),
+            'favicon' => '/images/temp/favicons/sweetwater.png',
             'description' => 'Music technology and instrument retailer.',
             'public_source' => 'Tighten works with them, and they employ dozens of Laravel programmers.',
             'published_at' => now(),
@@ -102,13 +102,13 @@ class DatabaseSeeder extends Seeder
         $sweetwater->sites()->create([
             'name' => 'Sweetwater.com',
             'url' => 'https://sweetwater.com/',
-            'image' => asset('/images/temp/screenshots/sweetwater.jpg'),
+            'image' => '/images/temp/screenshots/sweetwater.jpg',
         ]);
 
         $fathom = Organization::create([
             'name' => 'Fathom Analytics',
             'url' => 'https://usefathom.com/',
-            'favicon' => asset('/images/temp/favicons/fathom.png'),
+            'favicon' => '/images/temp/favicons/fathom.png',
             'description' => 'A privacy-focused analytics app.',
             'public_source' => 'Co-founder talks about using Laravel in Fathom.',
             'published_at' => now(),
@@ -117,14 +117,14 @@ class DatabaseSeeder extends Seeder
         $fathom->sites()->create([
             'name' => 'Fathom Analytics',
             'url' => 'https://usefathom.com/',
-            'image' => asset('/images/temp/screenshots/fathom.png'),
+            'image' => '/images/temp/screenshots/fathom.png',
         ]);
 
         Organization::create([
             'name' => 'Square',
             'url' => 'https://square.com/',
-            'image' => asset('/images/temp/screenshots/square.png'),
-            'favicon' => asset('/images/temp/favicons/square.png'),
+            'image' => '/images/temp/screenshots/square.png',
+            'favicon' => '/images/temp/favicons/square.png',
             'description' => 'A payments technology company.',
             'public_source' => 'Taylor named them as using Laravel on Twitter.',
             'published_at' => now(),
@@ -133,7 +133,7 @@ class DatabaseSeeder extends Seeder
         $spiegel = Organization::create([
             'name' => 'Der Spiegel',
             'url' => 'https://spiegel.de/',
-            'favicon' => asset('/images/temp/favicons/spiegel.png'),
+            'favicon' => '/images/temp/favicons/spiegel.png',
             'description' => "One of Germany's largest newspapers.",
             'public_source' => 'Jack McDade said so.',
             'published_at' => now(),
@@ -142,7 +142,7 @@ class DatabaseSeeder extends Seeder
         $spiegel->sites()->create([
             'name' => 'Der Spiegel',
             'url' => 'https://spiegel.de',
-            'image' => asset('/images/temp/screenshots/spiegel.jpg'),
+            'image' => '/images/temp/screenshots/spiegel.jpg',
         ]);
 
         $spiegel->technologies()->attach($statamic);
@@ -150,7 +150,7 @@ class DatabaseSeeder extends Seeder
         $tighten = Organization::create([
             'name' => 'Tighten',
             'url' => 'https://tighten.com/',
-            'favicon' => asset('/images/temp/favicons/tighten.png'),
+            'favicon' => '/images/temp/favicons/tighten.png',
             'description' => 'A Laravel consultancy.',
             'public_source' => 'Let us count the ways.',
             'published_at' => now(),
@@ -164,19 +164,19 @@ class DatabaseSeeder extends Seeder
         $tighten->sites()->create([
             'name' => 'FieldGoal',
             'url' => 'https://fieldgoal.io/',
-            'image' => asset('/images/temp/screenshots/fieldgoal.jpg'),
+            'image' => '/images/temp/screenshots/fieldgoal.jpg',
         ]);
 
         $tighten->sites()->create([
             'name' => 'Thermostat',
             'url' => 'https://thermostat.io/',
-            'image' => asset('/images/temp/screenshots/thermostat.png'),
+            'image' => '/images/temp/screenshots/thermostat.png',
         ]);
 
         $aic = Organization::create([
             'name' => 'Art Institute of Chicago',
             'url' => 'https://artic.edu/',
-            'favicon' => asset('/images/temp/favicons/aic.png'),
+            'favicon' => '/images/temp/favicons/aic.png',
             'description' => 'An art institute.',
             'public_source' => 'Tighten has contracted with them.',
             'published_at' => now(),
@@ -185,7 +185,7 @@ class DatabaseSeeder extends Seeder
         $aic->sites()->create([
             'name' => 'Artic.edu',
             'url' => 'https://artic.edu/',
-            'image' => asset('/images/temp/screenshots/aic.jpg'),
+            'image' => '/images/temp/screenshots/aic.jpg',
         ]);
 
         $aic->technologies()->attach(Technology::create(['name' => 'Twill']));
@@ -193,7 +193,7 @@ class DatabaseSeeder extends Seeder
         $spatie = Organization::create([
             'name' => 'Spatie',
             'url' => 'https://spatie.be/',
-            'favicon' => asset('/images/temp/favicons/spatie.png'),
+            'favicon' => '/images/temp/favicons/spatie.png',
             'description' => 'A Laravel consultancy.',
             'public_source' => 'Founders & employees talk about using Laravel in their apps.',
             'published_at' => now(),
@@ -202,7 +202,7 @@ class DatabaseSeeder extends Seeder
         $spatie->sites()->create([
             'name' => 'Mailcoach',
             'url' => 'https://mailcoach.app/',
-            'image' => asset('/images/temp/screenshots/mailcoach.png'),
+            'image' => '/images/temp/screenshots/mailcoach.png',
         ]);
 
         $spatie->technologies()->attach($statamic);
@@ -210,7 +210,7 @@ class DatabaseSeeder extends Seeder
         $transistor = Organization::create([
             'name' => 'Transistor',
             'url' => 'https://transistor.fm/',
-            'favicon' => asset('/images/temp/favicons/transistor.png'),
+            'favicon' => '/images/temp/favicons/transistor.png',
             'description' => 'A podcast publishing platform.',
             'public_source' => 'Founder talks publicly about using Statamic to power their sales web site (not the app, which is on Rails).',
             'published_at' => now(),
@@ -219,13 +219,13 @@ class DatabaseSeeder extends Seeder
         $transistor->sites()->create([
             'name' => 'Transistor.fm sales site',
             'url' => 'https://transistor.fm/',
-            'image' => asset('/images/temp/screenshots/transistor.jpg'),
+            'image' => '/images/temp/screenshots/transistor.jpg',
         ]);
 
         $userscape = Organization::create([
             'name' => 'UserScape',
             'url' => 'https://userscape.com/',
-            'favicon' => asset('/images/temp/favicons/userscape.png'),
+            'favicon' => '/images/temp/favicons/userscape.png',
             'description' => 'A product company, behind helpdesk software HelpSpot and more.',
             'public_source' => 'Founder talks publicly about using Laravel to power their web sites.',
             'published_at' => now(),
@@ -234,13 +234,13 @@ class DatabaseSeeder extends Seeder
         $userscape->sites()->create([
             'name' => 'HelpSpot',
             'url' => 'https://helpspot.com/',
-            'image' => asset('/images/temp/screenshots/helpspot.png'),
+            'image' => '/images/temp/screenshots/helpspot.png',
         ]);
 
         $genesis = Organization::create([
             'name' => 'Genesis',
             'url' => 'https://genesis.com/',
-            'favicon' => asset('/images/temp/favicons/genesis.png'),
+            'favicon' => '/images/temp/favicons/genesis.png',
             'description' => 'A car company.',
             'public_source' => 'Laravel cookie can be seen on some microsites.',
             'published_at' => now(),
@@ -249,7 +249,7 @@ class DatabaseSeeder extends Seeder
         $genesis->sites()->create([
             'name' => 'Genesis software update',
             'url' => 'https://update.genesis.com/',
-            'image' => asset('/images/temp/screenshots/genesis-update.jpg'),
+            'image' => '/images/temp/screenshots/genesis-update.jpg',
         ]);
 
         // Create a suggested organization
