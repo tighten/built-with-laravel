@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\OrganizationResource\RelationManagers;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
@@ -28,9 +29,14 @@ class SitesRelationManager extends RelationManager
                     ->required()
                     ->maxLength(255),
 
-                TextInput::make('image'), // temp
-
-                // @todo image
+                FileUpload::make('image')
+                    ->disk('do')
+                    ->directory('images/sites/images')
+                    ->image()
+                    ->imageResizeMode('cover')
+                    ->imageCropAspectRatio('150:111')
+                    ->imageResizeTargetWidth(1200)
+                    ->imageResizeTargetHeight(888),
             ]);
     }
 
@@ -41,7 +47,7 @@ class SitesRelationManager extends RelationManager
             ->columns([
                 TextColumn::make('name'),
                 TextColumn::make('url'),
-                ImageColumn::make('image'),
+                ImageColumn::make('image')->disk('do'),
             ])
             ->filters([
                 //

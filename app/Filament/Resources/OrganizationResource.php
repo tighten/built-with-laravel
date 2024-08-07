@@ -50,18 +50,30 @@ class OrganizationResource extends Resource
 
                 DateTimePicker::make('published_at'),
 
-                FileUpload::make('image')
-                    ->disk('do')
-                    ->directory('images/organizations/images')
-                    ->image(),
-                    // @todo: Handle deleting the old image if a new one is uploaded
-                    //        because Filament doesn't handle that
-
-                // @todo: favicon
-
                 Select::make('technologies')
                     ->multiple()
                     ->relationship(titleAttribute: 'name'),
+
+                // @todo: Handle deleting the old image if a new one is uploaded
+                //        because Filament doesn't handle that
+
+                FileUpload::make('image')
+                    ->disk('do')
+                    ->directory('images/organizations/images')
+                    ->image()
+                    ->imageResizeMode('cover')
+                    ->imageCropAspectRatio('150:111')
+                    ->imageResizeTargetWidth(1200)
+                    ->imageResizeTargetHeight(888),
+
+                FileUpload::make('favicon')
+                    ->disk('do')
+                    ->directory('images/organizations/favicons')
+                    ->image()
+                    ->imageResizeMode('cover')
+                    ->imageCropAspectRatio('1:1')
+                    ->imageResizeTargetWidth(64)
+                    ->imageResizeTargetHeight(64),
             ]);
     }
 
@@ -69,7 +81,7 @@ class OrganizationResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('favicon'),
+                ImageColumn::make('favicon')->disk('do'),
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('url')
