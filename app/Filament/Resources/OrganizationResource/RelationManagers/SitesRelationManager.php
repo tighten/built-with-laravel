@@ -11,7 +11,10 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 
 class SitesRelationManager extends RelationManager
 {
@@ -55,12 +58,28 @@ class SitesRelationManager extends RelationManager
                 Tables\Actions\CreateAction::make(),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\EditAction::make()
+                    ->using(function (Model $record, array $data) {
+                        if ($record->image !== $data['image'] && !! $record->image) {
+                            Storage::delete($record->image);
+                        }
+
+                        $record->update($data);
+                    }),
+                Tables\Actions\DeleteAction::make()
+                    ->before(function (Model $record) {
+                        Storage::delete($record->image);
+                    }),
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->before(function (Collection $selectedRecords) {
+                            $selectedRecords->each(function ($site) {
+                                Storage::delete($site->image);
+                            });
+                        }),
                 ]),
             ]);
     }

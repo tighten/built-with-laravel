@@ -15,18 +15,37 @@ class EditOrganization extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
+            Actions\DeleteAction::make()
+                ->before(function (Model $record) {
+                    if ($record->image) {
+                        Storage::delete($record->image);
+                    }
+
+                    if ($record->favicon) {
+                        Storage::delete($record->favicon);
+                    }
+
+                    foreach ($record->sites as $site) {
+                        if ($site->image) {
+                            Storage::delete($site->image);
+                        }
+
+                        $site->delete();
+                    }
+
+                    $record->technologies()->detach();
+                }),
         ];
     }
 
     protected function handleRecordUpdate(Model $record, array $data): Model
     {
         // Delete old images if they're changed
-        if ($record->image !== $data['image']) {
+        if ($record->image !== $data['image'] && !! $record->image) {
             Storage::delete($record->image);
         }
 
-        if ($record->favicon !== $data['favicon']) {
+        if ($record->favicon !== $data['favicon']  && !! $record->favicon) {
             Storage::delete($record->favicon);
         }
 
