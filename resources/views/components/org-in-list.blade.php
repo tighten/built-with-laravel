@@ -9,7 +9,7 @@
                 width="540"
                 height="400"
                 class="aspect-[600/444] max-w-full rounded-sm transition duration-300 group-hover:scale-115"
-                src="{{ $org->sites->first()->image }}"
+                src="{{ Storage::url($org->sites->first()->image) }}"
                 style="view-transition-name: main-site-{{ $org->sites->first()->slug }}"
             />
         @else
@@ -26,7 +26,7 @@
                     width="540"
                     height="400"
                     class="aspect-[600/444] max-w-full rounded-sm transition duration-300 group-hover:scale-115"
-                    src="{{ $org->image }}"
+                    src="{{ Storage::url($org->image) }}"
                 />
             </div>
         @endif
@@ -36,7 +36,7 @@
     <h2 class="mb-5 text-xl font-bold" style="view-transition-name: organization-{{ $org->slug }}">
         <img
             loading="lazy"
-            src="{{ $org->favicon }}"
+            src="{{ Storage::url($org->favicon) }}"
             alt="{{ $org->name }}"
             class="mr-2 inline-block w-9 rounded-lg"
         />

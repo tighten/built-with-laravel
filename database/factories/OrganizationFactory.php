@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Organization;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class OrganizationFactory extends Factory
@@ -18,7 +17,7 @@ class OrganizationFactory extends Factory
             'image' => $this->faker->url(),
             'favicon' => $this->faker->url(),
             'description' => $this->faker->sentence(),
-            'submitter_id' => User::factory(),
+            'published_at' => now(),
         ];
     }
 }

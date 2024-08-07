@@ -9,7 +9,7 @@
                     >
                         <img
                             loading="lazy"
-                            src="{{ $organization->favicon }}"
+                            src="{{ Storage::url($organization->favicon) }}"
                             alt="{{ $organization->name }}"
                             class="mr-2 inline-block w-9 rounded-lg"
                         />
@@ -84,7 +84,7 @@
                             class="ml-2 inline-block align-text-bottom"
                         />
                     </span>
-                    <img loading="lazy" src="{{ $organization->image }}" class="rounded-md border" />
+                    <img loading="lazy" src="{{ Storage::url($organization->image) }}" class="rounded-md border" />
                 </a>
             @else
                 @foreach ($organization->sites as $site)
@@ -115,7 +115,7 @@
                             <a href="{{ $site->url }}" target="_blank">
                                 <img
                                     loading="lazy"
-                                    src="{{ $site->image }}"
+                                    src="{{ Storage::url($site->image) }}"
                                     class="rounded-md border"
                                     :class="selected == '{{ $site->slug }}' && 'border border-2 border-black/20'"
                                 />

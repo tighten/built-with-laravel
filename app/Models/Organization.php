@@ -19,7 +19,6 @@ class Organization extends Model
 
     protected $casts = [
         'id' => 'integer',
-        'submitter_id' => 'integer',
     ];
 
     public function submitter(): BelongsTo
