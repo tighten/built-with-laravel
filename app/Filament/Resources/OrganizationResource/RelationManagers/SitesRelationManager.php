@@ -31,7 +31,7 @@ class SitesRelationManager extends RelationManager
 
                 FileUpload::make('image')
                     ->disk('do')
-                    ->directory('images/sites/images')
+                    ->directory('images/sites')
                     ->image()
                     ->imageResizeMode('cover')
                     ->imageCropAspectRatio('150:111')
