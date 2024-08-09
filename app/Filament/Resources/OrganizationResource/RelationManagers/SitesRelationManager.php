@@ -28,11 +28,16 @@ class SitesRelationManager extends RelationManager
                     ->required()
                     ->maxLength(255),
 
+                TextInput::make('slug')
+                    ->required()
+                    ->maxLength(255),
+
                 TextInput::make('url')
                     ->required()
                     ->maxLength(255),
 
                 FileUpload::make('image')
+                    ->required()
                     ->directory('images/sites')
                     ->image()
                     ->imageResizeMode('cover')
