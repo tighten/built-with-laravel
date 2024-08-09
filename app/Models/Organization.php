@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Cache;
 
 class Organization extends Model
 {
@@ -20,6 +21,17 @@ class Organization extends Model
     protected $casts = [
         'id' => 'integer',
     ];
+
+    protected static function booted(): void
+    {
+        static::saved(function (Organization $org) {
+            Cache::flush();
+        });
+
+        static::deleted(function (Organization $org) {
+            Cache::flush();
+        });
+    }
 
     public function submitter(): BelongsTo
     {
