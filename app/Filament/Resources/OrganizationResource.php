@@ -44,7 +44,8 @@ class OrganizationResource extends Resource
                     ->required()
                     ->url()
                     ->maxLength(255),
-                Textarea::make('description'),
+                Textarea::make('description')
+                    ->required(),
                 Textarea::make('public_source'),
                 TextArea::make('private_source'),
 
@@ -53,9 +54,6 @@ class OrganizationResource extends Resource
                 Select::make('technologies')
                     ->multiple()
                     ->relationship(titleAttribute: 'name'),
-
-                // @todo: Handle deleting the old image if a new one is uploaded
-                //        because Filament doesn't handle that
 
                 FileUpload::make('image')
                     ->directory('images/organizations/images')
@@ -66,6 +64,7 @@ class OrganizationResource extends Resource
                     ->imageResizeTargetHeight(888),
 
                 FileUpload::make('favicon')
+                    ->required()
                     ->directory('images/organizations/favicons')
                     ->image()
                     ->imageResizeMode('cover')
