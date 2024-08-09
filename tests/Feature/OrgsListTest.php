@@ -26,3 +26,12 @@ it('filters organizations', function () {
     $response->assertSee($org->name);
     $response->assertDontSee($otherOrg->name);
 });
+
+it('excludes unpublished organizations', function () {
+    $org = Organization::factory()->create(['published_at' => null]);
+
+    $response = $this->get(route('home'));
+
+    $response->assertOk();
+    $response->assertDontSee($org->name);
+});

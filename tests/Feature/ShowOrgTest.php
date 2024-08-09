@@ -39,3 +39,11 @@ it('shows org technologies', function () {
     $response->assertSee($hasTech->name);
     $response->assertDontSee($hasntTech->name);
 });
+
+it('does not show unpublished orgs', function () {
+    $org = Organization::factory()->create(['published_at' => null]);
+
+    $response = $this->get(route('organizations.show', $org));
+
+    $response->assertStatus(404);
+});
