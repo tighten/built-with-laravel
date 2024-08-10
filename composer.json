@@ -6,7 +6,6 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "bugsnag/bugsnag-laravel": "^2.0",
         "cviebrock/eloquent-sluggable": "^11.0",
         "filament/filament": "^3.2",
         "laravel/framework": "^11.0",
