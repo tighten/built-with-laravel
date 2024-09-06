@@ -41,7 +41,7 @@ class OrganizationController extends Controller
                 ->where('published_at', '!=', null)
                 ->with('sites') // @todo: Do a subquery for just the first site aaron francis style?
                 ->orderBy('featured_at', 'desc')
-                ->orderBy('created_at', 'desc')
+                ->orderBy('published_at', 'desc')
                 ->get();
         });
     }
