@@ -94,6 +94,8 @@ class SuggestedOrganizationResource extends Resource
                     ->icon('heroicon-m-check-badge')
                     ->action(function (SuggestedOrganization $record) {
                         (new ApproveSuggestedOrganization)($record);
+
+                        return to_route('filament.bts.resources.organizations.edit', ['record' => str($record->name)->slug()]);
                     }),
                 Action::make('reject')
                     ->requiresConfirmation()
