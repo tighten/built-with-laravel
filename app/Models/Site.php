@@ -13,10 +13,13 @@ class Site extends Model
 
     protected $guarded = ['id'];
 
-    protected $casts = [
-        'id' => 'integer',
-        'organization_id' => 'integer',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'id' => 'integer',
+            'organization_id' => 'integer',
+        ];
+    }
 
     public function organization(): BelongsTo
     {
