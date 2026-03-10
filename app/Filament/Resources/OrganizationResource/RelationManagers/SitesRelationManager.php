@@ -10,9 +10,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 
@@ -65,7 +63,7 @@ class SitesRelationManager extends RelationManager
             ->actions([
                 Tables\Actions\EditAction::make()
                     ->using(function (Model $record, array $data) {
-                        if ($record->image !== $data['image'] && !! $record->image) {
+                        if ($record->image !== $data['image'] && (bool) $record->image) {
                             Storage::delete($record->image);
                         }
 

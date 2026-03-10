@@ -15,9 +15,12 @@ class Technology extends Model
         'id',
     ];
 
-    protected $casts = [
-        'id' => 'integer',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'id' => 'integer',
+        ];
+    }
 
     public function organizations(): BelongsToMany
     {

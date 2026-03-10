@@ -12,7 +12,7 @@ class ApproveSuggestedOrganization
 {
     public function __invoke(SuggestedOrganization $suggested)
     {
-        Log::info('Approving suggested organization ' . $suggested->id);
+        Log::info('Approving suggested organization '.$suggested->id);
 
         DB::transaction(function () use ($suggested) {
             // Create organization
@@ -44,6 +44,6 @@ class ApproveSuggestedOrganization
             $suggested->update(['approved_at' => now()]);
         });
 
-        Log::info('Finished approving suggested organization ' . $suggested->id);
+        Log::info('Finished approving suggested organization '.$suggested->id);
     }
 }
