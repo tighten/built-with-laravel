@@ -7,6 +7,7 @@ use App\Actions\RejectSuggestedOrganization;
 use App\Filament\Resources\SuggestedOrganizationResource\Pages\CreateSuggestedOrganization;
 use App\Filament\Resources\SuggestedOrganizationResource\Pages\EditSuggestedOrganization;
 use App\Filament\Resources\SuggestedOrganizationResource\Pages\ListSuggestedOrganizations;
+use App\Enums\SuggestionStatus;
 use App\Models\SuggestedOrganization;
 use App\Models\Technology;
 use Filament\Forms\Components\Select;
@@ -76,6 +77,11 @@ class SuggestedOrganizationResource extends Resource
                     ->searchable(),
                 TextColumn::make('suggester_name'),
                 TextColumn::make('suggester_email'),
+                TextColumn::make('status')
+                    ->badge()
+                    ->getStateUsing(fn (SuggestedOrganization $record) => $record->status)
+                    ->formatStateUsing(fn (SuggestionStatus $state) => $state->label())
+                    ->color(fn (SuggestionStatus $state) => $state->color()),
             ])
             ->filters([
                 Filter::make('exclude_rejected')

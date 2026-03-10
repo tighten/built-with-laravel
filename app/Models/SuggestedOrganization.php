@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enums\SuggestionStatus;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,6 +18,36 @@ class SuggestedOrganization extends Model
         return [
             'sites' => 'array',
             'technologies' => 'array',
+            'approved_at' => 'datetime',
+            'rejected_at' => 'datetime',
         ];
+    }
+
+    public function getStatusAttribute(): SuggestionStatus
+    {
+        if ($this->approved_at) {
+            return SuggestionStatus::Accepted;
+        }
+
+        if ($this->rejected_at) {
+            return SuggestionStatus::RejectedForNow;
+        }
+
+        return SuggestionStatus::Unreviewed;
+    }
+
+    public function scopeUnreviewed(Builder $query): Builder
+    {
+        return $query->whereNull('approved_at')->whereNull('rejected_at');
+    }
+
+    public function scopeAccepted(Builder $query): Builder
+    {
+        return $query->whereNotNull('approved_at');
+    }
+
+    public function scopeRejected(Builder $query): Builder
+    {
+        return $query->whereNotNull('rejected_at');
     }
 }

@@ -37,11 +37,17 @@ class OrganizationSuggested extends Notification
                 $block->field("*Suggester Email:*\n{$this->suggested->suggester_email}")->markdown();
                 $block->field("*Sites:*\n{$sites}")->markdown();
                 $block->field("*Technologies:*\n{$technologies}")->markdown();
+            })
+            ->dividerBlock()
+            ->actionsBlock(function (ActionsBlock $block) {
+                $block->button('Accept')
+                    ->primary()
+                    ->id('approve_suggestion')
+                    ->value("approve:{$this->suggested->id}");
+                $block->button('Reject for Now')
+                    ->danger()
+                    ->id('reject_suggestion')
+                    ->value("reject:{$this->suggested->id}");
             });
-        // comment in once viewing suggested organization has been implemented
-        //     ->dividerBlock()
-        //     ->actionsBlock(function (ActionsBlock $block) {
-        //        $block->button('Acknowledge Invoice')->primary()->url('https://builtwithlaravel.com/admin/suggested-organization/');
-        //    });
     }
 }
