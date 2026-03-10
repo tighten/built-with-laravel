@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Organization;
-use App\Models\Site;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SiteFactory extends Factory

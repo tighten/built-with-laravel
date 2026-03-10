@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\SuggestedOrganization;
 use App\Models\Technology;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
