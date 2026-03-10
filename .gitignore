@@ -5,6 +5,7 @@
 /public/storage
 /public/page-cache
 /storage/*.key
+/storage/pail
 /storage/debugbar
 /vendor
 .env
@@ -19,4 +20,5 @@ npm-debug.log
 yarn-error.log
 /.fleet
 /.idea
+/.nova
 /.vscode
