@@ -23,7 +23,7 @@
                 <p class="text-sm text-bgrey-500">{{ $organization->public_source }}</p>
 
                 @if ($organization->technologies->count() > 0)
-                    <div class="mt-3 flex gap-2 font-mono">
+                    <div class="mt-3 flex gap-2 font-mono flex-wrap">
                         @foreach ($organization->technologies as $tech)
                             <a
                                 href="{{ route('home', ['technology' => $tech]) }}"

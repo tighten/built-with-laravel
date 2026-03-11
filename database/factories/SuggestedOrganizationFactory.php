@@ -2,14 +2,11 @@
 
 namespace Database\Factories;
 
-use App\Models\SuggestedOrganization;
 use App\Models\Technology;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SuggestedOrganizationFactory extends Factory
 {
-    protected $model = SuggestedOrganization::class;
-
     public function definition(): array
     {
         $technologies = Technology::inRandomOrder()->limit(2)->get();

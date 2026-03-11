@@ -41,11 +41,11 @@ class EditOrganization extends EditRecord
     protected function handleRecordUpdate(Model $record, array $data): Model
     {
         // Delete old images if they're changed
-        if ($record->image !== $data['image'] && !! $record->image) {
+        if ($record->image !== $data['image'] && (bool) $record->image) {
             Storage::delete($record->image);
         }
 
-        if ($record->favicon !== $data['favicon']  && !! $record->favicon) {
+        if ($record->favicon !== $data['favicon'] && (bool) $record->favicon) {
             Storage::delete($record->favicon);
         }
 

@@ -18,9 +18,12 @@ class Organization extends Model
         'id',
     ];
 
-    protected $casts = [
-        'id' => 'integer',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'id' => 'integer',
+        ];
+    }
 
     protected static function booted(): void
     {
