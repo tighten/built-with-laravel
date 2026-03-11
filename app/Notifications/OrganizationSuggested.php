@@ -40,11 +40,11 @@ class OrganizationSuggested extends Notification
             })
             ->dividerBlock()
             ->actionsBlock(function (ActionsBlock $block) {
-                $block->button('Accept')
+                $block->button('Approve')
                     ->primary()
                     ->id('approve_suggestion')
                     ->value("approve:{$this->suggested->id}");
-                $block->button('Reject for Now')
+                $block->button('Reject')
                     ->danger()
                     ->id('reject_suggestion')
                     ->value("reject:{$this->suggested->id}");

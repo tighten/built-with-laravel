@@ -26,11 +26,11 @@ class SuggestedOrganization extends Model
     public function getStatusAttribute(): SuggestionStatus
     {
         if ($this->approved_at) {
-            return SuggestionStatus::Accepted;
+            return SuggestionStatus::Approved;
         }
 
         if ($this->rejected_at) {
-            return SuggestionStatus::RejectedForNow;
+            return SuggestionStatus::Rejected;
         }
 
         return SuggestionStatus::Unreviewed;
@@ -41,7 +41,7 @@ class SuggestedOrganization extends Model
         return $query->whereNull('approved_at')->whereNull('rejected_at');
     }
 
-    public function scopeAccepted(Builder $query): Builder
+    public function scopeApproved(Builder $query): Builder
     {
         return $query->whereNotNull('approved_at');
     }

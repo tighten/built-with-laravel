@@ -5,15 +5,15 @@ namespace App\Enums;
 enum SuggestionStatus: string
 {
     case Unreviewed = 'unreviewed';
-    case Accepted = 'accepted';
-    case RejectedForNow = 'rejected_for_now';
+    case Approved = 'approved';
+    case Rejected = 'rejected';
 
     public function label(): string
     {
         return match ($this) {
             self::Unreviewed => 'Unreviewed',
-            self::Accepted => 'Accepted',
-            self::RejectedForNow => 'Rejected for Now',
+            self::Approved => 'Approved',
+            self::Rejected => 'Rejected',
         };
     }
 
@@ -21,8 +21,8 @@ enum SuggestionStatus: string
     {
         return match ($this) {
             self::Unreviewed => 'gray',
-            self::Accepted => 'success',
-            self::RejectedForNow => 'danger',
+            self::Approved => 'success',
+            self::Rejected => 'danger',
         };
     }
 }

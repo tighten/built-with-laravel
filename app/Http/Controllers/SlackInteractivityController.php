@@ -37,12 +37,12 @@ class SlackInteractivityController extends Controller
 
         if ($actionType === 'approve') {
             (new ApproveSuggestedOrganization)($suggestion);
-            $statusLabel = 'ACCEPTED';
-            $statusEmoji = "\u{2705}";
+            $statusLabel = 'APPROVED';
+            $statusEmoji = "\u{2705}"; // ✅ white heavy check mark
         } elseif ($actionType === 'reject') {
             (new RejectSuggestedOrganization)($suggestion);
-            $statusLabel = 'REJECTED FOR NOW';
-            $statusEmoji = "\u{274C}";
+            $statusLabel = 'REJECTED';
+            $statusEmoji = "\u{274C}"; // ❌ cross mark
         } else {
             return response()->json(['error' => 'Unknown action'], 400);
         }
