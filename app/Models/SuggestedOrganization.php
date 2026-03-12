@@ -13,16 +13,6 @@ class SuggestedOrganization extends Model
 
     protected $guarded = ['id'];
 
-    protected function casts(): array
-    {
-        return [
-            'sites' => 'array',
-            'technologies' => 'array',
-            'approved_at' => 'datetime',
-            'rejected_at' => 'datetime',
-        ];
-    }
-
     public function getStatusAttribute(): SuggestionStatus
     {
         if ($this->approved_at) {
@@ -49,5 +39,16 @@ class SuggestedOrganization extends Model
     public function scopeRejected(Builder $query): Builder
     {
         return $query->whereNotNull('rejected_at');
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'sites' => 'array',
+            'technologies' => 'array',
+            'ai_evaluation' => 'array',
+            'approved_at' => 'datetime',
+            'rejected_at' => 'datetime',
+        ];
     }
 }

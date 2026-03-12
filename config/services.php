@@ -36,4 +36,8 @@ return [
         'signing_secret' => env('SLACK_SIGNING_SECRET'),
     ],
 
+    'anthropic' => [
+        'api_key' => env('ANTHROPIC_API_KEY'),
+    ],
+
 ];

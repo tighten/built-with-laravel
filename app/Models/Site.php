@@ -13,14 +13,6 @@ class Site extends Model
 
     protected $guarded = ['id'];
 
-    protected function casts(): array
-    {
-        return [
-            'id' => 'integer',
-            'organization_id' => 'integer',
-        ];
-    }
-
     public function organization(): BelongsTo
     {
         return $this->belongsTo(Organization::class);
@@ -37,6 +29,14 @@ class Site extends Model
             'slug' => [
                 'source' => 'name',
             ],
+        ];
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'id' => 'integer',
+            'organization_id' => 'integer',
         ];
     }
 }

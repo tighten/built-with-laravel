@@ -18,13 +18,6 @@ class Organization extends Model
         'id',
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'id' => 'integer',
-        ];
-    }
-
     protected static function booted(): void
     {
         static::saved(function (Organization $org) {
@@ -63,5 +56,12 @@ class Organization extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'id' => 'integer',
+        ];
     }
 }

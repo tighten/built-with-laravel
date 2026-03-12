@@ -24,16 +24,16 @@ class User extends Authenticatable implements FilamentUser
         'remember_token',
     ];
 
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return $this->email === 'matt@tighten.co';
+    }
+
     protected function casts(): array
     {
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    public function canAccessPanel(Panel $panel): bool
-    {
-        return $this->email === 'matt@tighten.co';
     }
 }

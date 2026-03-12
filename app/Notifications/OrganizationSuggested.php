@@ -25,7 +25,7 @@ class OrganizationSuggested extends Notification
         $sites = implode(', ', $this->suggested->sites);
         $technologies = implode(', ', $this->suggested->technologies);
 
-        return (new SlackMessage)
+        $message = (new SlackMessage)
             ->headerBlock('Organization Suggestion')
             ->sectionBlock(function (SectionBlock $block) use ($sites, $technologies) {
                 $block->text('An Organization has been suggested');
@@ -37,8 +37,33 @@ class OrganizationSuggested extends Notification
                 $block->field("*Suggester Email:*\n{$this->suggested->suggester_email}")->markdown();
                 $block->field("*Sites:*\n{$sites}")->markdown();
                 $block->field("*Technologies:*\n{$technologies}")->markdown();
-            })
-            ->dividerBlock()
+            });
+
+        $evaluation = $this->suggested->ai_evaluation;
+
+        if ($evaluation && isset($evaluation['score'])) {
+            $score = $evaluation['score'];
+            $emoji = match (true) {
+                $score >= 9 => ':star-struck:',
+                $score >= 7 => ':white_check_mark:',
+                $score >= 5 => ':thinking_face:',
+                default => ':x:',
+            };
+
+            $flags = ! empty($evaluation['flags'])
+                ? implode(', ', $evaluation['flags'])
+                : 'None';
+
+            $message->dividerBlock()
+                ->sectionBlock(function (SectionBlock $block) use ($evaluation, $score, $emoji, $flags) {
+                    $block->text("{$emoji} *AI Evaluation: {$score}/10* — {$evaluation['classification']}")->markdown();
+                    $block->field("*What it does:*\n{$evaluation['what_it_does']}")->markdown();
+                    $block->field("*Rationale:*\n{$evaluation['rationale']}")->markdown();
+                    $block->field("*Flags:*\n{$flags}")->markdown();
+                });
+        }
+
+        $message->dividerBlock()
             ->actionsBlock(function (ActionsBlock $block) {
                 $block->button('Approve')
                     ->primary()
@@ -49,5 +74,7 @@ class OrganizationSuggested extends Notification
                     ->id('reject_suggestion')
                     ->value("reject:{$this->suggested->id}");
             });
+
+        return $message;
     }
 }

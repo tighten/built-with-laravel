@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\EvaluateSuggestedOrganization;
 use App\Models\SuggestedOrganization;
 use App\Models\Technology;
-use App\Notifications\OrganizationSuggested;
-use Illuminate\Support\Facades\Notification;
 
 class SuggestionsController extends Controller
 {
@@ -41,10 +40,7 @@ class SuggestionsController extends Controller
             'ip_address' => request()->ip(),
         ]);
 
-        if (app()->environment() === 'production' || app()->environment() === 'testing') {
-            Notification::route('slack', config('services.slack.notifications.channel'))
-                ->notify(new OrganizationSuggested($suggested));
-        }
+        EvaluateSuggestedOrganization::dispatch($suggested);
 
         return redirect()->back()->with('flash', 'Thanks for your suggestion!');
     }

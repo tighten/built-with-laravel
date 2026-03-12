@@ -4,16 +4,20 @@ namespace App\Filament\Resources;
 
 use App\Actions\ApproveSuggestedOrganization;
 use App\Actions\RejectSuggestedOrganization;
+use App\Enums\SuggestionStatus;
 use App\Filament\Resources\SuggestedOrganizationResource\Pages\CreateSuggestedOrganization;
 use App\Filament\Resources\SuggestedOrganizationResource\Pages\EditSuggestedOrganization;
 use App\Filament\Resources\SuggestedOrganizationResource\Pages\ListSuggestedOrganizations;
-use App\Enums\SuggestionStatus;
+use App\Jobs\EvaluateSuggestedOrganization;
 use App\Models\SuggestedOrganization;
 use App\Models\Technology;
+use Filament\Forms\Components\Placeholder;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\BulkActionGroup;
@@ -64,6 +68,43 @@ class SuggestedOrganizationResource extends Resource
                     ->required()
                     ->email()
                     ->maxLength(255),
+                Section::make('AI Evaluation')
+                    ->schema(function () {
+                        return [
+                            Placeholder::make('ai_score_display')
+                                ->label('Score')
+                                ->content(fn (SuggestedOrganization $record) => $record->ai_evaluation['score'] ?? '—')
+                                ->extraAttributes(fn (SuggestedOrganization $record) => [
+                                    'class' => match (true) {
+                                        ($record->ai_evaluation['score'] ?? 0) >= 7 => 'text-success-600',
+                                        ($record->ai_evaluation['score'] ?? 0) >= 5 => 'text-warning-600',
+                                        default => 'text-danger-600',
+                                    },
+                                ]),
+                            Placeholder::make('ai_classification')
+                                ->label('Classification')
+                                ->content(fn (SuggestedOrganization $record) => $record->ai_evaluation['classification'] ?? '—'),
+                            Placeholder::make('ai_what_it_does')
+                                ->label('What it does')
+                                ->content(fn (SuggestedOrganization $record) => $record->ai_evaluation['what_it_does'] ?? '—'),
+                            Placeholder::make('ai_target_audience')
+                                ->label('Target audience')
+                                ->content(fn (SuggestedOrganization $record) => $record->ai_evaluation['target_audience'] ?? '—'),
+                            Placeholder::make('ai_scale_signals')
+                                ->label('Scale signals')
+                                ->content(fn (SuggestedOrganization $record) => $record->ai_evaluation['scale_signals'] ?? '—'),
+                            Placeholder::make('ai_rationale')
+                                ->label('Rationale')
+                                ->content(fn (SuggestedOrganization $record) => $record->ai_evaluation['rationale'] ?? '—'),
+                            Placeholder::make('ai_flags')
+                                ->label('Flags')
+                                ->content(fn (SuggestedOrganization $record) => ! empty($record->ai_evaluation['flags'])
+                                    ? implode(', ', $record->ai_evaluation['flags'])
+                                    : 'None'),
+                        ];
+                    })
+                    ->visible(fn (?SuggestedOrganization $record) => $record?->ai_evaluation !== null)
+                    ->collapsed(),
             ]);
     }
 
@@ -77,6 +118,16 @@ class SuggestedOrganizationResource extends Resource
                     ->searchable(),
                 TextColumn::make('suggester_name'),
                 TextColumn::make('suggester_email'),
+                TextColumn::make('ai_evaluation.score')
+                    ->label('AI Score')
+                    ->badge()
+                    ->formatStateUsing(fn ($state) => $state ? "{$state}/10" : '—')
+                    ->color(fn ($state) => match (true) {
+                        ! $state => 'gray',
+                        $state >= 7 => 'success',
+                        $state >= 5 => 'warning',
+                        default => 'danger',
+                    }),
                 TextColumn::make('status')
                     ->badge()
                     ->getStateUsing(fn (SuggestedOrganization $record) => $record->status)
@@ -108,6 +159,18 @@ class SuggestedOrganizationResource extends Resource
                     ->icon('heroicon-m-hand-thumb-down')
                     ->action(function (SuggestedOrganization $record) {
                         (new RejectSuggestedOrganization)($record);
+                    }),
+                Action::make('evaluate')
+                    ->label('Re-evaluate')
+                    ->icon('heroicon-m-sparkles')
+                    ->requiresConfirmation()
+                    ->action(function (SuggestedOrganization $record) {
+                        EvaluateSuggestedOrganization::dispatch($record);
+
+                        Notification::make()
+                            ->title('AI evaluation queued')
+                            ->success()
+                            ->send();
                     }),
             ])
             ->bulkActions([

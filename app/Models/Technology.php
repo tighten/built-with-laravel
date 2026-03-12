@@ -15,13 +15,6 @@ class Technology extends Model
         'id',
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'id' => 'integer',
-        ];
-    }
-
     public function organizations(): BelongsToMany
     {
         return $this->belongsToMany(Organization::class);
@@ -39,5 +32,12 @@ class Technology extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'id' => 'integer',
+        ];
     }
 }

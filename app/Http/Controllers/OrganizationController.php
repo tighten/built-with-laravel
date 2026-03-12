@@ -31,7 +31,7 @@ class OrganizationController extends Controller
 
     private function organizations(Technology $technology)
     {
-        return Cache::remember('orgs-list-filter['.$technology->slug.']', 3600, function () use ($technology) {
+        return Cache::remember('orgs-list-filter[' . $technology->slug . ']', 3600, function () use ($technology) {
             return Organization::query()
                 ->when($technology->exists, function (Builder $query) use ($technology) {
                     $query->whereHas('technologies', function (Builder $query) use ($technology) {
