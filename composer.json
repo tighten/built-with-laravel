@@ -15,8 +15,8 @@
         "laravel/slack-notification-channel": "^3.4",
         "laravel/tinker": "^2.10.1",
         "league/flysystem-aws-s3-v3": "^3.0",
-        "livewire/livewire": "^3.5",
-        "livewire/volt": "^1.6",
+        "livewire/livewire": "^4.2",
+        "livewire/volt": "^1.10",
         "silber/page-cache": "^1.1",
         "spatie/laravel-ignition": "^2.9",
         "tightenco/duster": "^3.0"
