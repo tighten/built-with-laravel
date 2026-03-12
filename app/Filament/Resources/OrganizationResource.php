@@ -2,17 +2,22 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\OrganizationResource\Pages;
+use App\Filament\Resources\OrganizationResource\Pages\CreateOrganization;
+use App\Filament\Resources\OrganizationResource\Pages\EditOrganization;
+use App\Filament\Resources\OrganizationResource\Pages\ListOrganizations;
 use App\Filament\Resources\OrganizationResource\RelationManagers\SitesRelationManager;
 use App\Models\Organization;
+use BackedEnum;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Tables;
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
@@ -24,11 +29,11 @@ class OrganizationResource extends Resource
 {
     protected static ?string $model = Organization::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 TextInput::make('name')
                     ->required()
@@ -90,11 +95,11 @@ class OrganizationResource extends Resource
                     ->default(),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -109,9 +114,9 @@ class OrganizationResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListOrganizations::route('/'),
-            'create' => Pages\CreateOrganization::route('/create'),
-            'edit' => Pages\EditOrganization::route('/{record}/edit'),
+            'index' => ListOrganizations::route('/'),
+            'create' => CreateOrganization::route('/create'),
+            'edit' => EditOrganization::route('/{record}/edit'),
         ];
     }
 }

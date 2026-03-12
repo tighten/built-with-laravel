@@ -2,11 +2,15 @@
 
 namespace App\Filament\Resources\OrganizationResource\RelationManagers;
 
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\CreateAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Tables;
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -18,9 +22,9 @@ class SitesRelationManager extends RelationManager
 {
     protected static string $relationship = 'sites';
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 TextInput::make('name')
                     ->required()
@@ -58,10 +62,10 @@ class SitesRelationManager extends RelationManager
                 //
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make(),
+                CreateAction::make(),
             ])
             ->actions([
-                Tables\Actions\EditAction::make()
+                EditAction::make()
                     ->using(function (Model $record, array $data) {
                         if ($record->image !== $data['image'] && (bool) $record->image) {
                             Storage::delete($record->image);
@@ -69,15 +73,15 @@ class SitesRelationManager extends RelationManager
 
                         $record->update($data);
                     }),
-                Tables\Actions\DeleteAction::make()
+                DeleteAction::make()
                     ->before(function (Model $record) {
                         Storage::delete($record->image);
                     }),
 
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make()
+                BulkActionGroup::make([
+                    DeleteBulkAction::make()
                         ->before(function (Collection $selectedRecords) {
                             $selectedRecords->each(function ($site) {
                                 Storage::delete($site->image);
