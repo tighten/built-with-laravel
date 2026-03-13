@@ -2,9 +2,7 @@
 
 use App\Jobs\EvaluateSuggestedOrganization;
 use App\Models\SuggestedOrganization;
-use App\Notifications\OrganizationSuggested;
 use Illuminate\Support\Facades\Bus;
-use Illuminate\Support\Facades\Notification;
 
 it('saves a suggested organization', function () {
     Bus::fake([EvaluateSuggestedOrganization::class]);
