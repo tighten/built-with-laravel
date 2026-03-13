@@ -33,4 +33,4 @@ jobs:
               run: npm ci && npm run build
 
             - name: Pest
-              run: vendor/bin/pest
+              run: php artisan test
