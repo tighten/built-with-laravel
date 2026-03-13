@@ -1,10 +1,14 @@
 <?php
 
+use App\Jobs\EvaluateSuggestedOrganization;
 use App\Models\SuggestedOrganization;
 use App\Notifications\OrganizationSuggested;
+use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Notification;
 
 it('saves a suggested organization', function () {
+    Bus::fake([EvaluateSuggestedOrganization::class]);
+
     $input = [
         'name' => 'My Best Organization',
         'url' => 'https://mybest.com',
@@ -33,9 +37,8 @@ it('saves a suggested organization', function () {
     // @todo assert more
 });
 
-it('sends a notification to Slack', function () {
-    $this->withoutExceptionHandling();
-    Notification::fake();
+it('dispatches the evaluation job', function () {
+    Bus::fake([EvaluateSuggestedOrganization::class]);
 
     $input = [
         'name' => 'My Best Organization',
@@ -50,5 +53,5 @@ it('sends a notification to Slack', function () {
 
     $this->post(route('suggestions.store'), $input);
 
-    Notification::assertSentOnDemand(OrganizationSuggested::class);
+    Bus::assertDispatched(EvaluateSuggestedOrganization::class);
 });
