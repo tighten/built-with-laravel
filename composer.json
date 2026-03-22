@@ -8,12 +8,12 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
-        "cviebrock/eloquent-sluggable": "^12.0",
+        "php": "^8.3",
+        "cviebrock/eloquent-sluggable": "^13.0",
         "filament/filament": "^5.3",
-        "laravel/framework": "^12.55",
-        "laravel/slack-notification-channel": "^3.7",
-        "laravel/tinker": "^2.10.1",
+        "laravel/framework": "^13.0",
+        "laravel/slack-notification-channel": "^3.8",
+        "laravel/tinker": "^3.0",
         "league/flysystem-aws-s3-v3": "^3.32",
         "livewire/livewire": "^4.2",
         "livewire/volt": "^1.10",
@@ -22,16 +22,16 @@
         "tightenco/duster": "^3.0"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.15",
+        "barryvdh/laravel-debugbar": "^4.0",
         "fakerphp/faker": "^1.23",
-        "laravel/breeze": "^2.3",
-        "laravel/pint": "^1.13",
-        "laravel/sail": "^1.41",
+        "laravel/breeze": "^2.4",
+        "laravel/pint": "^1.27",
+        "laravel/sail": "^1.53",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
-        "pestphp/pest": "^3.0",
-        "pestphp/pest-plugin-laravel": "^3.1",
-        "laravel/pail": "^1.2.2"
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.1",
+        "laravel/pail": "^1.2.5"
     },
     "autoload": {
         "psr-4": {
