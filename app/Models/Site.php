@@ -3,15 +3,15 @@
 namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+#[Guarded(['id'])]
 class Site extends Model
 {
     use HasFactory, Sluggable;
-
-    protected $guarded = ['id'];
 
     public function organization(): BelongsTo
     {

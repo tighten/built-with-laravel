@@ -3,15 +3,15 @@
 namespace App\Models;
 
 use App\Enums\SuggestionStatus;
+use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+#[Guarded(['id'])]
 class SuggestedOrganization extends Model
 {
     use HasFactory;
-
-    protected $guarded = ['id'];
 
     public function getStatusAttribute(): SuggestionStatus
     {
