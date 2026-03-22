@@ -21,5 +21,6 @@
         "@alpinejs/anchor": "^3.14.1",
         "@tailwindcss/vite": "^4.2.1",
         "alpinejs": "^3.14.1"
-    }
+    },
+    "$schema": "https://www.schemastore.org/package.json"
 }
