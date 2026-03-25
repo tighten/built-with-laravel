@@ -27,7 +27,7 @@
 
                             <input
                                 type="text"
-                                class="ring-offset-background my-1 w-96 max-w-full rounded-xl border-none border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
+                                class="ring-offset-background my-1 w-96 max-w-full rounded-xl border border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
                                 name="name"
                                 placeholder="Organization name *"
                                 id="name"
@@ -49,7 +49,7 @@
 
                             <input
                                 type="url"
-                                class="ring-offset-background my-1 w-96 max-w-full rounded-xl border-none border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
+                                class="ring-offset-background my-1 w-96 max-w-full rounded-xl border border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
                                 name="url"
                                 id="url"
                                 placeholder="https://tighten.com/"
@@ -75,7 +75,7 @@
                             </label>
 
                             <textarea
-                                class="ring-offset-background mt-2 h-32 w-128 max-w-full rounded-xl border-none border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
+                                class="ring-offset-background mt-2 h-32 w-128 max-w-full rounded-xl border border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
                                 placeholder="Public"
                                 name="public_source"
                                 id="public_source"
@@ -108,7 +108,7 @@
                             />
 
                             <textarea
-                                class="ring-offset-background mt-2 h-32 w-128 max-w-full rounded-xl border-none border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
+                                class="ring-offset-background mt-2 h-32 w-128 max-w-full rounded-xl border border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
                                 placeholder="Private"
                                 name="private_source"
                                 id="private_source"
@@ -139,7 +139,7 @@
                             </label>
 
                             <textarea
-                                class="ring-offset-background my-2 h-32 w-128 max-w-full rounded-xl border-none border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
+                                class="ring-offset-background my-2 h-32 w-128 max-w-full rounded-xl border border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
                                 id="sites"
                                 name="sites"
                                 autocorrect="off"
@@ -193,7 +193,7 @@
 
                             <input
                                 type="text"
-                                class="ring-offset-background mt-2 w-96 max-w-full rounded-xl border-none border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
+                                class="ring-offset-background mt-2 w-96 max-w-full rounded-xl border border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
                                 name="suggester_name"
                                 id="suggester_name"
                                 aria-labelledby="suggester-heading suggester_name"
@@ -214,7 +214,7 @@
 
                             <input
                                 type="email"
-                                class="ring-offset-background my-2 w-96 max-w-full rounded-xl border-none border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
+                                class="ring-offset-background my-2 w-96 max-w-full rounded-xl border border-gray-300 bg-black/4 backdrop-blur-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-zinc-800"
                                 name="suggester_email"
                                 id="suggester_email"
                                 placeholder="you@awesome.com"
