@@ -53,7 +53,7 @@
 
                     <a
                         href="/"
-                        class="mx-auto mb-5 mt-16 flex w-72 justify-center text-5xl font-bold hover:text-black/70 md:w-auto lg:col-start-2"
+                        class="mx-auto mb-5 mt-16 flex w-72 justify-center text-5xl font-bold md:w-auto lg:col-start-2"
                     >
                         <h1>
                             <img
