@@ -11,7 +11,7 @@
         "php": "^8.3",
         "cviebrock/eloquent-sluggable": "^13.0",
         "filament/filament": "^5.3",
-        "laravel/framework": "^13.0",
+        "laravel/framework": "^13.4",
         "laravel/slack-notification-channel": "^3.8",
         "laravel/tinker": "^3.0",
         "league/flysystem-aws-s3-v3": "^3.32",
