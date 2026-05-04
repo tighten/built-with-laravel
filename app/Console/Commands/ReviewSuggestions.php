@@ -6,6 +6,7 @@ use App\Actions\ApproveSuggestedOrganization;
 use App\Actions\RejectSuggestedOrganization;
 use App\Jobs\EvaluateSuggestedOrganization;
 use App\Models\SuggestedOrganization;
+use Exception;
 use Illuminate\Console\Command;
 
 use function Laravel\Prompts\select;
@@ -42,7 +43,7 @@ class ReviewSuggestions extends Command
                 try {
                     (new EvaluateSuggestedOrganization($suggestion))->handle();
                     $suggestion->refresh();
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                     $this->error('AI evaluation failed: ' . $e->getMessage());
                 }
             }
@@ -111,14 +112,14 @@ class ReviewSuggestions extends Command
         };
 
         $this->line("<fg={$scoreColor};options=bold>Score: {$score}/10</>");
-        $this->line("Classification: " . ($eval['classification'] ?? '—'));
-        $this->line("What it does: " . ($eval['what_it_does'] ?? '—'));
-        $this->line("Target audience: " . ($eval['target_audience'] ?? '—'));
-        $this->line("Scale signals: " . ($eval['scale_signals'] ?? '—'));
-        $this->line("Rationale: " . ($eval['rationale'] ?? '—'));
+        $this->line('Classification: ' . ($eval['classification'] ?? '—'));
+        $this->line('What it does: ' . ($eval['what_it_does'] ?? '—'));
+        $this->line('Target audience: ' . ($eval['target_audience'] ?? '—'));
+        $this->line('Scale signals: ' . ($eval['scale_signals'] ?? '—'));
+        $this->line('Rationale: ' . ($eval['rationale'] ?? '—'));
 
         if (! empty($eval['flags'])) {
-            $this->line("<fg=yellow>Flags: " . implode(', ', $eval['flags']) . '</>');
+            $this->line('<fg=yellow>Flags: ' . implode(', ', $eval['flags']) . '</>');
         }
 
         $this->newLine();
