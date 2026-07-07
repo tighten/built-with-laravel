@@ -20,9 +20,7 @@ class OrganizationController extends Controller
 
     public function show(Organization $organization)
     {
-        if (! $organization->published_at) {
-            abort(404);
-        }
+        abort_unless($organization->published_at, 404);
 
         return view('organizations.show', [
             'organization' => $organization,
