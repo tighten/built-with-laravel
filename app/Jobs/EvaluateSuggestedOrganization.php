@@ -13,9 +13,9 @@ use Illuminate\Queue\Attributes\Tries;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Notification;
 use RuntimeException;
+use Throwable;
 
 #[Tries(2)]
 #[Backoff(30)]
@@ -27,20 +27,29 @@ class EvaluateSuggestedOrganization implements ShouldQueue
 
     public function handle(): void
     {
-        $metadata = $this->fetchPageMetadata($this->suggested->url);
-
-        try {
+        if (! $this->suggested->ai_evaluation) {
+            $metadata = $this->fetchPageMetadata($this->suggested->url);
             $evaluation = $this->callAnthropicApi($metadata);
             $this->suggested->update(['ai_evaluation' => $evaluation]);
-        } catch (Exception $e) {
-            Log::warning('AI evaluation failed for suggestion #' . $this->suggested->id . ': ' . $e->getMessage());
         }
 
         $this->suggested->refresh();
 
+        $this->notifySlack();
+    }
+
+    // Evaluation failed on every attempt; the exception has already been
+    // reported, but the suggestion should still show up in Slack.
+    public function failed(?Throwable $exception): void
+    {
+        $this->notifySlack();
+    }
+
+    private function notifySlack(): void
+    {
         if (app()->environment('production', 'testing')) {
             Notification::route('slack', config('services.slack.notifications.channel'))
-                ->notify(new OrganizationSuggested($this->suggested));
+                ->notify(new OrganizationSuggested($this->suggested->fresh()));
         }
     }
 
@@ -165,7 +174,7 @@ SYSTEM;
             'x-api-key' => config('services.anthropic.api_key'),
             'anthropic-version' => '2023-06-01',
         ])->timeout(30)->post('https://api.anthropic.com/v1/messages', [
-            'model' => 'claude-sonnet-4-20250514',
+            'model' => 'claude-sonnet-4-6',
             'max_tokens' => 1024,
             'system' => $systemPrompt,
             'messages' => [
