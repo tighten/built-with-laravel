@@ -20,9 +20,7 @@ class OrganizationController extends Controller
 
     public function show(Organization $organization)
     {
-        if (! $organization->published_at) {
-            abort(404);
-        }
+        abort_unless($organization->published_at, 404);
 
         return view('organizations.show', [
             'organization' => $organization,
@@ -40,8 +38,8 @@ class OrganizationController extends Controller
                 })
                 ->where('published_at', '!=', null)
                 ->with('sites') // @todo: Do a subquery for just the first site aaron francis style?
-                ->orderBy('featured_at', 'desc')
-                ->orderBy('published_at', 'desc')
+                ->orderByDesc('featured_at')
+                ->orderByDesc('published_at')
                 ->get();
         });
     }

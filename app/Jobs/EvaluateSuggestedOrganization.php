@@ -188,9 +188,7 @@ SYSTEM;
 
         $evaluation = json_decode($text, true);
 
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new RuntimeException('Failed to parse AI evaluation response as JSON: ' . $text);
-        }
+        throw_if(json_last_error() !== JSON_ERROR_NONE, new RuntimeException('Failed to parse AI evaluation response as JSON: ' . $text));
 
         return $evaluation;
     }
