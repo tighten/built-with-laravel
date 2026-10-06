@@ -26,6 +26,11 @@ class SuggestedOrganization extends Model
         return SuggestionStatus::Unreviewed;
     }
 
+    public function isAiFlaggedSpam(): bool
+    {
+        return (bool) ($this->ai_evaluation['spam'] ?? false);
+    }
+
     public function scopeUnreviewed(Builder $query): Builder
     {
         return $query->whereNull('approved_at')->whereNull('rejected_at');

@@ -2,6 +2,8 @@
 
 namespace App\Jobs;
 
+use App\Actions\RejectSuggestedOrganization;
+use App\Enums\SuggestionStatus;
 use App\Models\SuggestedOrganization;
 use App\Notifications\OrganizationSuggested;
 use Exception;
@@ -13,6 +15,7 @@ use Illuminate\Queue\Attributes\Tries;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Notification;
 use RuntimeException;
 use Throwable;
@@ -34,6 +37,17 @@ class EvaluateSuggestedOrganization implements ShouldQueue
         }
 
         $this->suggested->refresh();
+
+        // When the AI is confident the submission is gibberish or bot spam,
+        // auto-reject it and skip the Slack notification so the review channel
+        // only sees submissions worth a human's attention.
+        if ($this->suggested->status === SuggestionStatus::Unreviewed && $this->suggested->isAiFlaggedSpam()) {
+            Log::info('Auto-rejecting suggested organization ' . $this->suggested->id . ' flagged as spam by AI evaluation.');
+
+            (new RejectSuggestedOrganization)($this->suggested);
+
+            return;
+        }
 
         $this->notifySlack();
     }
@@ -126,6 +140,16 @@ The goal of the showcase is to impress a non-developer audience: CEOs, CTOs, boa
 - 3–4: Developer tool, small SaaS, or agency — probably not
 - 1–2: Agency site, personal project, tiny tool — clear no
 
+## Spam / Gibberish Detection
+
+Separately from scoring, decide whether this is spam: a definitively fake, gibberish, or bot-generated submission with no real product behind it. Signals of spam:
+
+- The name, URL domain, or source/evidence fields are random character strings (e.g. "Ixqrdql LLC", "shedzsbtxp.com", "ZKBJUKeeFJMzVJDH")
+- The suggester name or email looks machine-generated or deliberately obfuscated
+- There is no identifiable product, service, or real company anywhere in the submission or fetched page metadata
+
+Be conservative. Only set "spam" to true when you are highly confident the submission is gibberish or bot spam. A real but unimpressive site (an agency, a small dev tool, a personal project) is NOT spam — it should score low but have "spam" set to false so a human can review it. When in doubt, set "spam" to false.
+
 ## Response Format
 
 Respond with ONLY a JSON object (no markdown, no code fences, no explanation) in this exact shape:
@@ -137,7 +161,9 @@ Respond with ONLY a JSON object (no markdown, no code fences, no explanation) in
   "target_audience": "<who uses this>",
   "scale_signals": "<what you can infer about traffic, funding, or user base>",
   "rationale": "<2-3 sentences explaining the score>",
-  "flags": ["<any concerns>"]
+  "flags": ["<any concerns>"],
+  "spam": <true or false>,
+  "spam_reason": "<if spam, one sentence on why; otherwise empty string>"
 }
 SYSTEM;
 
