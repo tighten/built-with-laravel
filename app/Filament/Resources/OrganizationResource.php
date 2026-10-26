@@ -48,7 +48,7 @@ class OrganizationResource extends Resource
                 Textarea::make('description')
                     ->required(),
                 Textarea::make('public_source'),
-                TextArea::make('private_source'),
+                Textarea::make('private_source'),
 
                 DateTimePicker::make('published_at'),
 

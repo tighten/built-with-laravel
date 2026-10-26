@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Silber\PageCache\Middleware\CacheResponse;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -14,7 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         return $middleware
             ->alias([
-                'page-cache' => Silber\PageCache\Middleware\CacheResponse::class,
+                'page-cache' => CacheResponse::class,
             ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

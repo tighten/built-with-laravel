@@ -47,9 +47,9 @@ class SuggestedOrganizationResource extends Resource
                     ->url()
                     ->maxLength(255),
                 Textarea::make('public_source'),
-                TextArea::make('private_source'),
-                TextArea::make('sites')
-                    ->afterStateHydrated(function (TextArea $component, string|array|null $state) {
+                Textarea::make('private_source'),
+                Textarea::make('sites')
+                    ->afterStateHydrated(function (Textarea $component, string|array|null $state) {
                         if (is_array($state)) {
                             $state = implode("\n", $state);
                         }
