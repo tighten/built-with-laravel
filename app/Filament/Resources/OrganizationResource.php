@@ -58,6 +58,7 @@ class OrganizationResource extends Resource
 
                 FileUpload::make('image')
                     ->directory('images/organizations/images')
+                    ->visibility('public')
                     ->image()
                     ->imageResizeMode('cover')
                     ->imageCropAspectRatio('150:111')
@@ -67,6 +68,7 @@ class OrganizationResource extends Resource
                 FileUpload::make('favicon')
                     ->required()
                     ->directory('images/organizations/favicons')
+                    ->visibility('public')
                     ->image()
                     ->imageResizeMode('cover')
                     ->imageCropAspectRatio('1:1')
@@ -79,7 +81,8 @@ class OrganizationResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('favicon'),
+                ImageColumn::make('favicon')
+                    ->visibility('public'),
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('url')

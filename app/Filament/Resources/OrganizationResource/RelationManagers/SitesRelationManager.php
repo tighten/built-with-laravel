@@ -41,6 +41,7 @@ class SitesRelationManager extends RelationManager
                 FileUpload::make('image')
                     ->required()
                     ->directory('images/sites')
+                    ->visibility('public')
                     ->image()
                     ->imageResizeMode('cover')
                     ->imageCropAspectRatio('150:111')
@@ -56,7 +57,8 @@ class SitesRelationManager extends RelationManager
             ->columns([
                 TextColumn::make('name'),
                 TextColumn::make('url'),
-                ImageColumn::make('image'),
+                ImageColumn::make('image')
+                    ->visibility('public'),
             ])
             ->filters([
                 //
