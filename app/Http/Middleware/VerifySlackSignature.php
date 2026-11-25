@@ -12,28 +12,20 @@ class VerifySlackSignature
     {
         $signingSecret = config('services.slack.signing_secret');
 
-        if (! $signingSecret) {
-            abort(500, 'Slack signing secret is not configured.');
-        }
+        abort_unless($signingSecret, 500, 'Slack signing secret is not configured.');
 
         $timestamp = $request->header('X-Slack-Request-Timestamp');
         $slackSignature = $request->header('X-Slack-Signature');
 
-        if (! $timestamp || ! $slackSignature) {
-            abort(403, 'Missing Slack signature headers.');
-        }
+        abort_if(! $timestamp || ! $slackSignature, 403, 'Missing Slack signature headers.');
 
         // Reject requests older than 5 minutes to prevent replay attacks
-        if (abs(time() - (int) $timestamp) > 300) {
-            abort(403, 'Slack request timestamp is too old.');
-        }
+        abort_if(abs(time() - (int) $timestamp) > 300, 403, 'Slack request timestamp is too old.');
 
         $sigBaseString = "v0:{$timestamp}:{$request->getContent()}";
         $mySignature = 'v0=' . hash_hmac('sha256', $sigBaseString, $signingSecret);
 
-        if (! hash_equals($mySignature, $slackSignature)) {
-            abort(403, 'Invalid Slack signature.');
-        }
+        abort_unless(hash_equals($mySignature, $slackSignature), 403, 'Invalid Slack signature.');
 
         return $next($request);
     }
